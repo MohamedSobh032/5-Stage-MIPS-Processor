@@ -8,3 +8,85 @@ z2
 !i10f 100
 cModel Technology
 dC:/intelFPGA/18.1
+Ememor
+Z0 w1713091214
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z4 dC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project
+Z5 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd
+Z6 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd
+l0
+L5
+Vkf]Rz_PT<7[TRdo_I1:0A2
+!s100 O>chfGO?YdY^X9zM8n?0]2
+Z7 OV;C;10.5b;63
+32
+Z8 !s110 1713091229
+!i10b 1
+Z9 !s108 1713091229.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd|
+Z11 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Aa_memor
+R1
+R2
+R3
+DEx4 work 5 memor 0 22 kf]Rz_PT<7[TRdo_I1:0A2
+l25
+L20
+V075nK6h8kfPX4aKINza_d1
+!s100 99Q=Mimm9D5@lVO[@Bc6G1
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Eregisterfile
+Z14 w1713090038
+R1
+R2
+R3
+R4
+Z15 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd
+Z16 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd
+l0
+L5
+V@G]V1NL:o>R0Iml<Q_f[B1
+!s100 <Ea0HCS@B>a2PjD:GUhWC0
+R7
+32
+Z17 !s110 1713090041
+!i10b 1
+Z18 !s108 1713090041.000000
+Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd|
+Z20 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd|
+!i113 1
+R12
+R13
+Aa_registerfile
+R1
+R2
+R3
+DEx4 work 12 registerfile 0 22 @G]V1NL:o>R0Iml<Q_f[B1
+l28
+L23
+Vf?n]iM_9QEje@cU=ff2e21
+!s100 QPBJM?_]V_4V5GY8BK^zW1
+R7
+32
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 1
+R12
+R13

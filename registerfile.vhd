@@ -16,7 +16,26 @@ ENTITY registerfile IS
 		-- write back
 		WE       : IN STD_LOGIC;
 		Rdst     : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-		RdstData : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-
+		RdstData : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END registerfile;
+
+ARCHITECTURE a_registerfile OF registerfile IS
+
+	TYPE register_type IS ARRAY(0 TO 7) OF STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL registerfile : register_type;
+
+	BEGIN
+		PROCESS (CLK, RST)
+		BEGIN
+			IF (RST = '1') THEN
+				registerfile <= (OTHERS => (OTHERS => '0'));
+			ELSIF RISING_EDGE(CLK) THEN
+				Rsrc1Data <= registerfile(to_integer(unsigned(Rsrc1)));
+				Rsrc2Data <= registerfile(to_integer(unsigned(Rsrc2)));
+			ELSIF FALLING_EDGE(CLK) THEN
+				registerfile(to_integer(unsigned(Rdst))) <= RdstData;
+			END IF;
+		END PROCESS;
+		
+END a_registerfile;
