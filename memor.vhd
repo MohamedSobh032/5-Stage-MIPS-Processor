@@ -19,26 +19,21 @@ END memor;
 
 ARCHITECTURE a_memor OF memor IS
 
-    TYPE dm_type IS ARRAY(0 TO 4095) OF STD_LOGIC_VECTOR(15 DOWNTO 0);
-    SIGNAL datamemory : dm_type;
+	TYPE dm_type IS ARRAY(0 TO 4095) OF STD_LOGIC_VECTOR(15 DOWNTO 0);
+    	SIGNAL datamemory : dm_type;
 
-    BEGIN
-        PROCESS (CLK, RST)
-        BEGIN
-            IF (RST = '1') THEN
-                datamemory <= ((OTHERS => (OTHERS => '0')));
-            ELSIF RISING_EDGE(CLK) THEN
-
-                IF (memRead = '1') THEN
-                    ReadData <= datamemory(to_integer(unsigned(Addr)));
-                END IF;
-
-                IF (memWrite = '1') THEN
-                    datamemory(to_integer(unsigned(Addr))) <= WriteData;
-                END IF;
-
-            END IF;
-        END PROCESS;
-    
-    
+	BEGIN
+		PROCESS (CLK, RST)
+        	BEGIN
+    	        	IF (RST = '1') THEN
+    		        	datamemory <= ((OTHERS => (OTHERS => '0')));
+    		        ELSIF RISING_EDGE(CLK) THEN
+    		        	IF (memRead = '1') THEN
+    			                ReadData <= datamemory(to_integer(unsigned(Addr)));
+    		  	        END IF;
+    		            	IF (memWrite = '1') THEN
+    		               		datamemory(to_integer(unsigned(Addr))) <= WriteData;
+    		            	END IF;
+    		        END IF;
+    	    	END PROCESS;  
 END a_memor;
