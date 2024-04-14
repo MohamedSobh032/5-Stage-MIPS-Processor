@@ -9,10 +9,10 @@ ENTITY memor IS
 		Addr  : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
     		-- read
     		MemRead   : IN STD_LOGIC;
-    		ReadData  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    		ReadData  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     		-- write
     		MemWrite  : IN STD_LOGIC;
-    		WriteData : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
+    		WriteData : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
     	);
 END memor;
 
@@ -27,12 +27,16 @@ ARCHITECTURE a_memor OF memor IS
         	BEGIN
     	        	IF (RST = '1') THEN
     		        	datamemory <= ((OTHERS => (OTHERS => '0')));
+				ReadData <= (OTHERS => '0');
     		        ELSIF RISING_EDGE(CLK) THEN
     		        	IF (memRead = '1') THEN
-    			                ReadData <= datamemory(to_integer(unsigned(Addr)));
+    			                ReadData <= datamemory(to_integer(unsigned(Addr)+1)) & datamemory(to_integer(unsigned(Addr)));
+				ELSE
+					ReadData <= (OTHERS => '0');
     		  	        END IF;
     		            	IF (memWrite = '1') THEN
-    		               		datamemory(to_integer(unsigned(Addr))) <= WriteData;
+    		               		datamemory(to_integer(unsigned(Addr))) <= WriteData(15 DOWNTO 0);
+					datamemory(to_integer(unsigned(Addr)+1)) <= WriteData(31 DOWNTO 16);
     		            	END IF;
     		        END IF;
     	    	END PROCESS;  
