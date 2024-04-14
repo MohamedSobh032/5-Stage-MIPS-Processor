@@ -8,37 +8,37 @@ z2
 !i10f 100
 cModel Technology
 dC:/intelFPGA/18.1
-Ememor
-Z0 w1713095295
+Ealu_cmp
+Z0 w1713117865
 Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 Z4 dC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project
-Z5 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd
-Z6 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd
+Z5 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_cmp.vhd
+Z6 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_cmp.vhd
 l0
 L5
-VaNn1`5Q=^oE57>kD;]agz3
-!s100 >WA@98=EM6ZbdFVAlH9mk1
+V=5caVE:Zez:c?cWcz<PYX0
+!s100 =^I]XVbo2>Ml8l9iU0h8e2
 Z7 OV;C;10.5b;63
 32
-Z8 !s110 1713095301
+Z8 !s110 1713117868
 !i10b 1
-Z9 !s108 1713095301.000000
-Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd|
-Z11 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd|
+Z9 !s108 1713117868.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_cmp.vhd|
+Z11 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_cmp.vhd|
 !i113 1
 Z12 o-work work -2002 -explicit
 Z13 tExplicit 1 CvgOpt 0
-Aa_memor
+Aa_alu_cmp
 R1
 R2
 R3
-Z14 DEx4 work 5 memor 0 22 aNn1`5Q=^oE57>kD;]agz3
-l25
-L20
-V6lh<7TdSF6mhooI7cVbhT0
-!s100 @;fAE?:]`2Jih6ChGLoDe0
+DEx4 work 7 alu_cmp 0 22 =5caVE:Zez:c?cWcz<PYX0
+l14
+L13
+VUjLD;JkKgVIC=DWalRDmX2
+!s100 XUNWkn?YA9NF7?>fnAn8j1
 R7
 32
 R8
@@ -49,25 +49,224 @@ R11
 !i113 1
 R12
 R13
-Eregisterfile
-Z15 w1713091445
+Ealu_dec
+Z14 w1713110813
 R1
 R2
 R3
 R4
-Z16 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd
-Z17 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd
+Z15 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_dec.vhd
+Z16 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_dec.vhd
+l0
+L5
+V>m7ZS4a8WMl?2j0>6[JnN1
+!s100 P4ZSFIAPc7_Il2i25BT[L3
+R7
+32
+Z17 !s110 1713110818
+!i10b 1
+Z18 !s108 1713110818.000000
+Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_dec.vhd|
+Z20 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_dec.vhd|
+!i113 1
+R12
+R13
+Aa_alu_dec
+R1
+R2
+R3
+DEx4 work 7 alu_dec 0 22 >m7ZS4a8WMl?2j0>6[JnN1
+l14
+L12
+Vg4Eh1hkJ?b?GI:<Y^0=TY3
+!s100 X18YdHJa9VU^TJk]LI[S12
+R7
+32
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 1
+R12
+R13
+Ealu_mov
+Z21 w1713117755
+R2
+R3
+R4
+Z22 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_mov.vhd
+Z23 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_mov.vhd
+l0
+L4
+VkDd=a2mC0jVXkI466aGXc0
+!s100 jP^^f=07_PkV;F:z<jPJ?3
+R7
+32
+Z24 !s110 1713117830
+!i10b 1
+Z25 !s108 1713117830.000000
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_mov.vhd|
+Z27 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_mov.vhd|
+!i113 1
+R12
+R13
+Aa_alu_mov
+R2
+R3
+DEx4 work 7 alu_mov 0 22 kDd=a2mC0jVXkI466aGXc0
+l12
+L11
+V9Hfg9KU_>CGZ::^O43N3o0
+!s100 :mnlABE77NU@ebkYhIjBA2
+R7
+32
+R24
+!i10b 1
+R25
+R26
+R27
+!i113 1
+R12
+R13
+Ealu_not
+Z28 w1713109721
+R2
+R3
+R4
+Z29 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_not.vhd
+Z30 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_not.vhd
+l0
+L4
+Vh^Wz0JDAajAiBVen_J<@Y1
+!s100 EEo2]4?_hJP>z@PSk5Yla3
+R7
+32
+Z31 !s110 1713109740
+!i10b 1
+Z32 !s108 1713109740.000000
+Z33 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_not.vhd|
+Z34 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_not.vhd|
+!i113 1
+R12
+R13
+Aa_alu_not
+R2
+R3
+DEx4 work 7 alu_not 0 22 h^Wz0JDAajAiBVen_J<@Y1
+l12
+L11
+VnlTekh3ZPlM`^j_AD3<O62
+!s100 z<81ZV[I[AegJb04L?i:`0
+R7
+32
+R31
+!i10b 1
+R32
+R33
+R34
+!i113 1
+R12
+R13
+Ealu_or
+Z35 w1713110193
+R2
+R3
+R4
+Z36 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_or.vhd
+Z37 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_or.vhd
+l0
+L4
+VHFf5_^<Z7nd<IVHd9;M9K0
+!s100 92EJECE]4_^851HW50z;B3
+R7
+32
+Z38 !s110 1713110196
+!i10b 1
+Z39 !s108 1713110196.000000
+Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_or.vhd|
+Z41 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_or.vhd|
+!i113 1
+R12
+R13
+Aa_alu_or
+R2
+R3
+DEx4 work 6 alu_or 0 22 HFf5_^<Z7nd<IVHd9;M9K0
+l13
+L12
+VA1^BILA<XDFNYQ_0`k=E?3
+!s100 ^?^j7a[P<mj`BYA]C_6A03
+R7
+32
+R38
+!i10b 1
+R39
+R40
+R41
+!i113 1
+R12
+R13
+Ememor
+Z42 w1713109448
+R1
+R2
+R3
+R4
+Z43 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd
+Z44 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd
+l0
+L5
+VJ>N5OBQdez0EM3TU`9g8G0
+!s100 ho;D`1bg[KKo:n^[9Alz52
+R7
+32
+Z45 !s110 1713109458
+!i10b 1
+Z46 !s108 1713109458.000000
+Z47 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd|
+Z48 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd|
+!i113 1
+R12
+R13
+Aa_memor
+R1
+R2
+R3
+DEx4 work 5 memor 0 22 J>N5OBQdez0EM3TU`9g8G0
+l35
+L26
+V=P4>z^CdXTA;k<oMU=WE62
+!s100 IoMI[:7544>d4T0MO^D3_3
+R7
+32
+R45
+!i10b 1
+R46
+R47
+R48
+!i113 1
+R12
+R13
+Eregisterfile
+Z49 w1713109698
+R1
+R2
+R3
+R4
+Z50 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd
+Z51 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd
 l0
 L5
 V@G]V1NL:o>R0Iml<Q_f[B1
 !s100 <Ea0HCS@B>a2PjD:GUhWC0
 R7
 32
-Z18 !s110 1713091507
+Z52 !s110 1713109706
 !i10b 1
-Z19 !s108 1713091507.000000
-Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd|
-Z21 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd|
+Z53 !s108 1713109706.000000
+Z54 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd|
+Z55 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd|
 !i113 1
 R12
 R13
@@ -78,15 +277,15 @@ R3
 DEx4 work 12 registerfile 0 22 @G]V1NL:o>R0Iml<Q_f[B1
 l28
 L23
-Vf?n]iM_9QEje@cU=ff2e21
-!s100 QPBJM?_]V_4V5GY8BK^zW1
+V1_]J`6T=73JNE28iV>GjO2
+!s100 ?bc2?2@Ke3Maj`LK>m3C`3
 R7
 32
-R18
+R52
 !i10b 1
-R19
-R20
-R21
+R53
+R54
+R55
 !i113 1
 R12
 R13

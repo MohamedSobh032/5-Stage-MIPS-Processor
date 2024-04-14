@@ -23,7 +23,7 @@ END registerfile;
 ARCHITECTURE a_registerfile OF registerfile IS
 
 	TYPE register_type IS ARRAY(0 TO 7) OF STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL registerfile : register_type;
+    	SIGNAL registerfile : register_type;
 
 	BEGIN
 		PROCESS (CLK, RST)

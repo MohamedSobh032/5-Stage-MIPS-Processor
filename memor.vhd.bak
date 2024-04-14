@@ -7,19 +7,29 @@ ENTITY memor IS
 		CLK : IN STD_LOGIC;
 	    	RST : IN STD_LOGIC;
 		Addr  : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+
     		-- read
     		MemRead   : IN STD_LOGIC;
     		ReadData  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+
     		-- write
     		MemWrite  : IN STD_LOGIC;
-    		WriteData : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
+    		WriteData : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+
+		-- PROTECT and FREE
+		free_i : IN STD_LOGIC;
+		prot_i : IN STD_LOGIC
     	);
 END memor;
 
 
 ARCHITECTURE a_memor OF memor IS
 
-	TYPE dm_type IS ARRAY(0 TO 4095) OF STD_LOGIC_VECTOR(15 DOWNTO 0);
+	-- (15 DOWNTO 0) data bits
+	-- (16) enable for specific address (PROTECT, FREE)
+	-- PROTECTED == 1 (prevent write if equals 1)
+	-- FREE == 0 (enable write operations if equal 0)
+	TYPE dm_type IS ARRAY(0 TO 4095) OF STD_LOGIC_VECTOR(16 DOWNTO 0);
     	SIGNAL datamemory : dm_type;
 
 	BEGIN
@@ -30,11 +40,17 @@ ARCHITECTURE a_memor OF memor IS
 				ReadData <= (OTHERS => '0');
     		        ELSIF RISING_EDGE(CLK) THEN
     		        	IF (memRead = '1') THEN
-    			                ReadData <= datamemory(to_integer(unsigned(Addr)+1)) & datamemory(to_integer(unsigned(Addr)));
+    			                ReadData <= datamemory(to_integer(unsigned(Addr)+1))(15 DOWNTO 0)
+							& datamemory(to_integer(unsigned(Addr)))(15 DOWNTO 0);
+				ELSE
+					ReadData <= (OTHERS => '0');
     		  	        END IF;
+
     		            	IF (memWrite = '1') THEN
-    		               		datamemory(to_integer(unsigned(Addr))) <= WriteData(15 DOWNTO 0);
-					datamemory(to_integer(unsigned(Addr)+1)) <= WriteData(31 DOWNTO 16);
+					IF (datamemory(to_integer(unsigned(Addr)))(16) = '0') THEN
+    		               			datamemory(to_integer(unsigned(Addr)))(15 DOWNTO 0) <= WriteData(15 DOWNTO 0);
+						datamemory(to_integer(unsigned(Addr)+1))(15 DOWNTO 0) <= WriteData(31 DOWNTO 16);
+					END IF;
     		            	END IF;
     		        END IF;
     	    	END PROCESS;  

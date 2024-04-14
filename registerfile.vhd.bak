@@ -29,7 +29,7 @@ ARCHITECTURE a_registerfile OF registerfile IS
 		PROCESS (CLK, RST)
 		BEGIN
 			IF (RST = '1') THEN
-				registerfile <= (OTHER => (OTHERS => '0'));
+				registerfile <= (OTHERS => (OTHERS => '0'));
 			ELSIF RISING_EDGE(CLK) THEN
 				Rsrc1Data <= registerfile(to_integer(unsigned(Rsrc1)));
 				Rsrc2Data <= registerfile(to_integer(unsigned(Rsrc2)));
