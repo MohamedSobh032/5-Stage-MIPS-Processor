@@ -7,13 +7,13 @@ ENTITY registerfile IS
 		CLK : IN STD_LOGIC;
 		RST : IN STD_LOGIC;
 
-		-- Decode Stage
+		-- decode stage
 		Rsrc1 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 		Rsrc2 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 		Rsrc1Data : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		Rsrc2Data : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 
-		-- Write Back
+		-- write back
 		WE       : IN STD_LOGIC;
 		Rdst     : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 		RdstData : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
