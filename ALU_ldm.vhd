@@ -4,7 +4,8 @@ USE IEEE.STD_LOGIC_1164.ALL;
 ENTITY ALU_ldm IS
 	PORT (
 		Rsrc : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-		Rdst : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+		Rdst : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		Carry : OUT STD_LOGIC
 	);
 END ALU_ldm;
 
@@ -12,5 +13,5 @@ ARCHITECTURE a_ALU_ldm OF ALU_ldm IS
 	
 	BEGIN
 		Rdst <= Rsrc;
-
+		Carry <= '0';
 END a_ALU_ldm;
