@@ -4,8 +4,9 @@ USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY InstrCache IS
 	PORT (
-		Addr  : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
-    		Instruction  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+		Addr        : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+    		Instruction : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		NextInstr   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
     	);
 END InstrCache;
 
@@ -16,4 +17,5 @@ ARCHITECTURE a_InstrCache OF InstrCache IS
 
 	BEGIN
 		Instruction <= instructioncache(to_integer(unsigned(Addr)));
+		NextInstr <= instructioncache(to_integer(unsigned(Addr)+1));
 END a_InstrCache;

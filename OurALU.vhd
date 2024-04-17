@@ -59,6 +59,7 @@ ARCHITECTURE a_OurALU OF OurALU IS
 
 
 	
+	
 	-- BUFFERING
 	SIGNAL ALU_BUFFER_OUTPUT : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	
@@ -82,10 +83,6 @@ ARCHITECTURE a_OurALU OF OurALU IS
 	u5: ALU_cmp PORT MAP(Rsrc1, Rsrc2, ALU_CMP_OUT);
 
 	-- TODO: Multiplex all the outputs
-
-	-- Buffer The Output
-	
-
 		
 
 END a_OurALU;
