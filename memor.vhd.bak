@@ -38,7 +38,12 @@ ARCHITECTURE a_memor OF memor IS
     	        	IF (RST = '1') THEN
     		        	datamemory <= ((OTHERS => (OTHERS => '0')));
 				ReadData <= (OTHERS => '0');
+			ELSIF (free_i = '1') THEN
+				datamemory(to_integer(unsigned(Addr)))(16) <= '0';
+			ELSIF (prot_i = '1') THEN
+				datamemory(to_integer(unsigned(Addr)))(16) <= '1';
     		        ELSIF RISING_EDGE(CLK) THEN
+
     		        	IF (memRead = '1') THEN
     			                ReadData <= datamemory(to_integer(unsigned(Addr)+1))(15 DOWNTO 0)
 							& datamemory(to_integer(unsigned(Addr)))(15 DOWNTO 0);
@@ -52,6 +57,7 @@ ARCHITECTURE a_memor OF memor IS
 						datamemory(to_integer(unsigned(Addr)+1))(15 DOWNTO 0) <= WriteData(31 DOWNTO 16);
 					END IF;
     		            	END IF;
+
     		        END IF;
     	    	END PROCESS;  
 END a_memor;
