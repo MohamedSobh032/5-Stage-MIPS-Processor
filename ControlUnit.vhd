@@ -20,8 +20,17 @@ ENTITY ControlUnit IS
 
 		-- Stack Control
 		S_INC : OUT STD_LOGIC;
-		S_DEC : OUT STD_LOGIC
+		S_DEC : OUT STD_LOGIC;
 
+		-- Port Control
+		PortIn  : OUT STD_LOGIC;
+		PortOut : OUT STD_LOGIC;
+
+		-- Immediate Instruction
+		Rsrc2 : OUT STD_LOGIC;
+
+		-- Branch Instructions
+		Branching : OUT STD_LOGIC
 	);
 END ENTITY;
 
