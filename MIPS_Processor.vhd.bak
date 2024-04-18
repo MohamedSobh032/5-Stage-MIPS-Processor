@@ -1,16 +1,24 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY MIPS_Processor IS
 	PORT (
 		CLK : IN STD_LOGIC;
-		RST : IN STD_LOGIC;
-		INT : IN STD_LOGIC
+		RST : IN STD_LOGIC
 	);
 END MIPS_Processor;
 
 ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 
+	-- SIDE COMPONENTS --
+	COMPONENT SignExtender IS
+		PORT (
+			input_16  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+        	   	output_32 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+		);
+	END COMPONENT;
+	-- MAIN COMPONENTS -- 
 	COMPONENT PCount IS
 		PORT (
 			CLK : IN STD_LOGIC;
@@ -19,11 +27,31 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 			Outdata  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 		);
 	END COMPONENT;
-
+	COMPONENT StackPointer IS
+		PORT (
+			CLK : IN STD_LOGIC;
+			RST : IN STD_LOGIC;
+			NewValue : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			OutData : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+		);
+	END COMPONENT;
 	COMPONENT InstrCache IS
 		PORT (
-			Addr  : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
-    			Instruction  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+			CLK         : IN STD_LOGIC;
+			Addr        : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+    			Instruction : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			NextInstr   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+		);
+	END COMPONENT;
+	
+	COMPONENT FetchControl IS
+		PORT (
+			CurrentPC     : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			CurrentInstr  : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+			NewPc         : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+			CurrentSP     : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			NewSP         : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+			SP_TO_BE_SENT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 		);
 	END COMPONENT;
 
@@ -31,17 +59,163 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		PORT (
 			CLK : IN STD_LOGIC;
 			RST : IN STD_LOGIC;
-			NewValue : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-			Outdata  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+			InData_Instruction  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			OutData_Instruction : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			InData_Immediate  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			OutData_Immediate : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			InData_NextPC  : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			OutData_NextPC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+			InData_SP  : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			OutData_SP : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+		);
+	END COMPONENT;
+	COMPONENT registerfile IS
+		PORT (
+			CLK : IN STD_LOGIC;
+			RST : IN STD_LOGIC;
+			Rsrc1 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+			Rsrc2 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+			Rsrc1Data : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+			Rsrc2Data : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+			WE1       : IN STD_LOGIC;
+			Rdst1     : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+			RdstData1 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			WE2       : IN STD_LOGIC;
+			Rdst2     : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+			RdstData2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
 		);
 	END COMPONENT;
 
-
-
+	COMPONENT ControlUnit IS
+		PORT (
+			INSTRUCTION : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+			CONTROL_SIGNALS : OUT STD_LOGIC_VECTOR(14 DOWNTO 0);
+			ALU_OPCODE : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+		);
+	END COMPONENT;
+	COMPONENT DecodeExecute IS
+		PORT (
+			CLK : IN STD_LOGIC;
+			RST : IN STD_LOGIC;
+			InData_ConSignal  : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
+			OutData_ConSignal : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
+			InData_Rsrc1Data  : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			OutData_Rsrc1Data : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+			InData_Rsrc2Data  : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			OutData_Rsrc2Data : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+			InData_Immediate  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			OutData_Immediate : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			InData_RdstAddr : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+			OutData_RdstAddr : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
+		);
+	END COMPONENT;
+	COMPONENT OurALU IS
+		PORT (
+			CLK: IN STD_LOGIC;
+			OPERATION: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			OP1, OP2: IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			RESULT: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+			FLAGS: OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+		);
+	END COMPONENT;
 	
+	------------------------ FETCH SIGNALS ------------------------
+	SIGNAL PC                : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL SP	         : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL NewPC_FROM_FC     : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL NewSP_FROM_FC     : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL SentSP_FROM_FC    : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL CurrInstr_FROM_IC : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL NextInstr_FROM_IC : STD_LOGIC_VECTOR(15 DOWNTO 0);
+
+
+	------------------------ DECODE SIGNALS ------------------------
+	-- F/D REGISTER OUTPUTS
+	SIGNAL CurrentInstr_FROM_FDP : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL ImmediateVal_FROM_FDP : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL NextPC_FROM_FDP	     : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL SP_FROM_FDP           : STD_LOGIC_VECTOR(31 DOWNTO 0);
+
+	-- DIVIDE F/D VALUES
+	SIGNAL Rsrc1Addr_DIV_CurrInstr : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL Rsrc2Addr_DIV_CurrInstr : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL RdstAddr_DIV_CurrInstr  : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL OpCode_DIV_CurrInstr    : STD_LOGIC_VECTOR(4 DOWNTO 0);
+
+	-- REGISTER FILE OUTPUTS
+	SIGNAL Rsrc1Data_FROM_RF : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL Rsrc2Data_FROM_RF : STD_LOGIC_VECTOR(31 DOWNTO 0);
+
+	-- CONTROL UNIT OUTPUTS
+	SIGNAL SIGNALS_FROM_CONTROL   : STD_LOGIC_VECTOR(14 DOWNTO 0);
+	SIGNAL ALUopCode_FROM_CONTROL : STD_LOGIC_VECTOR(3 DOWNTO 0);
+
+
+	------------------------ EXECUTE SIGNALS ------------------------
+	-- D/E REGISTER OUTPUTS
+	SIGNAL SIGNALS_FROM_DEP      : STD_LOGIC_VECTOR(8 DOWNTO 0);
+	SIGNAL Rsrc1Data_FROM_DEP    : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL Rsrc2Data_FROM_DEP    : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL ImmediateVal_FROM_DEP : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL RdstAddr_FROM_DEP     : STD_LOGIC_VECTOR(2 DOWNTO 0);
+
+	-- HANDLING FUNCTIONS
+	SIGNAL ImmediateVal_FROM_EXTEND : STD_LOGIC_VECTOR(31 DOWNTO 0); -- Extend the Immediate value to 32 bits
+	SIGNAL Rsrc2Data_FROM_MUXING   : STD_LOGIC_VECTOR(31 DOWNTO 0); -- Multiplex using IMM signal
+
+	------------------------ WRITEBACK SIGNALS ------------------------
+	SIGNAL RdstAddr_WB1 : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL RdstData_WB1 : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL WE_WB1       : STD_LOGIC;
+
+	SIGNAL RdstAddr_WB2 : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL RdstData_WB2 : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL WE_WB2       : STD_LOGIC;
+
+
+
 
 	BEGIN
 
+		------------------------------ FETCH STAGE ------------------------------
+		u00: PCount PORT MAP(CLK, RST, NewPC_FROM_FC, PC);
+		u01: StackPointer PORT MAP(CLK, RST, NewSP_FROM_FC, SP);
+		u02: InstrCache PORT MAP(CLK, PC(11 DOWNTO 0), CurrInstr_FROM_IC, NextInstr_FROM_IC);
+		u03: FetchControl PORT MAP(PC, CurrInstr_FROM_IC(15 DOWNTO 11), NewPC_FROM_FC,
+						SP, NewSP_FROM_FC, SentSP_FROM_FC);
 
+
+		------------------------------ FETCH / DECODE PIPELINE ------------------------------
+		u10: FetchDecode PORT MAP(CLK, RST, CurrInstr_FROM_IC, CurrentInstr_FROM_FDP,
+					NextInstr_FROM_IC, ImmediateVal_FROM_FDP, NewPC_FROM_FC, NextPC_FROM_FDP,
+							SentSP_FROM_SP, SP_FROM_FDP);
+
+		------------------------------ DECODE STAGE ------------------------------
+		OpCode_DIV_CurrInstr    <= CurrentInstr_FROM_FDP(15 DOWNTO 11);
+		RdstAddr_DIV_CurrInstr  <= CurrentInstr_FROM_FDP(10 DOWNTO  8);
+		Rsrc1Addr_DIV_CurrInstr <= CurrentInstr_FROM_FDP(7  DOWNTO  5);
+		Rsrc2Addr_DIV_CurrInstr <= CurrentInstr_FROM_FDP(4  DOWNTO  2);
+
+		u20: registerfile PORT MAP(CLK, RST, Rsrc1Addr_DIV_CurrInstr, Rsrc2Addr_DIV_CurrInstr,
+					Rsrc1Data_FROM_RF, Rsrc2Data_FROM_RF,
+						WE_WB1, RdstAddr_WB1, 
+					RdstData_WB1, WE_WB2, RdstAddr_WB2, RdstData_WB2);
+
+		u21: ControlUnit PORT MAP(OpCode_DIV_CurrInstr, SIGNALS_FROM_CONTROL,
+						ALUopCode_FROM_CONTROL);
+
+		
+		------------------------------ DECODE / EXECUTE PIPELINE ------------------------------
+		u30: DecodeExecute PORT MAP(CLK, RST, SIGNALS_FROM_CONTROL(8 DOWNTO 0), SIGNALS_FROM_DEP,
+						Rsrc1Data_FROM_RF, Rsrc1Data_FROM_DEP, Rsrc2Data_FROM_RF,
+						Rsrc2Data_FROM_DEP, ImmediateVal_FROM_FDP,
+						ImmediateVal_FROM_DEP, RdstAddr_DIV_CurrInstr,
+						RdstAddr_FROM_DEP);
+
+		------------------------------ EXECUTE STAGE ------------------------------
+		u40: SignExtender PORT MAP(ImmediateVal_FROM_FDP, ImmediateVal_FROM_EXTEND);
+		Rsrc2Data_FROM_MUXING <= ImmediateVal_FROM_EXTEND WHEN (SIGNALS_FROM_DEP(8) = '1')
+		ELSE Rsrc2Data_FROM_DEP;
+		
 
 END a_MIPS_Processor;

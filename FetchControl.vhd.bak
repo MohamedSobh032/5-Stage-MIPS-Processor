@@ -4,17 +4,30 @@ USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY FetchControl IS
 	PORT (
-		CurrentPC    : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-		CurrentInstr : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-		NewPc        : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+		CurrentPC     : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		CurrentInstr  : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+		NewPc         : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		CurrentSP     : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		NewSP         : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		SP_TO_BE_SENT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END FetchControl;
 
 ARCHITECTURE a_FetchControl OF FetchControl IS
 	
+	-- PROGRAM COUNTER UPDATES
 	SIGNAL PC_ADD_ONE : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL PC_ADD_TWO : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL SELECTOR : STD_LOGIC;
+
+	-- STACK POINTER UPDATES
+	SIGNAL SP_ADD_TWO : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL SP_SUB_TWO : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	
+	-- (0 = SEND NO UPDATE) (1 = SEND AFTER ADD)
+	SIGNAL TO_BE_SENT : STD_LOGIC;
+	-- (00 = NO UPDATE) (01 = ADD_TWO) (10 = SUB_TWO)
+	SIGNAL UPDATE_SP : STD_LOGIC_VECTOR(1 DOWNTO 0);
 
 	BEGIN
 		PC_ADD_ONE <= std_logic_vector(unsigned(CurrentPc) + 1);
@@ -30,4 +43,33 @@ ARCHITECTURE a_FetchControl OF FetchControl IS
 				'0' WHEN OTHERS;
 		-- UPDATE PC
 		NewPc <= PC_ADD_ONE WHEN SELECTOR = '0' ELSE PC_ADD_TWO;
+
+		SP_ADD_TWO <= std_logic_vector(unsigned(CurrentSP) + 2);
+		SP_SUB_TWO <= std_logic_vector(unsigned(CurrentSP) - 2);
+
+		WITH CurrentInstr SELECT
+			TO_BE_SENT <=
+				'1' WHEN "10010", -- POP
+				'1' WHEN "11011", -- RET
+				'1' WHEN "11100", -- RTI
+				'0' WHEN OTHERS;
+
+		WITH CurrentInstr SELECT
+			UPDATE_SP <=
+				"01" WHEN "10010", -- POP
+				"01" WHEN "11011", -- RET
+				"01" WHEN "11100", -- RTI
+				"10" WHEN "10001", -- PUSH
+				"10" WHEN "11010", -- CALL
+				"00" WHEN OTHERS;
+
+		WITH UPDATE_SP SELECT
+			NewSP <=
+				CurrentSP WHEN "00",
+				SP_ADD_TWO WHEN "01",
+				SP_SUB_TWO WHEN "10",
+				CurrentSP WHEN OTHERS;
+
+		SP_TO_BE_SENT
+
 END a_FetchControl;

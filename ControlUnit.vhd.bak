@@ -41,7 +41,6 @@ ENTITY ControlUnit IS
 		-- LDD  --> 0101
 		-- STD  --> 0101
 		ALU_OPCODE : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
-		
 	);
 END ENTITY;
 
@@ -64,7 +63,6 @@ ARCHITECTURE a_ControlUnit OF ControlUnit IS
 				"0110" WHEN "10000", -- CMP
 				"0101" WHEN "10100", -- LDD
 				"0101" WHEN "10101", -- STD
-
 				"0000" WHEN OTHERS;
 
 		---- CONTROL SIGNAL SELECTION ----

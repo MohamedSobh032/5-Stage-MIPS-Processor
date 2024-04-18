@@ -6,21 +6,43 @@ ENTITY FetchDecode IS
 	PORT (
 		CLK : IN STD_LOGIC;
 		RST : IN STD_LOGIC;
-		NewValue : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-		Outdata  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+
+		InData_Instruction  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		OutData_Instruction : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+
+		InData_Immediate  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		OutData_Immediate : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+
+		InData_NextPC  : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		OutData_NextPC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+
+		InData_SP  : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		OutData_SP : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END FetchDecode;
 
 ARCHITECTURE a_FetchDecode OF FetchDecode IS
-    	SIGNAL FetchDecode : STD_LOGIC_VECTOR(15 DOWNTO 0);
+    	SIGNAL Instruction : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL Immediate   : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL NextPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL SP : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	BEGIN
 		PROCESS (CLK, RST)
 		BEGIN
 			IF (RST = '1') THEN
-				FetchDecode <= (OTHERS => '0');
+				Instruction <= (OTHERS => '0');
+				Immediate   <= (OTHERS => '0');
+				NextPC      <= (OTHERS => '0');
+				SP          <= (OTHERS => '0');
 			ELSIF falling_edge(CLK) THEN
-				FetchDecode <= NewValue;
+				Instruction <= InData_Instruction;
+				Immediate   <= InData_Immediate;
+				NextPC      <= InData_NextPC;
+				SP          <= InData_SP;
 			END IF;
 		END PROCESS;	
-		OutData <= FetchDecode;
+		OutData_Instruction <= Instruction;
+		OutData_Immediate   <= Immediate;
+		OutData_NextPC      <= NextPC;
+		OutData_SP          <= SP;
 END a_FetchDecode;
