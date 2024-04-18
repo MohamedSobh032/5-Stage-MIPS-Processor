@@ -3,72 +3,72 @@ USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY OurALU IS
-	PORT (
-		CLK    : IN  STD_LOGIC;
-
-		OpCode : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-		
-		Rsrc1  : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
-		Rsrc2  : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
-		Rdst   : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		-- (3 = OVF) (2 = CF) (1 = NF) (0 = ZF)
-		CCR    : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+	PORT(
+		CLK: IN STD_LOGIC;
+		OPERATION: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		OP1, OP2: IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		RESULT: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		FLAGS: OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
 	);
 END OurALU;
 
 ARCHITECTURE a_OurALU OF OurALU IS
 
-	SIGNAL Mout : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL S: STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL F: STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 	BEGIN
-		PROCESS (CLK)
+		PROCESS(CLK)
 		BEGIN
-			IF rising_edge(CLK) THEN
-				-- OUTPUT AND CARRY
-				CASE OpCode IS
-
-					WHEN "00001" => -- NOT
-						Mout   <= not Rsrc1;
-						CCR(3 DOWNTO 2) <= "00";
-
-					WHEN "00010" => -- NEG
-						Mout <= std_logic_vector(0 - signed(Rsrc1));
-
-					WHEN "00011" => -- INC
-						Mout <= std_logic_vector(signed(Rsrc1) + 1);
-
-					WHEN "00100" => -- DEC
-						Mout <= std_logic_vector(signed(Rsrc1) - 1);
-						CCR(2) <= '1' WHEN (signed(Rsrc1) = 0) ELSE '0';
-
-					WHEN "01001" or "01010" => -- ADD or ADDI
-						Mout <= std_logic_vector(signed(Rsrc1) + signed(Rsrc2));
-
-					WHEN "01011" or "01100" => -- SUB or SUBI
-						Mout <= std_logic_vector(signed(Rsrc1) - signed(Rsrc2));
-
-					WHEN "01101" => -- AND
-						Mout <= Rsrc1 and Rsrc2;
-						CCR(3 DOWNTO 2) <= "00";
-
-					WHEN "01110" => -- OR
-						Mout <= Rsrc1 or Rsrc2;
-						CCR(3 DOWNTO 2) <= "00";
-
-					WHEN "10000" => -- CMP
-						Mout <= Rsrc1 -- No output
-						CCR(3 DOWNTO 2) <= "00";
-
-					WHEN OTHERS =>
-						Mout <= Rsrc1;
-						CCR(3 DOWNTO 2) <= "00";
-				END CASE;
+			IF RISING_EDGE(CLK) THEN
+				CASE OPERATION IS
+					WHEN "0001" => -- NOT
+						S <= NOT OP1;
+					WHEN "0010" => -- NEG
+						S <= STD_LOGIC_VECTOR(TO_SIGNED(0 - TO_INTEGER(SIGNED(OP1)), 32));
+					WHEN "0011" => -- INC
+						S <= STD_LOGIC_VECTOR(TO_SIGNED(TO_INTEGER(SIGNED(OP1)) + 1, 32));
+					WHEN "0100" => -- DEC
+						S <= STD_LOGIC_VECTOR(TO_SIGNED(TO_INTEGER(SIGNED(OP1)) - 1, 32));
+					WHEN "0101" => -- ADD
+						S <= STD_LOGIC_VECTOR(TO_SIGNED(TO_INTEGER(SIGNED(OP1)) + TO_INTEGER(SIGNED(OP2)), 32));
+					WHEN "0110" => -- SUB
+						S <= STD_LOGIC_VECTOR(TO_SIGNED(TO_INTEGER(SIGNED(OP1)) - TO_INTEGER(SIGNED(OP2)), 32));
+					WHEN "0111" => -- AND
+						S <= OP1 AND OP2;
+					WHEN "1000" => -- OR
+						S <= OP1 OR OP2;
+					WHEN "1001" => -- XOR
+						S <= OP1 XOR OP2;
+					WHEN OTHERS => -- OTHERS
+						S <= OP1;
+					END CASE;
 			END IF;
 		END PROCESS;
 
-		-- ZERO FLAG
-		CCR(0) <= '1' WHEN (signed(Mout) = 0) ELSE '0';
-		-- NEGATIVE FLAG
-		CCR(1) <= '1' WHEN (signed(Mout) < 0) ELSE '0';
+		F(3) <= '1' WHEN
+				(OPERATION = "0010" AND '0' /= OP1(31) AND S(31) = OP1(31))
+				OR (OPERATION = "0011" AND OP1(31) = '0' AND S(31) /= OP1(31))
+				OR (OPERATION = "0100" AND OP1(31) /= '0' AND S(31) = '0')
+				OR (OPERATION = "0101" AND OP1(31) = OP2(31) AND S(31) /= OP1(31))
+				OR (OPERATION = "0110" AND OP1(31) /= OP2(31) AND S(31) = OP2(31))
+		ELSE '0';
 
+		F(2) <= '1' WHEN
+			(OPERATION = "0010" AND 0 < TO_INTEGER(UNSIGNED(OP1)))
+			OR (OPERATION = "0011" AND ((TO_INTEGER(UNSIGNED(S)) < TO_INTEGER(UNSIGNED(OP1))) OR (TO_INTEGER(UNSIGNED(S)) < 1)))
+			OR (OPERATION = "0100" AND TO_INTEGER(UNSIGNED(OP1)) < 1)
+			OR (OPERATION = "0101" AND ((TO_INTEGER(UNSIGNED(S)) < TO_INTEGER(UNSIGNED(OP1))) OR (TO_INTEGER(UNSIGNED(S)) < TO_INTEGER(UNSIGNED(OP2)))))
+			OR (OPERATION = "0110" AND TO_INTEGER(UNSIGNED(OP1)) < TO_INTEGER(UNSIGNED(OP2)))
+		ELSE '0';
+
+		F(1) <= S(31);
+		F(0) <= '1' WHEN S = X"00000000" ELSE '0';
+		RESULT <= S;
+		FLAGS <= F;
 END a_OurALU;
+
+
+
+
+

@@ -4,7 +4,7 @@ USE IEEE.STD_LOGIC_1164.ALL;
 
 ENTITY ControlUnit IS
 	PORT (
-		-- Instruction opcode
+		---------------- INSTRUCTION OPCODE ----------------
 		INSTRUCTION : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
 
 		---------------- CONTROL SIGNALS ----------------
@@ -23,13 +23,51 @@ ENTITY ControlUnit IS
 		-- SP DECREMENT --> 12
 		-- OUTPUT PORT  --> 13
 		-- INPUT PORT   --> 14
-		CONTROL_SIGNALS : OUT STD_LOGIC_VECTOR(14 DOWNTO 0)
+		CONTROL_SIGNALS : OUT STD_LOGIC_VECTOR(14 DOWNTO 0);
+
+		---------------- ALU OPCODE ----------------
+		-- NOT  --> 0001
+		-- NEG  --> 0010
+		-- INC  --> 0011
+		-- DEC  --> 0100
+		-- ADD  --> 0101
+		-- ADDI --> 0101
+		-- SUB  --> 0110
+		-- SUBI --> 0110
+		-- AND  --> 0111
+		-- OR   --> 1000
+		-- XOR  --> 1001
+		-- CMP  --> 0110
+		-- LDD  --> 0101
+		-- STD  --> 0101
+		ALU_OPCODE : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+		
 	);
 END ENTITY;
 
 ARCHITECTURE a_ControlUnit OF ControlUnit IS
 	BEGIN
+		---- ALU OPCODE SIGNAL SELECTION ----
+		WITH INSTRUCTION SELECT
+			ALU_OPCODE <=
+				"0001" WHEN "00001", -- NOT
+				"0010" WHEN "00010", -- NEG
+				"0011" WHEN "00011", -- INC
+				"0100" WHEN "00100", -- DEC
+				"0101" WHEN "01001", -- ADD
+				"0101" WHEN "01010", -- ADDI
+				"0110" WHEN "01011", -- SUB
+				"0110" WHEN "01100", -- SUBI
+				"0111" WHEN "01101", -- AND
+				"1000" WHEN "01110", -- OR
+				"1001" WHEN "01111", -- XOR
+				"0110" WHEN "10000", -- CMP
+				"0101" WHEN "10100", -- LDD
+				"0101" WHEN "10101", -- STD
 
+				"0000" WHEN OTHERS;
+
+		---- CONTROL SIGNAL SELECTION ----
 		WITH INSTRUCTION SELECT
 			CONTROL_SIGNALS <=
 				"000000000000000" WHEN "00000",	-- NOP
