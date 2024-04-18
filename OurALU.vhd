@@ -18,116 +18,50 @@ END OurALU;
 
 ARCHITECTURE a_OurALU OF OurALU IS
 
-	-------------------- MAIN COMPONENTS --------------------
-	COMPONENT ALU_not IS
-		PORT (
-			Rsrc : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-			Rdst : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-			Carry : OUT STD_LOGIC
-		);
-	END COMPONENT;
-
-	COMPONENT ALU_dec IS
-		PORT (
-			Rsrc : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-			Rdst : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-			Carry : OUT STD_LOGIC
-		);
-	END COMPONENT;
-
-	COMPONENT ALU_or IS
-		PORT (
-			Rsrc1 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-			Rsrc2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-			Rdst  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-			Carry : OUT STD_LOGIC
-		);
-	END COMPONENT;
-
-	COMPONENT ALU_ldm IS
-		PORT (
-			Rsrc : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-			Rdst : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-			Carry : OUT STD_LOGIC
-		);
-	END COMPONENT;
-
-	COMPONENT ALU_mov IS
-		PORT (
-			Rsrc : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-			Rdst : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-			Carry : OUT STD_LOGIC
-		);
-	END COMPONENT;
-
-	COMPONENT ALU_cmp IS
-		PORT (
-			Rsrc1 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-			Rsrc2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-			Rdst  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-			Carry : OUT STD_LOGIC
-		);
-	END COMPONENT;
-
-	-- OUTPUTS
-	SIGNAL ALU_NOT_OUT : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL ALU_DEC_OUT : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL ALU_OR_OUT  : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL ALU_LDM_OUT : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL ALU_MOV_OUT : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL ALU_CMP_OUT : STD_LOGIC_VECTOR(31 DOWNTO 0);
-
-	-- CARRIES
-	SIGNAL ALU_NOT_CARRY : STD_LOGIC;
-	SIGNAL ALU_DEC_CARRY : STD_LOGIC;
-	SIGNAL ALU_OR_CARRY  : STD_LOGIC;
-	SIGNAL ALU_LDM_CARRY : STD_LOGIC;
-	SIGNAL ALU_MOV_CARRY : STD_LOGIC;
-	SIGNAL ALU_CMP_CARRY : STD_LOGIC;
-
 	SIGNAL Mout : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
 	BEGIN
-
-		u1  : ALU_not PORT MAP(Rsrc1,        ALU_NOT_OUT, ALU_NOT_CARRY);
-		u4  : ALU_dec PORT MAP(Rsrc1,        ALU_DEC_OUT, ALU_DEC_CARRY);
-		u7  : ALU_mov PORT MAP(Rsrc1,        ALU_MOV_OUT, ALU_MOV_CARRY);
-		u14 : ALU_or  PORT MAP(Rsrc1, Rsrc2, ALU_OR_OUT , ALU_OR_CARRY);
-		u16 : ALU_cmp PORT MAP(Rsrc1, Rsrc2, ALU_CMP_OUT, ALU_CMP_CARRY);
-		u19 : ALU_ldm PORT MAP(Rsrc1,        ALU_LDM_OUT, ALU_LDM_CARRY);
-
 		PROCESS (CLK)
 		BEGIN
 			IF rising_edge(CLK) THEN
 				-- OUTPUT AND CARRY
 				CASE OpCode IS
-					WHEN "00001" =>
-						Mout   <= ALU_NOT_OUT;
-						CCR(2) <= ALU_NOT_CARRY;
 
-					WHEN "00100" =>
-						Mout   <= ALU_DEC_OUT;
-						CCR(2) <= ALU_DEC_CARRY;
+					WHEN "00001" => -- NOT
+						Mout   <= not Rsrc1;
+						CCR(3 DOWNTO 2) <= "00";
 
-					WHEN "00111" =>
-						Mout   <= ALU_MOV_OUT;
-						CCR(2) <= ALU_MOV_CARRY;
+					WHEN "00010" => -- NEG
+						Mout <= std_logic_vector(0 - signed(Rsrc1));
 
-					WHEN "01110" =>
-						Mout   <= ALU_OR_OUT;
-						CCR(2) <= ALU_OR_CARRY;
-				
-					WHEN "10000" =>
-						Mout   <= ALU_CMP_OUT;
-						CCR(2) <= ALU_CMP_CARRY;
+					WHEN "00011" => -- INC
+						Mout <= std_logic_vector(signed(Rsrc1) + 1);
 
-					WHEN "10011" =>
-						Mout   <= ALU_LDM_OUT;
-						CCR(2) <= ALU_LDM_CARRY;
+					WHEN "00100" => -- DEC
+						Mout <= std_logic_vector(signed(Rsrc1) - 1);
+						CCR(2) <= '1' WHEN (signed(Rsrc1) = 0) ELSE '0';
+
+					WHEN "01001" or "01010" => -- ADD or ADDI
+						Mout <= std_logic_vector(signed(Rsrc1) + signed(Rsrc2));
+
+					WHEN "01011" or "01100" => -- SUB or SUBI
+						Mout <= std_logic_vector(signed(Rsrc1) - signed(Rsrc2));
+
+					WHEN "01101" => -- AND
+						Mout <= Rsrc1 and Rsrc2;
+						CCR(3 DOWNTO 2) <= "00";
+
+					WHEN "01110" => -- OR
+						Mout <= Rsrc1 or Rsrc2;
+						CCR(3 DOWNTO 2) <= "00";
+
+					WHEN "10000" => -- CMP
+						Mout <= Rsrc1 -- No output
+						CCR(3 DOWNTO 2) <= "00";
 
 					WHEN OTHERS =>
-						Mout <= (OTHERS => '0');
-						CCR(2) <= '0';
+						Mout <= Rsrc1;
+						CCR(3 DOWNTO 2) <= "00";
 				END CASE;
 			END IF;
 		END PROCESS;
