@@ -47,7 +47,7 @@ ARCHITECTURE a_memor OF memor IS
     			                ReadData <= datamemory(to_integer(unsigned(Addr)+1))(15 DOWNTO 0)
 							& datamemory(to_integer(unsigned(Addr)))(15 DOWNTO 0);
 				ELSE
-					ReadData <= (OTHERS => '0');
+					ReadData <= WriteData;
     		  	        END IF;
 
     		            	IF (memWrite = '1') THEN

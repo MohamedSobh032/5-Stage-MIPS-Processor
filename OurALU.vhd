@@ -40,6 +40,10 @@ ARCHITECTURE a_OurALU OF OurALU IS
 						S <= OP1 OR OP2;
 					WHEN "1001" => -- XOR
 						S <= OP1 XOR OP2;
+					WHEN "1010" => -- CMP
+						S <= STD_LOGIC_VECTOR(TO_SIGNED(TO_INTEGER(SIGNED(OP2)) - TO_INTEGER(SIGNED(OP1)), 32));
+					WHEN "1011" => -- LDM
+						S <= OP2;
 					WHEN OTHERS => -- OTHERS
 						S <= OP1;
 					END CASE;

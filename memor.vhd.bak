@@ -22,7 +22,6 @@ ENTITY memor IS
     	);
 END memor;
 
-
 ARCHITECTURE a_memor OF memor IS
 
 	-- (15 DOWNTO 0) data bits
