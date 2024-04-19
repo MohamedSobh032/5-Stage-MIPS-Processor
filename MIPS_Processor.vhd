@@ -43,7 +43,6 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 			NextInstr   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 		);
 	END COMPONENT;
-	
 	COMPONENT FetchControl IS
 		PORT (
 			CurrentPC     : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -54,7 +53,6 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 			SP_TO_BE_SENT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 		);
 	END COMPONENT;
-
 	COMPONENT FetchDecode IS
 		PORT (
 			CLK : IN STD_LOGIC;
@@ -97,16 +95,24 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		PORT (
 			CLK : IN STD_LOGIC;
 			RST : IN STD_LOGIC;
-			InData_ConSignal  : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
-			OutData_ConSignal : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
+			InData_NextPC : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			OutData_NextPC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+			InData_ConSignal  : IN STD_LOGIC_VECTOR(14 DOWNTO 0);
+			OutData_ConSignal : OUT STD_LOGIC_VECTOR(14 DOWNTO 0);
+			InData_ALUopCode  : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			OutData_ALUopCode : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 			InData_Rsrc1Data  : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
 			OutData_Rsrc1Data : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 			InData_Rsrc2Data  : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
 			OutData_Rsrc2Data : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 			InData_Immediate  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 			OutData_Immediate : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			InData_RdstAddr : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-			OutData_RdstAddr : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
+			InData_Rdst1Addr  : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+			OutData_Rdst1Addr : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+			InData_Rdst2Addr  : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+			OutData_Rdst2Addr : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+			InData_SP  : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			OutData_SP : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 		);
 	END COMPONENT;
 	COMPONENT OurALU IS
@@ -153,11 +159,15 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 
 	------------------------ EXECUTE SIGNALS ------------------------
 	-- D/E REGISTER OUTPUTS
-	SIGNAL SIGNALS_FROM_DEP      : STD_LOGIC_VECTOR(8 DOWNTO 0);
+	SIGNAL NextPC_FROM_DEP       : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL SIGNALS_FROM_DEP      : STD_LOGIC_VECTOR(14 DOWNTO 0);
+	SIGNAL ALUopCode_FROM_DEP    : STD_LOGIC_VECTOR(3 DOWNTO 0);
 	SIGNAL Rsrc1Data_FROM_DEP    : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL Rsrc2Data_FROM_DEP    : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL ImmediateVal_FROM_DEP : STD_LOGIC_VECTOR(15 DOWNTO 0);
-	SIGNAL RdstAddr_FROM_DEP     : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL Rdst1Addr_FROM_DEP    : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL Rdst2Addr_FROM_DEP    : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL SP_FROM_DEP	     : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
 	-- HANDLING FUNCTIONS
 	SIGNAL ImmediateVal_FROM_EXTEND : STD_LOGIC_VECTOR(31 DOWNTO 0); -- Extend the Immediate value to 32 bits
@@ -171,9 +181,6 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	SIGNAL RdstAddr_WB2 : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	SIGNAL RdstData_WB2 : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL WE_WB2       : STD_LOGIC;
-
-
-
 
 	BEGIN
 
@@ -189,6 +196,7 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		u10: FetchDecode PORT MAP(CLK, RST, CurrInstr_FROM_IC, CurrentInstr_FROM_FDP,
 					NextInstr_FROM_IC, ImmediateVal_FROM_FDP, NewPC_FROM_FC, NextPC_FROM_FDP,
 							SentSP_FROM_FC, SP_FROM_FDP);
+
 
 		------------------------------ DECODE STAGE ------------------------------
 		OpCode_DIV_CurrInstr    <= CurrentInstr_FROM_FDP(15 DOWNTO 11);
@@ -206,11 +214,17 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 
 		
 		------------------------------ DECODE / EXECUTE PIPELINE ------------------------------
-		u30: DecodeExecute PORT MAP(CLK, RST, SIGNALS_FROM_CONTROL(8 DOWNTO 0), SIGNALS_FROM_DEP,
-						Rsrc1Data_FROM_RF, Rsrc1Data_FROM_DEP, Rsrc2Data_FROM_RF,
-						Rsrc2Data_FROM_DEP, ImmediateVal_FROM_FDP,
-						ImmediateVal_FROM_DEP, RdstAddr_DIV_CurrInstr,
-						RdstAddr_FROM_DEP);
+		u30: DecodeExecute PORT MAP(CLK, RST,
+					NextPC_FROM_FDP, NextPC_FROM_DEP,
+					SIGNALS_FROM_CONTROL, SIGNALS_FROM_DEP,
+					ALUopCode_FROM_CONTROL, ALUopCode_FROM_DEP,
+					Rsrc1Data_FROM_RF, Rsrc1Data_FROM_DEP,
+					Rsrc2Data_FROM_RF, Rsrc2Data_FROM_DEP,
+					ImmediateVal_FROM_FDP, ImmediateVal_FROM_DEP,
+					RdstAddr_DIV_CurrInstr, Rdst1Addr_FROM_DEP,
+					Rsrc2Addr_DIV_CurrInstr, Rdst2Addr_FROM_DEP,
+					SP_FROM_FDP, SP_FROM_DEP);
+
 
 		------------------------------ EXECUTE STAGE ------------------------------
 		u40: SignExtender PORT MAP(ImmediateVal_FROM_FDP, ImmediateVal_FROM_EXTEND);

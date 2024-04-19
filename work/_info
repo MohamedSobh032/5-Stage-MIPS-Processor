@@ -286,7 +286,7 @@ R49
 R12
 R13
 Edecodeexecute
-Z50 w1713479429
+Z50 w1713481974
 R1
 R2
 R3
@@ -295,13 +295,13 @@ Z51 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DecodeE
 Z52 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DecodeExecute.vhd
 l0
 L5
-VXAJ@cE[@fB`k?I52FF<]E0
-!s100 [4jHd?jU5n`AkGVTjA9DT1
+VEH59::RKNeFzZohdg6GP?1
+!s100 Q;N@CU3BEJ0@LkXTABWKU0
 R7
 32
-Z53 !s110 1713479433
+Z53 !s110 1713481982
 !i10b 1
-Z54 !s108 1713479433.000000
+Z54 !s108 1713481982.000000
 Z55 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DecodeExecute.vhd|
 Z56 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DecodeExecute.vhd|
 !i113 1
@@ -311,11 +311,11 @@ Aa_decodeexecute
 R1
 R2
 R3
-DEx4 work 13 decodeexecute 0 22 XAJ@cE[@fB`k?I52FF<]E0
-l37
+DEx4 work 13 decodeexecute 0 22 EH59::RKNeFzZohdg6GP?1
+l42
 L30
-VT38g=a61T>1]za=fG5NSW3
-!s100 a2:l_5YLTzf7bLe:cC<Zg1
+V=C255^Aa_P:X30]Q`nb2b2
+!s100 5AXj5km=DL2DoX8k9@8m82
 R7
 32
 R53
@@ -327,7 +327,7 @@ R56
 R12
 R13
 Efetchcontrol
-Z57 w1713480381
+Z57 w1713480739
 R1
 R2
 R3
@@ -340,9 +340,9 @@ VZGedP:Kkh=d4`6TFgXg393
 !s100 EeQSebK29K1SaMS>CBf<]2
 R7
 32
-Z60 !s110 1713480385
+Z60 !s110 1713480840
 !i10b 1
-Z61 !s108 1713480385.000000
+Z61 !s108 1713480840.000000
 Z62 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchControl.vhd|
 Z63 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchControl.vhd|
 !i113 1
@@ -491,7 +491,7 @@ R78
 R12
 R13
 Emips_processor
-Z79 w1713480639
+Z79 w1713485141
 R1
 R2
 R3
@@ -504,9 +504,9 @@ V56]UFeRBKI5;WH:YO=OkY0
 !s100 YWzeM2NKVj]5_fmk?jn9V2
 R7
 32
-Z82 !s110 1713480645
+Z82 !s110 1713487205
 !i10b 1
-Z83 !s108 1713480645.000000
+Z83 !s108 1713487205.000000
 Z84 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MIPS_Processor.vhd|
 Z85 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MIPS_Processor.vhd|
 !i113 1
@@ -517,10 +517,10 @@ R1
 R2
 R3
 Z86 DEx4 work 14 mips_processor 0 22 56]UFeRBKI5;WH:YO=OkY0
-l178
+l185
 L12
-VZmUB9niSc`e0_c?:J3fEV2
-!s100 k@ziLbga:WC]F3[O]M^7j3
+V]S=i4A@1]`BA]S=CDF6P<2
+!s100 H5;Y2fJVA^OQzS<MjW>Hc0
 R7
 32
 R82
