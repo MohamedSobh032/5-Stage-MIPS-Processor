@@ -338,10 +338,10 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		u21: ControlUnit PORT MAP(OpCode_DIV_CurrInstr, SIGNALS_FROM_CONTROL,
 						ALUopCode_FROM_CONTROL);
 
-		u22: CCR PORT MAP(CLK, RST, SIGNALS_FROM_MWP(2), SIGNALS_FROM_MWP(3), Flags_FROM_MWP, FLAGS);
+		u22: CCR PORT MAP(CLK, RST, SIGNALS_FROM_DEP(2), SIGNALS_FROM_DEP(3), ALUflag_FROM_ALU, FLAGS);
 
 		Rdst1Addr_FROM_MUXING <= RdstAddr_DIV_CurrInstr WHEN (SIGNALS_FROM_CONTROL(1) = '0')
-		ELSE Rsrc1Addr_DIV_CurrInstr;
+		ELSE Rsrc2Addr_DIV_CurrInstr;
 
 
 		------------------------------ DECODE / EXECUTE PIPELINE ------------------------------

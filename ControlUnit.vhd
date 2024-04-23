@@ -64,7 +64,7 @@ ARCHITECTURE a_ControlUnit OF ControlUnit IS
 				"0111" WHEN "01101", -- AND
 				"1000" WHEN "01110", -- OR
 				"1001" WHEN "01111", -- XOR
-				"1010" WHEN "10000", -- CMP
+				"0110" WHEN "10000", -- CMP
 				"1011" WHEN "10011", -- LDM
 				"0101" WHEN "10100", -- LDD
 				"0101" WHEN "10101", -- STD
