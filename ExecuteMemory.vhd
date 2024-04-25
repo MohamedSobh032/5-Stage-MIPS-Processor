@@ -12,8 +12,6 @@ ENTITY ExecuteMemory IS
 		OutData_ConSignal : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);
 		InData_ALUresult  : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		OutData_ALUresult : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		InData_ALUflag    : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		OutData_ALUflag   : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		InData_Rsrc2Data  : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		OutData_Rsrc2Data : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		InData_Rdst1Addr  : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -30,7 +28,6 @@ ARCHITECTURE a_ExecuteMemory OF ExecuteMemory IS
 	SIGNAL NextPC    : STD_LOGIC_VECTOR(31 DOWNTO 0);
     	SIGNAL ConSignal : STD_LOGIC_VECTOR(16 DOWNTO 0);
 	SIGNAL ALUresult : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL ALUflag   : STD_LOGIC_VECTOR(3 DOWNTO 0);
 	SIGNAL Rsrc2Data : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL Rdst1Addr : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	SIGNAL Rdst2Addr : STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -43,7 +40,6 @@ ARCHITECTURE a_ExecuteMemory OF ExecuteMemory IS
 				NextPC    <= (OTHERS => '0');
 				ConSignal <= (OTHERS => '0');
 				ALUresult <= (OTHERS => '0');
-				ALUflag   <= (OTHERS => '0');
 				Rsrc2Data <= (OTHERS => '0');
 				Rdst1Addr <= (OTHERS => '0');
 				Rdst2Addr <= (OTHERS => '0');
@@ -52,7 +48,6 @@ ARCHITECTURE a_ExecuteMemory OF ExecuteMemory IS
 				NextPC    <= InData_NextPC;
 				ConSignal <= InData_ConSignal;
 				ALUresult <= InData_ALUresult;
-				ALUflag   <= InData_ALUflag;
 				Rsrc2Data <= InData_Rsrc2Data;
 				Rdst1Addr <= InData_Rdst1Addr;
 				Rdst2Addr <= InData_Rdst2Addr;
@@ -62,7 +57,6 @@ ARCHITECTURE a_ExecuteMemory OF ExecuteMemory IS
 		OutData_NextPC    <= NextPC;
 		OutData_ConSignal <= ConSignal;
 		OutData_ALUresult <= ALUresult;
-		OutData_ALUflag   <= ALUflag;
 		OutData_Rsrc2Data <= Rsrc2Data;
 		OutData_Rdst1Addr <= Rdst1Addr;
 		OutData_Rdst2Addr <= Rdst2Addr;
