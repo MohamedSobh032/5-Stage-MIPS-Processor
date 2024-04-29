@@ -83,7 +83,7 @@ void Assembler(char* str, char* out)
             i++;
             continue;
         }
-        while (str[j] != ' ' && str[j] != '\0' && str[j] != ',' && str[j] != '(' && str[j] != ')')
+        while (str[j] != ' ' && str[j] != '\0' && str[j] != ',' && str[j] != '(' && str[j] != ')' && str[j] != '\n')
         {
             if(inp == 0)
             {
@@ -299,7 +299,7 @@ void organize()
     {}
     else if(!strcmp(op, "10000"))
     {
-        strcpy(R1,R2);strcpy(R1,Rd);
+        strcpy(R2,R1);strcpy(R1,Rd);
         initZString(Rd,3);
     }
     else if(!strcmp(op, "10001"))
