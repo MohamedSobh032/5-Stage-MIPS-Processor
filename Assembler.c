@@ -39,16 +39,26 @@ int main()
     char myString[30];
 
 //Output File:
-    FILE* outputPtr = fopen("out.txt", "w");
+    FILE* outputPtr = fopen("testcases.mem", "w");
     if (NULL == outputPtr) {
         printf("Output file can't be opened.\n");
         return 1;
     }
 
-
+    int counter = 0;
     while(fgets(myString, 100, ptr)) {
         Assembler(myString,myString);
-        fprintf(outputPtr, "%s %s %s %s %s\n", op,Rd,R1,R2, IMM);
+        fprintf(outputPtr, "%d: %s%s%s%s00\n",counter, op,Rd,R1,R2);
+        if(strcmp(IMM, ""))
+        {
+            counter++;
+            fprintf(outputPtr,"%d: %s\n",counter, IMM);
+        }
+        counter++;
+    }
+    for(int i = counter; i < 4096; i++)
+    {
+        fprintf(outputPtr, "%d: 0000000000000000\n", i);
     }
 
 	fclose(ptr);
@@ -257,7 +267,8 @@ void Decode(char* str, int inp) {
 
 void organize()
 {
-    if(!strcmp(op,"11011") || !strcmp(op,"11100"))
+
+    if(!strcmp(op,"11011") || !strcmp(op,"11100") || !strcmp(op,"00000") ) 
     {
         initZString(Rd,3);initZString(R1,3);initZString(R2,3);
     }
