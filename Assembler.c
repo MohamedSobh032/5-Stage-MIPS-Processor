@@ -46,6 +46,8 @@ int main()
     }
 
     int counter = 0;
+    fprintf(outputPtr, "// memory data file (do not edit the following line - required for mem load use)\n// instance=/mips_processor/u02/instructioncache\n// format=mti addressradix=d dataradix=b version=1.0 wordsperline=1\n");
+
     while(fgets(myString, 100, ptr)) {
         Assembler(myString,myString);
         fprintf(outputPtr, "%d: %s%s%s%s00\n",counter, op,Rd,R1,R2);
