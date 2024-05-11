@@ -224,6 +224,8 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	SIGNAL CurrInstr_FROM_IC : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	SIGNAL NextInstr_FROM_IC : STD_LOGIC_VECTOR(15 DOWNTO 0);
 
+	-------------------FLUSHING SIGNAL-----------------------------
+	SIGNAL FLUSH_FDP		 : STD_LOGIC;
 
 	------------------------ DECODE SIGNALS ------------------------
 	-- F/D REGISTER OUTPUTS
@@ -311,7 +313,7 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 
 
 		------------------------------ FETCH / DECODE PIPELINE ------------------------------
-		u10: FetchDecode PORT MAP(CLK, RST, CurrInstr_FROM_IC, CurrentInstr_FROM_FDP,
+		u10: FetchDecode PORT MAP(CLK, RST, FLUSH_FDP,CurrInstr_FROM_IC, CurrentInstr_FROM_FDP,
 					NextInstr_FROM_IC, ImmediateVal_FROM_FDP, NewPC_FROM_FC, NextPC_FROM_FDP,
 							SentSP_FROM_FC, SP_FROM_FDP);
 
@@ -334,6 +336,12 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		Rdst1Addr_FROM_MUXING <= RdstAddr_DIV_CurrInstr WHEN (SIGNALS_FROM_CONTROL(1) = '0')
 		ELSE Rsrc2Addr_DIV_CurrInstr;
 
+		----------- JUMP INSTRUCTION (LET PC = RSRC1DATA_FROM_RF FLUSH FETCH/DECODE PIPELINE)------
+		PC <= Rsrc1Data_FROM_RF WHEN (SIGNALS_FROM_CONTROL = "00200")
+		ELSE NewPC_FROM_FC;
+		--Flush FDP register---------
+		FLUSH_FDP <= '1' WHEN (SIGNALS_FROM_CONTROL = "00200")
+		ELSE '0';
 
 		------------------------------ DECODE / EXECUTE PIPELINE ------------------------------
 		u30: DecodeExecute PORT MAP(CLK, RST,

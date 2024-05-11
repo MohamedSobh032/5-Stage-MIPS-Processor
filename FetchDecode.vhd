@@ -6,7 +6,7 @@ ENTITY FetchDecode IS
 	PORT (
 		CLK : IN STD_LOGIC;
 		RST : IN STD_LOGIC;
-
+		FLUSH: IN STD_LOGIC;
 		InData_Instruction  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 		OutData_Instruction : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 
@@ -29,7 +29,7 @@ ARCHITECTURE a_FetchDecode OF FetchDecode IS
 	BEGIN
 		PROCESS (CLK, RST)
 		BEGIN
-			IF (RST = '1') THEN
+			IF (RST = '1'or FLUSH = '1') THEN
 				Instruction <= (OTHERS => '0');
 				Immediate   <= (OTHERS => '0');
 				NextPC      <= (OTHERS => '0');
