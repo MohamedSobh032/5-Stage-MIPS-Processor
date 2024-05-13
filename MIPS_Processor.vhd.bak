@@ -4,23 +4,19 @@ USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY MIPS_Processor IS
 	PORT (
-		CLK : IN STD_LOGIC;
-		RST : IN STD_LOGIC;
-
-		INPORT : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		CLK     : IN  STD_LOGIC;
+		RST     : IN  STD_LOGIC;
+		INPORT  : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		OUTPORT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-
-		R0 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		R1 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		R2 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		R3 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		R4 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		R5 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		R6 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		R7 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-
-		FLAGS : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
-
+		R0      : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		R1      : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		R2      : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		R3      : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		R4      : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		R5      : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		R6      : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		R7      : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		FLAGS   : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
 	);
 END MIPS_Processor;
 
@@ -195,52 +191,54 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 			FlagOut : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
 		);
 	END COMPONENT;
-	------------------------ FETCH SIGNALS ------------------------
+
+	----------------------------------------- FETCH SIGNALS -----------------------------------------
 	SIGNAL PC                : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL NewPC             : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL CurrInstr_FROM_IC : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	-------------------------------------------------------------------------------------------------
 
-	------------------------ DECODE SIGNALS ------------------------
+	----------------------------------------- DECODE SIGNALS ----------------------------------------
 	-- F/D REGISTER OUTPUTS
-	SIGNAL CurrentInstr_FROM_FDP : STD_LOGIC_VECTOR(15 DOWNTO 0);
-	SIGNAL ImmediateVal_FROM_FDP : STD_LOGIC_VECTOR(15 DOWNTO 0);
-	SIGNAL NextPC_FROM_FDP	     : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL CurrentInstr_FROM_FDP         : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL ImmediateVal_FROM_FDP         : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL NextPC_FROM_FDP	             : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	-- DIVIDE F/D VALUES
-	SIGNAL Rsrc1Addr_DIV_CurrInstr : STD_LOGIC_VECTOR(2 DOWNTO 0);
-	SIGNAL Rsrc2Addr_DIV_CurrInstr : STD_LOGIC_VECTOR(2 DOWNTO 0);
-	SIGNAL RdstAddr_DIV_CurrInstr  : STD_LOGIC_VECTOR(2 DOWNTO 0);
-	SIGNAL OpCode_DIV_CurrInstr    : STD_LOGIC_VECTOR(4 DOWNTO 0);
+	SIGNAL Rsrc1Addr_DIV_CurrInstr       : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL Rsrc2Addr_DIV_CurrInstr       : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL RdstAddr_DIV_CurrInstr        : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL OpCode_DIV_CurrInstr          : STD_LOGIC_VECTOR(4 DOWNTO 0);
 	-- REGISTER FILE OUTPUTS
-	SIGNAL Rsrc1Data_FROM_RF : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL Rsrc2Data_FROM_RF : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL Rsrc1Data_FROM_RF             : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL Rsrc2Data_FROM_RF             : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	-- CONTROL UNIT OUTPUTS
-	SIGNAL SIGNALS_FROM_CONTROL   : STD_LOGIC_VECTOR(17 DOWNTO 0);
-	SIGNAL ALUopCode_FROM_CONTROL : STD_LOGIC_VECTOR(3 DOWNTO 0);
+	SIGNAL SIGNALS_FROM_CONTROL          : STD_LOGIC_VECTOR(17 DOWNTO 0);
+	SIGNAL ALUopCode_FROM_CONTROL        : STD_LOGIC_VECTOR(3 DOWNTO 0);
 	-- HANDLING FUNCTIONS
 	SIGNAL Rdst1Addr_FROM_MUXING         : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	SIGNAL ImmediateVal_FROM_EXTEND_0    : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL ImmediateVal_FROM_EXTEND_SIGN : STD_LOGIC_VECTOR(31 DOWNTO 0); -- Extend the Immediate value to 32 bits
+	SIGNAL ImmediateVal_FROM_EXTEND_SIGN : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL ImmediateVal_FROM_EXTEND      : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL Rsrc2Data_FROM_MUXING         : STD_LOGIC_VECTOR(31 DOWNTO 0); -- Multiplex using IMM signal
+	SIGNAL Rsrc2Data_FROM_MUXING         : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	-------------------------------------------------------------------------------------------------
 
-	------------------------ EXECUTE SIGNALS ------------------------
+	----------------------------------------- EXECUTE SIGNALS ---------------------------------------
 	-- D/E REGISTER OUTPUTS
 	SIGNAL NextPC_FROM_DEP       : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL SIGNALS_FROM_DEP      : STD_LOGIC_VECTOR(17 DOWNTO 0);
 	SIGNAL ALUopCode_FROM_DEP    : STD_LOGIC_VECTOR(3 DOWNTO 0);
 	SIGNAL Rsrc1Data_FROM_DEP    : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL Rsrc2Data_FROM_DEP    : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL ImmediateVal_FROM_DEP : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	SIGNAL Rdst1Addr_FROM_DEP    : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	SIGNAL Rdst2Addr_FROM_DEP    : STD_LOGIC_VECTOR(2 DOWNTO 0);
-
+	-- ALU OUTPUTS
 	SIGNAL ALUresult_FROM_ALU : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL ALUflag_FROM_ALU   : STD_LOGIC_VECTOR(3 DOWNTO 0);
-
+	-- HANDLING FUNCTIONS
 	SIGNAL DATA_OUT_FROM_MUXING : STD_LOGIC_VECTOR(31 DOWNTO 0); -- MULTIPLEX BETWEEN ALU AND INPORT
+	-------------------------------------------------------------------------------------------------
 
-
-	------------------------ MEMORY SIGNALS ------------------------
+	------------------------------------------ MEMORY SIGNALS ---------------------------------------
 	-- E/M REGISTER OUTPUTS
 	SIGNAL NextPC_FROM_EMP    : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL SIGNALS_FROM_EMP   : STD_LOGIC_VECTOR(17 DOWNTO 0);
@@ -248,7 +246,6 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	SIGNAL Rdst2Data_FROM_EMP : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL Rdst1Addr_FROM_EMP : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	SIGNAL Rdst2Addr_FROM_EMP : STD_LOGIC_VECTOR(2 DOWNTO 0);
-
 	-- HANDLING FUNCTIONS
 	SIGNAL SP_FROM_STACK       : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL ADDRESS_SELECTOR    : STD_LOGIC;
@@ -256,31 +253,31 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	SIGNAL DATA_FROM_MUXING_1  : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL DATA_FROM_MUXING    : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL DATA_FROM_MEMORY    : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	-------------------------------------------------------------------------------------------------
 
-	------------------------ WRITEBACK SIGNALS ------------------------
+	----------------------------------------- WRITEBACK SIGNALS -------------------------------------
 	-- M/W REGISTER OUTPUTS
 	SIGNAL SIGNALS_FROM_MWP   : STD_LOGIC_VECTOR(17 DOWNTO 0);
 	SIGNAL Rdst1Data_FROM_MWP : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL Rdst2Data_FROM_MWP : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL Rdst1Addr_FROM_MWP : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	SIGNAL Rdst2Addr_FROM_MWP : STD_LOGIC_VECTOR(2 DOWNTO 0);
-
+	-------------------------------------------------------------------------------------------------
 
 	BEGIN
-
-		------------------------------ FETCH STAGE ------------------------------
+		
+		------------------------------------------ FETCH STAGE ------------------------------------------
 		u00: PCount PORT MAP(CLK, RST, NewPC, PC);
 		u02: InstrCache PORT MAP(CLK, PC(11 DOWNTO 0), CurrInstr_FROM_IC);
-		
 		NewPc <= std_logic_vector(unsigned(PC) + 1);
+		-------------------------------------------------------------------------------------------------
 
+		------------------------------------ FETCH / DECODE PIPELINE ------------------------------------
+		u10: FetchDecode PORT MAP(CLK, RST, CurrInstr_FROM_IC,
+				CurrentInstr_FROM_FDP, NewPC, NextPC_FROM_FDP);
+		-------------------------------------------------------------------------------------------------
 
-		------------------------------ FETCH / DECODE PIPELINE ------------------------------
-		u10: FetchDecode PORT MAP(CLK, RST, CurrInstr_FROM_IC, CurrentInstr_FROM_FDP,
-					NewPC, NextPC_FROM_FDP);
-
-
-		------------------------------ DECODE STAGE ------------------------------
+		------------------------------------------ DECODE STAGE -----------------------------------------
 		OpCode_DIV_CurrInstr    <= CurrentInstr_FROM_FDP(15 DOWNTO 11);
 		RdstAddr_DIV_CurrInstr  <= CurrentInstr_FROM_FDP(10 DOWNTO  8);
 		Rsrc1Addr_DIV_CurrInstr <= CurrentInstr_FROM_FDP(7  DOWNTO  5);
@@ -306,9 +303,9 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		
 		Rsrc2Data_FROM_MUXING <= ImmediateVal_FROM_EXTEND WHEN (SIGNALS_FROM_CONTROL(8) = '1')
 			ELSE Rsrc2Data_FROM_RF;
+		-------------------------------------------------------------------------------------------------
 
-
-		------------------------------ DECODE / EXECUTE PIPELINE ------------------------------
+		----------------------------------- DECODE / EXECUTE PIPELINE -----------------------------------
 		u30: DecodeExecute PORT MAP(CLK, RST,
 					NextPC_FROM_FDP, NextPC_FROM_DEP,
 					SIGNALS_FROM_CONTROL, SIGNALS_FROM_DEP,
@@ -317,9 +314,9 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 					Rsrc2Data_FROM_MUXING, Rsrc2Data_FROM_DEP,
 					Rdst1Addr_FROM_MUXING, Rdst1Addr_FROM_DEP,
 					Rsrc1Addr_DIV_CurrInstr, Rdst2Addr_FROM_DEP);
+		-------------------------------------------------------------------------------------------------
 
-
-		------------------------------ EXECUTE STAGE ------------------------------
+		----------------------------------------- EXECUTE STAGE -----------------------------------------
 		u41: OurALU PORT MAP(CLK, ALUopCode_FROM_DEP, Rsrc1Data_FROM_DEP, Rsrc2Data_FROM_DEP,
 					ALUresult_FROM_ALU, ALUflag_FROM_ALU);
 
@@ -328,19 +325,17 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		u43: OutReg PORT MAP(CLK, RST, SIGNALS_FROM_DEP(13), Rsrc1Data_FROM_DEP, OUTPORT);
 
 		DATA_OUT_FROM_MUXING <= ALUresult_FROM_ALU WHEN (SIGNALS_FROM_DEP(14) = '0') ELSE INPORT;
+		-------------------------------------------------------------------------------------------------
 	
+		----------------------------------- EXECUTE / MEMORY PIPELINE -----------------------------------
+		u50: ExecuteMemory PORT MAP(CLK, RST, NextPC_FROM_DEP, NextPC_FROM_EMP,
+				SIGNALS_FROM_DEP, SIGNALS_FROM_EMP, DATA_OUT_FROM_MUXING,
+				ALUresult_FROM_EMP, Rsrc2Data_FROM_DEP, Rdst2Data_FROM_EMP,
+				Rdst1Addr_FROM_DEP, Rdst1Addr_FROM_EMP, Rdst2Addr_FROM_DEP,
+						Rdst2Addr_FROM_EMP);
+		-------------------------------------------------------------------------------------------------
 
-		------------------------------ EXECUTE / MEMORY PIPELINE ------------------------------
-		u50: ExecuteMemory PORT MAP(CLK, RST,
-				NextPC_FROM_DEP, NextPC_FROM_EMP,
-				SIGNALS_FROM_DEP, SIGNALS_FROM_EMP,
-				DATA_OUT_FROM_MUXING, ALUresult_FROM_EMP,
-				Rsrc2Data_FROM_DEP, Rdst2Data_FROM_EMP,
-				Rdst1Addr_FROM_DEP, Rdst1Addr_FROM_EMP,
-				Rdst2Addr_FROM_DEP, Rdst2Addr_FROM_EMP);
-
-
-		------------------------------ MEMORY STAGE ------------------------------
+		------------------------------------------ MEMORY STAGE -----------------------------------------
 		u60: StackPointer PORT MAP(CLK, RST, SIGNALS_FROM_DEP(12),
 				SIGNALS_FROM_DEP(11), SP_FROM_STACK);
 
@@ -350,20 +345,19 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		DATA_FROM_MUXING <= DATA_FROM_MUXING_1 WHEN (SIGNALS_FROM_EMP(16) = '0')
 		ELSE NextPC_FROM_EMP;
 
-		ADDRESS_FROM_MUXING <= ALUresult_FROM_EMP(11 DOWNTO 0) WHEN (SIGNALS_FROM_EMP(11) = '0' and SIGNALS_FROM_EMP(11) = '0') ELSE
+		ADDRESS_FROM_MUXING <= ALUresult_FROM_EMP(11 DOWNTO 0)
+				WHEN (SIGNALS_FROM_EMP(11) = '0' and SIGNALS_FROM_EMP(11) = '0') ELSE
 		SP_FROM_STACK(11 DOWNTO 0);
 
 		u61: memor PORT MAP(CLK, RST, ADDRESS_FROM_MUXING, SIGNALS_FROM_EMP(4),
 					DATA_FROM_MEMORY, SIGNALS_FROM_EMP(5),
 					DATA_FROM_MUXING, SIGNALS_FROM_EMP(6), SIGNALS_FROM_EMP(7));
+		-------------------------------------------------------------------------------------------------
 
-		------------------------------ MEMORY / WRITEBACK PIPELINE ------------------------------
-		u70: MemoryWriteback PORT MAP(CLK, RST,
-						SIGNALS_FROM_EMP, SIGNALS_FROM_MWP,
-						DATA_FROM_MEMORY, Rdst1Data_FROM_MWP,
-						Rdst2Data_FROM_EMP, Rdst2Data_FROM_MWP,
-						Rdst1Addr_FROM_EMP, Rdst1Addr_FROM_MWP,
-						Rdst2Addr_FROM_EMP, Rdst2Addr_FROM_MWP);
-
+		---------------------------------- MEMORY / WRITEBACK PIPELINE ----------------------------------
+		u70: MemoryWriteback PORT MAP(CLK, RST, SIGNALS_FROM_EMP, SIGNALS_FROM_MWP,
+				DATA_FROM_MEMORY, Rdst1Data_FROM_MWP, Rdst2Data_FROM_EMP, Rdst2Data_FROM_MWP,
+				Rdst1Addr_FROM_EMP, Rdst1Addr_FROM_MWP, Rdst2Addr_FROM_EMP, Rdst2Addr_FROM_MWP);
+		-------------------------------------------------------------------------------------------------
 
 END a_MIPS_Processor;
