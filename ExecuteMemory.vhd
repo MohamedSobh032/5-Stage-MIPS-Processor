@@ -8,8 +8,8 @@ ENTITY ExecuteMemory IS
 		RST : IN STD_LOGIC;
 		InData_NextPC     : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		OutData_NextPC    : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		InData_ConSignal  : IN  STD_LOGIC_VECTOR(16 DOWNTO 0);
-		OutData_ConSignal : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);
+		InData_ConSignal  : IN  STD_LOGIC_VECTOR(17 DOWNTO 0);
+		OutData_ConSignal : OUT STD_LOGIC_VECTOR(17 DOWNTO 0);
 		InData_ALUresult  : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		OutData_ALUresult : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		InData_Rsrc2Data  : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -17,16 +17,14 @@ ENTITY ExecuteMemory IS
 		InData_Rdst1Addr  : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
 		OutData_Rdst1Addr : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 		InData_Rdst2Addr  : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
-		OutData_Rdst2Addr : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-		InData_SP         : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
-		OutData_SP        : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+		OutData_Rdst2Addr : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
 	);
 END ExecuteMemory;
 
 ARCHITECTURE a_ExecuteMemory OF ExecuteMemory IS
 
 	SIGNAL NextPC    : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    	SIGNAL ConSignal : STD_LOGIC_VECTOR(16 DOWNTO 0);
+    	SIGNAL ConSignal : STD_LOGIC_VECTOR(17 DOWNTO 0);
 	SIGNAL ALUresult : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL Rsrc2Data : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL Rdst1Addr : STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -43,7 +41,6 @@ ARCHITECTURE a_ExecuteMemory OF ExecuteMemory IS
 				Rsrc2Data <= (OTHERS => '0');
 				Rdst1Addr <= (OTHERS => '0');
 				Rdst2Addr <= (OTHERS => '0');
-				SP        <= (OTHERS => '0');
 			ELSIF falling_edge(CLK) THEN
 				NextPC    <= InData_NextPC;
 				ConSignal <= InData_ConSignal;
@@ -51,7 +48,6 @@ ARCHITECTURE a_ExecuteMemory OF ExecuteMemory IS
 				Rsrc2Data <= InData_Rsrc2Data;
 				Rdst1Addr <= InData_Rdst1Addr;
 				Rdst2Addr <= InData_Rdst2Addr;
-				SP        <= InData_SP;
 			END IF;
 		END PROCESS;	
 		OutData_NextPC    <= NextPC;
@@ -60,5 +56,4 @@ ARCHITECTURE a_ExecuteMemory OF ExecuteMemory IS
 		OutData_Rsrc2Data <= Rsrc2Data;
 		OutData_Rdst1Addr <= Rdst1Addr;
 		OutData_Rdst2Addr <= Rdst2Addr;
-		OutData_SP        <= SP;
 END a_ExecuteMemory;

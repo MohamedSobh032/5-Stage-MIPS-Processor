@@ -28,7 +28,7 @@ ARCHITECTURE a_memor OF memor IS
 	-- (16) enable for specific address (PROTECT, FREE)
 	-- PROTECTED == 1 (prevent write if equals 1)
 	-- FREE == 0 (enable write operations if equal 0)
-	TYPE dm_type IS ARRAY(0 TO 4095) OF STD_LOGIC_VECTOR(16 DOWNTO 0);
+	TYPE dm_type IS ARRAY(0 TO 4096) OF STD_LOGIC_VECTOR(16 DOWNTO 0);
     	SIGNAL datamemory : dm_type;
 
 	BEGIN
@@ -47,7 +47,7 @@ ARCHITECTURE a_memor OF memor IS
     			                ReadData <= datamemory(to_integer(unsigned(Addr)+1))(15 DOWNTO 0)
 							& datamemory(to_integer(unsigned(Addr)))(15 DOWNTO 0);
 				ELSE
-					ReadData <= (OTHERS => '0');
+					ReadData <= WriteData;
     		  	        END IF;
 
     		            	IF (memWrite = '1') THEN

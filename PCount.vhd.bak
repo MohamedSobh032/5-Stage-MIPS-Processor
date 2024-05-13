@@ -12,11 +12,9 @@ ENTITY PCount IS
 END PCount;
 
 ARCHITECTURE a_PCount OF PCount IS
-
+	-- REGISTER --
     	SIGNAL PC : STD_LOGIC_VECTOR(31 DOWNTO 0);
-
 	BEGIN
-
 		PROCESS (CLK, RST)
 		BEGIN
 			IF (RST = '1') THEN
@@ -24,8 +22,6 @@ ARCHITECTURE a_PCount OF PCount IS
 			ELSIF rising_edge(CLK) THEN
 				PC <= NewValue;
 			END IF;
-		END PROCESS;
-		
+		END PROCESS;	
 		OutData <= PC;
-
 END a_PCount;
