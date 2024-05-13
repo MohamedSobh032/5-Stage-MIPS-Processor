@@ -4,9 +4,10 @@ USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY PCount IS
 	PORT (
-		CLK : IN STD_LOGIC;
-		RST : IN STD_LOGIC;
-		NewValue : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		CLK      : IN  STD_LOGIC;
+		RST      : IN  STD_LOGIC;
+		ResetVal : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
+		NewValue : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		Outdata  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END PCount;
@@ -19,7 +20,7 @@ ARCHITECTURE a_PCount OF PCount IS
 		PROCESS (CLK, RST)
 		BEGIN
 			IF (RST = '1') THEN
-				PC <= (OTHERS => '0');
+				PC <= ResetVal;
 			ELSIF rising_edge(CLK) THEN
 				PC <= NewValue;
 			END IF;

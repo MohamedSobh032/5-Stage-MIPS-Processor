@@ -32,23 +32,26 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	-- MAIN COMPONENTS -- 
 	COMPONENT PCount IS
 		PORT (
-			CLK : IN STD_LOGIC;
-			RST : IN STD_LOGIC;
-			NewValue : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			CLK      : IN  STD_LOGIC;
+			RST      : IN  STD_LOGIC;
+			ResetVal : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
+			NewValue : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 			Outdata  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 		);
 	END COMPONENT;
 	COMPONENT InstrCache IS
 		PORT (
-			CLK         : IN STD_LOGIC;
-			Addr        : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
-    			Instruction : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+			CLK          : IN  STD_LOGIC;
+			Addr         : IN  STD_LOGIC_VECTOR(11 DOWNTO 0);
+			ResetAddress : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    			Instruction  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 		);
 	END COMPONENT;
 	COMPONENT FetchDecode IS
 		PORT (
 			CLK : IN STD_LOGIC;
 			RST : IN STD_LOGIC;
+			FLUSH : IN STD_LOGIC;
 			InData_Instruction  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 			OutData_Instruction : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			InData_NextPC  : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -195,6 +198,7 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 
 	----------------------------------------- FETCH SIGNALS -----------------------------------------
 	SIGNAL PC                : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL RESET_ADDRESS     : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL NewPC             : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL CurrInstr_FROM_IC : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	-------------------------------------------------------------------------------------------------
@@ -225,28 +229,28 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 
 	----------------------------------------- EXECUTE SIGNALS ---------------------------------------
 	-- D/E REGISTER OUTPUTS
-	SIGNAL NextPC_FROM_DEP       : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL SIGNALS_FROM_DEP      : STD_LOGIC_VECTOR(17 DOWNTO 0);
-	SIGNAL ALUopCode_FROM_DEP    : STD_LOGIC_VECTOR(3 DOWNTO 0);
-	SIGNAL Rsrc1Data_FROM_DEP    : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL Rsrc2Data_FROM_DEP    : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL Rdst1Addr_FROM_DEP    : STD_LOGIC_VECTOR(2 DOWNTO 0);
-	SIGNAL Rdst2Addr_FROM_DEP    : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL NextPC_FROM_DEP      : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL SIGNALS_FROM_DEP     : STD_LOGIC_VECTOR(17 DOWNTO 0);
+	SIGNAL ALUopCode_FROM_DEP   : STD_LOGIC_VECTOR(3 DOWNTO 0);
+	SIGNAL Rsrc1Data_FROM_DEP   : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL Rsrc2Data_FROM_DEP   : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL Rdst1Addr_FROM_DEP   : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL Rdst2Addr_FROM_DEP   : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	-- ALU OUTPUTS
-	SIGNAL ALUresult_FROM_ALU : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL ALUflag_FROM_ALU   : STD_LOGIC_VECTOR(3 DOWNTO 0);
+	SIGNAL ALUresult_FROM_ALU   : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL ALUflag_FROM_ALU     : STD_LOGIC_VECTOR(3 DOWNTO 0);
 	-- HANDLING FUNCTIONS
 	SIGNAL DATA_OUT_FROM_MUXING : STD_LOGIC_VECTOR(31 DOWNTO 0); -- MULTIPLEX BETWEEN ALU AND INPORT
 	-------------------------------------------------------------------------------------------------
 
 	------------------------------------------ MEMORY SIGNALS ---------------------------------------
 	-- E/M REGISTER OUTPUTS
-	SIGNAL NextPC_FROM_EMP    : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL SIGNALS_FROM_EMP   : STD_LOGIC_VECTOR(17 DOWNTO 0);
-	SIGNAL ALUresult_FROM_EMP : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL Rdst2Data_FROM_EMP : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL Rdst1Addr_FROM_EMP : STD_LOGIC_VECTOR(2 DOWNTO 0);
-	SIGNAL Rdst2Addr_FROM_EMP : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL NextPC_FROM_EMP     : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL SIGNALS_FROM_EMP    : STD_LOGIC_VECTOR(17 DOWNTO 0);
+	SIGNAL ALUresult_FROM_EMP  : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL Rdst2Data_FROM_EMP  : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL Rdst1Addr_FROM_EMP  : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL Rdst2Addr_FROM_EMP  : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	-- HANDLING FUNCTIONS
 	SIGNAL SP_FROM_STACK       : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL ADDRESS_SELECTOR    : STD_LOGIC;
@@ -268,13 +272,13 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	BEGIN
 		
 		------------------------------------------ FETCH STAGE ------------------------------------------
-		u00: PCount PORT MAP(CLK, RST, NewPC, PC);
-		u02: InstrCache PORT MAP(CLK, PC(11 DOWNTO 0), CurrInstr_FROM_IC);
+		u00: PCount PORT MAP(CLK, RST, RESET_ADDRESS, NewPC, PC);
+		u02: InstrCache PORT MAP(CLK, PC(11 DOWNTO 0), RESET_ADDRESS, CurrInstr_FROM_IC);
 		NewPc <= std_logic_vector(unsigned(PC) + 1);
 		-------------------------------------------------------------------------------------------------
 
 		------------------------------------ FETCH / DECODE PIPELINE ------------------------------------
-		u10: FetchDecode PORT MAP(CLK, RST, CurrInstr_FROM_IC,
+		u10: FetchDecode PORT MAP(CLK, RST, SIGNALS_FROM_CONTROL(8), CurrInstr_FROM_IC,
 				CurrentInstr_FROM_FDP, NewPC, NextPC_FROM_FDP);
 		-------------------------------------------------------------------------------------------------
 
@@ -307,8 +311,7 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		-------------------------------------------------------------------------------------------------
 
 		----------------------------------- DECODE / EXECUTE PIPELINE -----------------------------------
-		u30: DecodeExecute PORT MAP(CLK, RST,
-					NextPC_FROM_FDP, NextPC_FROM_DEP,
+		u30: DecodeExecute PORT MAP(CLK, RST, NextPC_FROM_FDP, NextPC_FROM_DEP,
 					SIGNALS_FROM_CONTROL, SIGNALS_FROM_DEP,
 					ALUopCode_FROM_CONTROL, ALUopCode_FROM_DEP,
 					Rsrc1Data_FROM_RF, Rsrc1Data_FROM_DEP,

@@ -22,9 +22,6 @@ ENTITY DecodeExecute IS
 		InData_Rsrc2Data  : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
 		OutData_Rsrc2Data : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 
-		InData_Immediate  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-		OutData_Immediate : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-
 		InData_Rdst1Addr  : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 		OutData_Rdst1Addr : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 
@@ -40,7 +37,6 @@ ARCHITECTURE a_DecodeExecute OF DecodeExecute IS
 	SIGNAL ALUopCode : STD_LOGIC_VECTOR(3 DOWNTO 0);
 	SIGNAL Rsrc1Data : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL Rsrc2Data : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL Immediate : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	SIGNAL Rdst1Addr : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	SIGNAL Rdst2Addr : STD_LOGIC_VECTOR(2 DOWNTO 0);
 
@@ -53,7 +49,6 @@ ARCHITECTURE a_DecodeExecute OF DecodeExecute IS
 				ALUopCode <= (OTHERS => '0');
 				Rsrc1Data <= (OTHERS => '0');
 				Rsrc2Data <= (OTHERS => '0');
-				Immediate <= (OTHERS => '0');
 				Rdst1Addr <= (OTHERS => '0');
 				Rdst2Addr <= (OTHERS => '0');
 			ELSIF falling_edge(CLK) THEN
@@ -62,7 +57,6 @@ ARCHITECTURE a_DecodeExecute OF DecodeExecute IS
 				ALUopCode <= InData_ALUopCode;
 				Rsrc1Data <= InData_Rsrc1Data;
 				Rsrc2Data <= InData_Rsrc2Data;
-				Immediate <= InData_Immediate;
 				Rdst1Addr <= InData_Rdst1Addr;
 				Rdst2Addr <= InData_Rdst2Addr;
 			END IF;
@@ -72,7 +66,6 @@ ARCHITECTURE a_DecodeExecute OF DecodeExecute IS
 		OutData_ALUopCode <= ALUopCode;
 		OutData_Rsrc1Data <= Rsrc1Data;
 		OutData_Rsrc2Data <= Rsrc2Data;
-		OutData_Immediate <= Immediate;
 		OutData_Rdst1Addr <= Rdst1Addr;
 		OutData_Rdst2Addr <= Rdst2Addr;
 END a_DecodeExecute;
