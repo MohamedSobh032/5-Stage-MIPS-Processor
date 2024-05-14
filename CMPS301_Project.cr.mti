@@ -1,4 +1,13 @@
-{C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd}
+{C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity DataForwardUnit
+-- Compiling architecture a_DataForwardUnit of DataForwardUnit
+
+} {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -86,15 +95,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package NUMERIC_STD
 -- Compiling entity StackPointer
 -- Compiling architecture a_StackPointer of StackPointer
-
-} {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MIPS_Processor.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MIPS_Processor.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity MIPS_Processor
--- Compiling architecture a_MIPS_Processor of MIPS_Processor
 
 } {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/SignExtender.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/SignExtender.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
