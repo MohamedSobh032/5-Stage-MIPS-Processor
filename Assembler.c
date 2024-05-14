@@ -177,7 +177,7 @@ int Assembler(char* str, char* out)
     }
     else if(!strcmp(op,"11111"))
     {
-        int decimal1; //93028   
+        int decimal1;
         sscanf(Rd, "%x", &decimal1);
 
 
@@ -371,6 +371,11 @@ void organize()
         initZString(Rd,3);initString(R2,3);
     }
     else if(!strcmp(op, "10110"))
+    {
+        strcpy(R1,Rd);
+        initZString(Rd,3);initZString(R2,3);
+    }
+    else if (!strcmp(op,"11001"))
     {
         strcpy(R1,Rd);
         initZString(Rd,3);initZString(R2,3);
