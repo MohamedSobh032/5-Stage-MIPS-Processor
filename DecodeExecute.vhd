@@ -6,12 +6,13 @@ ENTITY DecodeExecute IS
 	PORT (
 		CLK : IN STD_LOGIC;
 		RST : IN STD_LOGIC;
+		PAUSE : IN STD_LOGIC;
 
 		InData_NextPC     : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
 		OutData_NextPC    : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 
-		InData_ConSignal  : IN STD_LOGIC_VECTOR(17 DOWNTO 0);
-		OutData_ConSignal : OUT STD_LOGIC_VECTOR(17 DOWNTO 0);
+		InData_ConSignal  : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
+		OutData_ConSignal : OUT STD_LOGIC_VECTOR(19 DOWNTO 0);
 
 		InData_ALUopCode  : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 		OutData_ALUopCode : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -42,7 +43,7 @@ END DecodeExecute;
 ARCHITECTURE a_DecodeExecute OF DecodeExecute IS
 
 	SIGNAL NextPC    : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    	SIGNAL ConSignal : STD_LOGIC_VECTOR(17 DOWNTO 0);
+    	SIGNAL ConSignal : STD_LOGIC_VECTOR(19 DOWNTO 0);
 	SIGNAL ALUopCode : STD_LOGIC_VECTOR(3 DOWNTO 0);
 	SIGNAL Rsrc1Addr : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	SIGNAL Rsrc1Data : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -67,16 +68,18 @@ ARCHITECTURE a_DecodeExecute OF DecodeExecute IS
 				Rdst1Addr <= (OTHERS => '0');
 				Rdst2Addr <= (OTHERS => '0');
 			ELSIF falling_edge(CLK) THEN
-				NextPC    <= InData_NextPC;
-				ConSignal <= InData_ConSignal;
-				ALUopCode <= InData_ALUopCode;
-				Rsrc1Addr <= InData_Rsrc1Addr;
-				Rsrc1Data <= InData_Rsrc1Data;
-				Rsrc2Addr <= InData_Rsrc2Addr;
-				Rsrc2Data <= InData_Rsrc2Data;
-				Immediate <= InData_Immediate;
-				Rdst1Addr <= InData_Rdst1Addr;
-				Rdst2Addr <= InData_Rdst2Addr;
+				IF (PAUSE = '0') THEN
+					NextPC    <= InData_NextPC;
+					ConSignal <= InData_ConSignal;
+					ALUopCode <= InData_ALUopCode;
+					Rsrc1Addr <= InData_Rsrc1Addr;
+					Rsrc1Data <= InData_Rsrc1Data;
+					Rsrc2Addr <= InData_Rsrc2Addr;
+					Rsrc2Data <= InData_Rsrc2Data;
+					Immediate <= InData_Immediate;
+					Rdst1Addr <= InData_Rdst1Addr;
+					Rdst2Addr <= InData_Rdst2Addr;
+				END IF;
 			END IF;
 		END PROCESS;	
 		OutData_NextPC    <= NextPC;

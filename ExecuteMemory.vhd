@@ -6,10 +6,11 @@ ENTITY ExecuteMemory IS
 	PORT (
 		CLK : IN STD_LOGIC;
 		RST : IN STD_LOGIC;
+		FLUSH : IN STD_LOGIC;
 		InData_NextPC     : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		OutData_NextPC    : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		InData_ConSignal  : IN  STD_LOGIC_VECTOR(17 DOWNTO 0);
-		OutData_ConSignal : OUT STD_LOGIC_VECTOR(17 DOWNTO 0);
+		InData_ConSignal  : IN  STD_LOGIC_VECTOR(19 DOWNTO 0);
+		OutData_ConSignal : OUT STD_LOGIC_VECTOR(19 DOWNTO 0);
 		InData_ALUresult  : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		OutData_ALUresult : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		InData_Rsrc2Data  : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -24,7 +25,7 @@ END ExecuteMemory;
 ARCHITECTURE a_ExecuteMemory OF ExecuteMemory IS
 
 	SIGNAL NextPC    : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    	SIGNAL ConSignal : STD_LOGIC_VECTOR(17 DOWNTO 0);
+    	SIGNAL ConSignal : STD_LOGIC_VECTOR(19 DOWNTO 0);
 	SIGNAL ALUresult : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL Rsrc2Data : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL Rdst1Addr : STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -42,12 +43,21 @@ ARCHITECTURE a_ExecuteMemory OF ExecuteMemory IS
 				Rdst1Addr <= (OTHERS => '0');
 				Rdst2Addr <= (OTHERS => '0');
 			ELSIF falling_edge(CLK) THEN
-				NextPC    <= InData_NextPC;
-				ConSignal <= InData_ConSignal;
-				ALUresult <= InData_ALUresult;
-				Rsrc2Data <= InData_Rsrc2Data;
-				Rdst1Addr <= InData_Rdst1Addr;
-				Rdst2Addr <= InData_Rdst2Addr;
+				IF (FLUSH = '1') THEN
+					NextPC    <= (OTHERS => '0');
+					ConSignal <= (OTHERS => '0');
+					ALUresult <= (OTHERS => '0');
+					Rsrc2Data <= (OTHERS => '0');
+					Rdst1Addr <= (OTHERS => '0');
+					Rdst2Addr <= (OTHERS => '0');
+				ELSE
+					NextPC    <= InData_NextPC;
+					ConSignal <= InData_ConSignal;
+					ALUresult <= InData_ALUresult;
+					Rsrc2Data <= InData_Rsrc2Data;
+					Rdst1Addr <= InData_Rdst1Addr;
+					Rdst2Addr <= InData_Rdst2Addr;
+				END IF;
 			END IF;
 		END PROCESS;	
 		OutData_NextPC    <= NextPC;

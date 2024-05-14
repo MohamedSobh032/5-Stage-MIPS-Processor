@@ -6,7 +6,10 @@ ENTITY PCount IS
 	PORT (
 		CLK      : IN  STD_LOGIC;
 		RST      : IN  STD_LOGIC;
+		INT      : IN  STD_LOGIC;
+		PAUSE    : IN  STD_LOGIC;
 		ResetVal : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
+		IntptVal : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		NewValue : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		Outdata  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
@@ -21,8 +24,12 @@ ARCHITECTURE a_PCount OF PCount IS
 		BEGIN
 			IF (RST = '1') THEN
 				PC <= ResetVal;
+			ELSIF (INT = '1') THEN
+				PC <= IntptVal;
 			ELSIF rising_edge(CLK) THEN
-				PC <= NewValue;
+				IF (PAUSE = '0') THEN
+					PC <= NewValue;
+				END IF;
 			END IF;
 		END PROCESS;	
 		OutData <= PC;

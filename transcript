@@ -1,24 +1,26 @@
+# Reading C:/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# OpenFile {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MIPS_Processor.vhd}
 do Ph1test.do
 # vsim -gui work.mips_processor 
-# Start time: 00:00:26 on May 03,2024
+# Start time: 22:59:37 on May 14,2024
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading work.mips_processor(a_mips_processor)
 # Loading work.pcount(a_pcount)
-# Loading work.stackpointer(a_stackpointer)
 # Loading work.instrcache(a_instrcache)
-# Loading work.fetchcontrol(a_fetchcontrol)
 # Loading work.fetchdecode(a_fetchdecode)
 # Loading work.registerfile(a_registerfile)
 # Loading work.controlunit(a_controlunit)
-# Loading work.decodeexecute(a_decodeexecute)
 # Loading work.signextender(a_signextender)
+# Loading work.decodeexecute(a_decodeexecute)
+# Loading work.dataforwardunit(a_dataforwardunit)
 # Loading work.ouralu(a_ouralu)
 # Loading work.ccr(a_ccr)
 # Loading work.outreg(a_outreg)
 # Loading work.executememory(a_executememory)
+# Loading work.stackpointer(a_stackpointer)
 # Loading work.memor(a_memor)
 # Loading work.memorywriteback(a_memorywriteback)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -26,25 +28,28 @@ do Ph1test.do
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /mips_processor/u20
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /mips_processor/u02
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /mips_processor/u02
+#    Time: 0 ps  Iteration: 0  Instance: /mips_processor/u01
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 1  Instance: /mips_processor/u20
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 1  Instance: /mips_processor/u20
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 50 ps  Iteration: 0  Instance: /mips_processor/u01
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -43692 is not in bounds of subtype NATURAL.
+#    Time: 1 ns  Iteration: 2  Instance: /mips_processor/u41
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2 is not in bounds of subtype NATURAL.
-#    Time: 1400 ps  Iteration: 2  Instance: /mips_processor/u41
+#    Time: 1 ns  Iteration: 2  Instance: /mips_processor/u41
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2 is not in bounds of subtype NATURAL.
-#    Time: 1500 ps  Iteration: 2  Instance: /mips_processor/u41
+#    Time: 1600 ps  Iteration: 2  Instance: /mips_processor/u41
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2 is not in bounds of subtype NATURAL.
-#    Time: 1500 ps  Iteration: 3  Instance: /mips_processor/u41
+#    Time: 1600 ps  Iteration: 2  Instance: /mips_processor/u41
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2 is not in bounds of subtype NATURAL.
-#    Time: 1500 ps  Iteration: 3  Instance: /mips_processor/u41
+#    Time: 1600 ps  Iteration: 2  Instance: /mips_processor/u41
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2 is not in bounds of subtype NATURAL.
-#    Time: 1500 ps  Iteration: 4  Instance: /mips_processor/u41
+#    Time: 1600 ps  Iteration: 2  Instance: /mips_processor/u41
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2 is not in bounds of subtype NATURAL.
-#    Time: 1500 ps  Iteration: 4  Instance: /mips_processor/u41
+#    Time: 1600 ps  Iteration: 3  Instance: /mips_processor/u41
 quit -sim
-# End time: 00:00:56 on May 03,2024, Elapsed time: 0:00:30
-# Errors: 0, Warnings: 12
+# End time: 22:59:50 on May 14,2024, Elapsed time: 0:00:13
+# Errors: 0, Warnings: 13
+cd {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project}

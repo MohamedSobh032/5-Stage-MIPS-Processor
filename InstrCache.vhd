@@ -7,6 +7,7 @@ ENTITY InstrCache IS
 		CLK          : IN  STD_LOGIC;
 		Addr         : IN  STD_LOGIC_VECTOR(11 DOWNTO 0);
 		ResetAddress : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		IntptAddress : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     		Instruction  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
     	);
 END InstrCache;
@@ -17,6 +18,7 @@ ARCHITECTURE a_InstrCache OF InstrCache IS
     	SIGNAL instructioncache : ic_type;
 
 	BEGIN
+		IntptAddress <= instructioncache(3) & instructioncache(2);
 		ResetAddress <= instructioncache(1) & instructioncache(0);
 		PROCESS (CLK)
 		BEGIN

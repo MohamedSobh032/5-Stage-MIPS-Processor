@@ -7,10 +7,9 @@ ENTITY FetchDecode IS
 		CLK   : IN STD_LOGIC;
 		RST   : IN STD_LOGIC;
 		FLUSH : IN STD_LOGIC;
-
+		PAUSE : IN STD_LOGIC;
 		InData_Instruction  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 		OutData_Instruction : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-
 		InData_NextPC  : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
 		OutData_NextPC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
@@ -32,7 +31,7 @@ ARCHITECTURE a_FetchDecode OF FetchDecode IS
 				IF (FLUSH = '1') THEN
 					Instruction <= (OTHERS => '0');
 					NextPC      <= (OTHERS => '0');
-				ELSE
+				ELSIF (PAUSE = '0') THEN 
 					Instruction <= InData_Instruction;
 					NextPC      <= InData_NextPC;
 				END IF;
