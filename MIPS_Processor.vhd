@@ -240,7 +240,7 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	SIGNAL ALUresult_FROM_ALU   : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL ALUflag_FROM_ALU     : STD_LOGIC_VECTOR(3 DOWNTO 0);
 	-- HANDLING FUNCTIONS
-	SIGNAL DATA_OUT_FROM_MUXING : STD_LOGIC_VECTOR(31 DOWNTO 0); -- MULTIPLEX BETWEEN ALU AND INPORT
+	SIGNAL DATA_OUT_FROM_MUXING : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	-------------------------------------------------------------------------------------------------
 
 	------------------------------------------ MEMORY SIGNALS ---------------------------------------
@@ -273,7 +273,7 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		
 		------------------------------------------ FETCH STAGE ------------------------------------------
 		u00: PCount PORT MAP(CLK, RST, RESET_ADDRESS, NewPC, PC);
-		u02: InstrCache PORT MAP(CLK, PC(11 DOWNTO 0), RESET_ADDRESS, CurrInstr_FROM_IC);
+		u01: InstrCache PORT MAP(CLK, PC(11 DOWNTO 0), RESET_ADDRESS, CurrInstr_FROM_IC);
 		NewPc <= std_logic_vector(unsigned(PC) + 1);
 		-------------------------------------------------------------------------------------------------
 
@@ -321,12 +321,12 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		-------------------------------------------------------------------------------------------------
 
 		----------------------------------------- EXECUTE STAGE -----------------------------------------
-		u41: OurALU PORT MAP(CLK, ALUopCode_FROM_DEP, Rsrc1Data_FROM_DEP, Rsrc2Data_FROM_DEP,
+		u40: OurALU PORT MAP(CLK, ALUopCode_FROM_DEP, Rsrc1Data_FROM_DEP, Rsrc2Data_FROM_DEP,
 					ALUresult_FROM_ALU, ALUflag_FROM_ALU);
 
-		u42: CCR PORT MAP(CLK, RST, SIGNALS_FROM_DEP(2), SIGNALS_FROM_DEP(3), ALUflag_FROM_ALU, FLAGS);
+		u41: CCR PORT MAP(CLK, RST, SIGNALS_FROM_DEP(2), SIGNALS_FROM_DEP(3), ALUflag_FROM_ALU, FLAGS);
 
-		u43: OutReg PORT MAP(CLK, RST, SIGNALS_FROM_DEP(13), Rsrc1Data_FROM_DEP, OUTPORT);
+		u42: OutReg PORT MAP(CLK, RST, SIGNALS_FROM_DEP(13), Rsrc1Data_FROM_DEP, OUTPORT);
 
 		DATA_OUT_FROM_MUXING <= ALUresult_FROM_ALU WHEN (SIGNALS_FROM_DEP(14) = '0') ELSE INPORT;
 		-------------------------------------------------------------------------------------------------
