@@ -6,6 +6,7 @@ ENTITY DecodeExecute IS
 	PORT (
 		CLK : IN STD_LOGIC;
 		RST : IN STD_LOGIC;
+		FLUSH : IN STD_LOGIC;
 		PAUSE : IN STD_LOGIC;
 
 		InData_NextPC     : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -68,7 +69,18 @@ ARCHITECTURE a_DecodeExecute OF DecodeExecute IS
 				Rdst1Addr <= (OTHERS => '0');
 				Rdst2Addr <= (OTHERS => '0');
 			ELSIF falling_edge(CLK) THEN
-				IF (PAUSE = '0') THEN
+				IF (FLUSH = '1') THEN
+					NextPC    <= (OTHERS => '0');
+					ConSignal <= (OTHERS => '0');
+					ALUopCode <= (OTHERS => '0');
+					Rsrc1Addr <= (OTHERS => '0');
+					Rsrc1Data <= (OTHERS => '0');
+					Rsrc2Addr <= (OTHERS => '0');
+					Rsrc2Data <= (OTHERS => '0');
+					Immediate <= (OTHERS => '0');
+					Rdst1Addr <= (OTHERS => '0');
+					Rdst2Addr <= (OTHERS => '0');
+				ELSIF (PAUSE = '0') THEN
 					NextPC    <= InData_NextPC;
 					ConSignal <= InData_ConSignal;
 					ALUopCode <= InData_ALUopCode;
