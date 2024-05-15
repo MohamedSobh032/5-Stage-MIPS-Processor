@@ -375,7 +375,7 @@ void organize()
         strcpy(R1,Rd);
         initZString(Rd,3);initZString(R2,3);
     }
-    else if (!strcmp(op,"11001"))
+    else if (!strcmp(op,"11001") || !strcmp(op,"11000"))
     {
         strcpy(R1,Rd);
         initZString(Rd,3);initZString(R2,3);
