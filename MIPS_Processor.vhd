@@ -241,6 +241,22 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 			FlagOut : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
 		);
 	END COMPONENT;
+	COMPONENT BranchPredictor IS
+		Port (
+			clk : in STD_LOGIC;
+			branch_taken : in STD_LOGIC;
+			is_jump : in STD_LOGIC;
+			pc_current : in STD_LOGIC_VECTOR (31 downto 0);
+			branch_target : in STD_LOGIC_VECTOR (31 downto 0);
+			prev_dest_reg : in STD_LOGIC_VECTOR (2 downto 0);
+			curr_src_reg : in STD_LOGIC_VECTOR (2 downto 0);
+			prediction : out STD_LOGIC;
+			mispredict : out STD_LOGIC;
+			ist_taken  : out std_logic;
+			PC_OUT : OUT STD_LOGIC_VECTOR (31 downto 0);
+			PC_old : OUT STD_LOGIC_VECTOR (31 downto 0)
+		);
+	END COMPONENT;
 	-------------------------------------------------------------------------------------------------
 
 	----------------------------------------- FETCH SIGNALS -----------------------------------------
@@ -251,7 +267,13 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	SIGNAL NewPC_FROM_MUXING : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL CurrInstr_FROM_IC : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	-------------------------------------------------------------------------------------------------
-
+	-- 1-bit global branch prediction--
+	SIGNAL Predict				    : STD_LOGIC := '0';		--START BY PREDICT TAKEN
+	SIGNAL PREDICT_OUT      		: STD_LOGIC;
+	SIGNAL MISPREDICTION			: STD_LOGIC;
+	SIGNAL taken_now				: STD_LOGIC;
+	SIGNAL PC_IF_WRONG_PREDICTION 	: STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL PC_AFTER_PREDICTION 		: STD_LOGIC_VECTOR(31 DOWNTO 0);
 	----------------------------------------- DECODE SIGNALS ----------------------------------------
 	-- F/D REGISTER OUTPUTS
 	SIGNAL FETCH_DECODE_FLUSHER          : STD_LOGIC;
@@ -340,7 +362,10 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 				RESET_ADDRESS, INTERRUPT_ADDRESS, NewPC_FROM_MUXING, PC);
 		u01: InstrCache PORT MAP(CLK, PC(11 DOWNTO 0), RESET_ADDRESS, INTERRUPT_ADDRESS, CurrInstr_FROM_IC);
 		NewPC <= std_logic_vector(unsigned(PC) + 1);
-		NewPC_FROM_MUXING <= Rsrc1Data_FROM_DFU WHEN (CHANGE_PC_FROM_EXECUTE = '1') ELSE NewPC;
+		--NewPC_FROM_MUXING <= Rsrc1Data_FROM_DFU WHEN (CHANGE_PC_FROM_EXECUTE = '1') ELSE NewPC;
+		NewPC_FROM_MUXING <= Rsrc1Data_FROM_DFU WHEN (CHANGE_PC_FROM_EXECUTE = '1') ELSE
+							PC_IF_WRONG_PREDICTION WHEN (MISPREDICTION = '1') ELSE 
+							PC_AFTER_PREDICTION WHEN (taken_now = '1') ELSE NewPC;
 		-------------------------------------------------------------------------------------------------
 
 		------------------------------------ FETCH / DECODE PIPELINE ------------------------------------
@@ -364,6 +389,11 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 
 		u21: ControlUnit PORT MAP(OpCode_DIV_CurrInstr, SIGNALS_FROM_CONTROL,
 						ALUopCode_FROM_CONTROL);
+		-- branch prediction --
+		u25: BranchPredictor PORT MAP(CLK, Predict, SIGNALS_FROM_CONTROL(10),NewPC, Rsrc1Data_FROM_RF,
+					Rdst1Addr_FROM_DEP,Rsrc1Addr_DIV_CurrInstr,
+					PREDICT_OUT, MISPREDICTION, taken_now, PC_AFTER_PREDICTION, PC_IF_WRONG_PREDICTION);
+		FETCH_DECODE_FLUSHER <= MISPREDICTION;
 
 		Rdst1Addr_FROM_MUXING <= RdstAddr_DIV_CurrInstr WHEN (SIGNALS_FROM_CONTROL(1) = '0')
 		ELSE Rsrc2Addr_DIV_CurrInstr;
@@ -417,8 +447,8 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		DATA_OUT_FROM_MUXING <= ALUresult_FROM_ALU WHEN (SIGNALS_FROM_DEP(14) = '0') ELSE INPORT;
 
 		-- HANDLING JUMPS
-		ZERO_JUMP_FROM_MEMORY <= SIGNALS_FROM_DEP(10) and SIGNALS_FROM_EMP(2) and FLAGS_FROM_EMP(0);
-		CHANGE_PC_FROM_EXECUTE <= ZERO_JUMP_FROM_MEMORY or SIGNALS_FROM_DEP(9);
+		ZERO_JUMP_FROM_MEMORY <= SIGNALS_FROM_DEP(10) and SIGNALS_FROM_EMP(2) and FLAGS_FROM_EMP(0);		
+		CHANGE_PC_FROM_EXECUTE <= ZERO_JUMP_FROM_MEMORY or SIGNALS_FROM_DEP(9);   
 		-------------------------------------------------------------------------------------------------
 	
 		----------------------------------- EXECUTE / MEMORY PIPELINE -----------------------------------
