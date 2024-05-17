@@ -290,19 +290,22 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	END COMPONENT;
 	COMPONENT BranchPredictor IS
 		Port (
-			clk : in STD_LOGIC;
-			branch_taken : in STD_LOGIC;
-			is_jump : in STD_LOGIC;
-			pc_current : in STD_LOGIC_VECTOR (31 downto 0);
-			branch_target : in STD_LOGIC_VECTOR (31 downto 0);
-			prev_dest_reg : in STD_LOGIC_VECTOR (2 downto 0);
-			curr_src_reg : in STD_LOGIC_VECTOR (2 downto 0);
-			prediction : out STD_LOGIC;
-			mispredict : out STD_LOGIC;
-			ist_taken  : out std_logic;
-			PC_OUT : OUT STD_LOGIC_VECTOR (31 downto 0);
-			PC_old : OUT STD_LOGIC_VECTOR (31 downto 0)
-		);
+        		clk : in STD_LOGIC;
+       		 	branch_taken : in STD_LOGIC;
+        		prev_miss : in std_logic;
+        		is_jump : in STD_LOGIC;
+		    	true_branch_value : in STD_LOGIC; 		--if equal to branch taken then correct prediction else misprediction
+        		pc_current : in STD_LOGIC_VECTOR (31 downto 0);
+        		branch_target : in STD_LOGIC_VECTOR (31 downto 0);
+	    		prev2_dest_reg : in STD_LOGIC_VECTOR (2 downto 0);
+        		prev_dest_reg : in STD_LOGIC_VECTOR (2 downto 0);
+        		curr_src_reg : in STD_LOGIC_VECTOR (2 downto 0);
+        		prediction : out STD_LOGIC;
+       		 	mispredict : out STD_LOGIC;
+        		ist_taken  : out std_logic;
+        		PC_OUT : OUT STD_LOGIC_VECTOR (31 downto 0);
+        		PC_old : OUT STD_LOGIC_VECTOR (31 downto 0)
+    		);
 	END COMPONENT;
 	-------------------------------------------------------------------------------------------------
 
@@ -318,6 +321,7 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	-- 1-bit global branch prediction--
 	SIGNAL Predict				: STD_LOGIC := '0';--START BY PREDICT TAKEN
 	SIGNAL PREDICT_OUT      		: STD_LOGIC;
+	SIGNAL PREV_MISS			: STD_LOGIC := '0';
 	SIGNAL MISPREDICTION			: STD_LOGIC;
 	SIGNAL taken_now			: STD_LOGIC;
 	SIGNAL PC_IF_WRONG_PREDICTION 		: STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -455,11 +459,12 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 
 		u21: ControlUnit PORT MAP(OpCode_DIV_CurrInstr, SIGNALS_FROM_CONTROL,
 						ALUopCode_FROM_CONTROL);
-		-- branch prediction --
-		u25: BranchPredictor PORT MAP(CLK, Predict, SIGNALS_FROM_CONTROL(10),NewPC, Rsrc1Data_FROM_RF,
-					Rdst1Addr_FROM_DEP,Rsrc1Addr_DIV_CurrInstr,
-					PREDICT_OUT, MISPREDICTION, taken_now,
-					PC_AFTER_PREDICTION, PC_IF_WRONG_PREDICTION);
+		u25: BranchPredictor PORT MAP(CLK, Predict, PREV_MISS, SIGNALS_FROM_CONTROL(10),ZERO_JUMP_FROM_MEMORY, 
+					NewPC, Rsrc1Data_FROM_RF,
+					Rdst1Addr_FROM_EMP, Rdst1Addr_FROM_DEP, Rsrc1Addr_DIV_CurrInstr,
+					PREDICT_OUT, MISPREDICTION, taken_now, PC_AFTER_PREDICTION, PC_IF_WRONG_PREDICTION);
+		PREV_MISS <= MISPREDICTION;
+		Predict <= PREDICT_OUT;
 
 		Rdst1Addr_FROM_MUXING <= RdstAddr_DIV_CurrInstr WHEN (SIGNALS_FROM_CONTROL(1) = '0')
 		ELSE Rsrc2Addr_DIV_CurrInstr;
@@ -519,8 +524,6 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 					ALUflag_FROM_ALU, FLAG_FROM_CCR);
 		FLAGS <= FLAG_FROM_CCR;
 
-		u44: OutReg PORT MAP(CLK, RST, SIGNALS_FROM_DEP(13), Rsrc1Data_FROM_DEP, OUTPORT);
-
 		DATA_OUT_FROM_MUXING <= ALUresult_FROM_ALU WHEN (SIGNALS_FROM_DEP(14) = '0') ELSE INPORT;
 
 		-- HANDLING JUMPS
@@ -572,6 +575,8 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 				DATA_FROM_MEMORY, Rdst1Data_FROM_MWP, Rdst2Data_FROM_EMP, Rdst2Data_FROM_MWP,
 				Rdst1Addr_FROM_EMP, Rdst1Addr_FROM_MWP, Rdst2Addr_FROM_EMP, Rdst2Addr_FROM_MWP,
 						CurrentPC_FROM_EMP, CurrentPC_FROM_MWP);
+
+		u44: OutReg PORT MAP(CLK, RST, SIGNALS_FROM_MWP(13), Rdst1Data_FROM_MWP, OUTPORT);
 		-------------------------------------------------------------------------------------------------
 
 END a_MIPS_Processor;	
