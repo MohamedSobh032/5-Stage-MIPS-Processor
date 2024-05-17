@@ -6,7 +6,8 @@ ENTITY MIPS_Processor IS
 	PORT (
 		CLK     : IN  STD_LOGIC;
 		RST     : IN  STD_LOGIC;
-		INT		: IN STD_LOGIC;
+		INT     : IN  STD_LOGIC;
+		EXCP    : OUT STD_LOGIC;
 		INPORT  : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		OUTPORT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		R0      : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -35,9 +36,11 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 			CLK      : IN  STD_LOGIC;
 			RST      : IN  STD_LOGIC;
 			INT      : IN  STD_LOGIC;
+			EXCP     : IN  STD_LOGIC;
 			PAUSE    : IN  STD_LOGIC;
 			ResetVal : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 			IntptVal : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
+			EXCPVal  : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 			NewValue : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 			Outdata  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 		);
@@ -48,7 +51,9 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 			Addr         : IN  STD_LOGIC_VECTOR(11 DOWNTO 0);
 			ResetAddress : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 			IntptAddress : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-    		Instruction  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+
+			ExcptAddress : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    			Instruction  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 		);
 	END COMPONENT;
 	COMPONENT FetchDecode IS
@@ -200,6 +205,14 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 			SP_OUTPUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 		);
 	END COMPONENT;
+	COMPONENT ExceptionUnit IS
+		PORT (
+			Address      : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			MEM_READ     : IN STD_LOGIC;
+			MEM_WRITE    : IN STD_LOGIC;
+			ExceptionOut : OUT STD_LOGIC
+    		);
+	END COMPONENT;
 	COMPONENT memor IS
 		PORT (
 			CLK : IN STD_LOGIC;
@@ -251,16 +264,40 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 			FlagOut : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
 		);
 	END COMPONENT;
+	COMPONENT BranchPredictor IS
+		Port (
+			clk : in STD_LOGIC;
+			branch_taken : in STD_LOGIC;
+			is_jump : in STD_LOGIC;
+			pc_current : in STD_LOGIC_VECTOR (31 downto 0);
+			branch_target : in STD_LOGIC_VECTOR (31 downto 0);
+			prev_dest_reg : in STD_LOGIC_VECTOR (2 downto 0);
+			curr_src_reg : in STD_LOGIC_VECTOR (2 downto 0);
+			prediction : out STD_LOGIC;
+			mispredict : out STD_LOGIC;
+			ist_taken  : out std_logic;
+			PC_OUT : OUT STD_LOGIC_VECTOR (31 downto 0);
+			PC_old : OUT STD_LOGIC_VECTOR (31 downto 0)
+		);
+	END COMPONENT;
 	-------------------------------------------------------------------------------------------------
 
 	----------------------------------------- FETCH SIGNALS -----------------------------------------
 	SIGNAL PC                : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL RESET_ADDRESS     : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL INTERRUPT_ADDRESS : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL EXCEPTION_ADDRESS : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL NewPC             : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL NewPC_FROM_MUXING : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL CurrInstr_FROM_IC : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	-------------------------------------------------------------------------------------------------
+	-- 1-bit global branch prediction--
+	SIGNAL Predict				: STD_LOGIC := '0';		--START BY PREDICT TAKEN
+	SIGNAL PREDICT_OUT      		: STD_LOGIC;
+	SIGNAL MISPREDICTION			: STD_LOGIC;
+	SIGNAL taken_now			: STD_LOGIC;
+	SIGNAL PC_IF_WRONG_PREDICTION 		: STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL PC_AFTER_PREDICTION 		: STD_LOGIC_VECTOR(31 DOWNTO 0);
 
 	----------------------------------------- DECODE SIGNALS ----------------------------------------
 	-- F/D REGISTER OUTPUTS
@@ -311,6 +348,8 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	-- ALU OUTPUTS
 	SIGNAL ALUresult_FROM_ALU    : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL ALUflag_FROM_ALU      : STD_LOGIC_VECTOR(3 DOWNTO 0);
+	-- FLAGS
+	SIGNAL FLAG_FROM_CCR         : STD_LOGIC_VECTOR(3 DOWNTO 0);
 	-- HANDLING FUNCTIONS
 	SIGNAL DATA_OUT_FROM_MUXING  : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	-- JUMPING FUNCTIONS
@@ -329,6 +368,8 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	SIGNAL Rdst1Addr_FROM_EMP  : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	SIGNAL Rdst2Addr_FROM_EMP  : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	-- HANDLING FUNCTIONS
+	SIGNAL EXCEPTION_FROM_EU   : STD_LOGIC;
+	SIGNAL FULL_EXCEPTION      : STD_LOGIC;
 	SIGNAL SP_FROM_STACK       : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL SP_FROM_MUXING	   : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL ADDRESS_SELECTOR    : STD_LOGIC;
@@ -353,11 +394,17 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	BEGIN
 		
 		------------------------------------------ FETCH STAGE ------------------------------------------
-		u00: PCount PORT MAP(CLK, RST, INT, STALL_AND_FLUSH_FROM_MEMUSE,
-		RESET_ADDRESS, INTERRUPT_ADDRESS, NewPC_FROM_MUXING, PC);
-		u01: InstrCache PORT MAP(CLK, PC(11 DOWNTO 0), RESET_ADDRESS, INTERRUPT_ADDRESS, CurrInstr_FROM_IC);
+
+		u00: PCount PORT MAP(CLK, RST, INT, FULL_EXCEPTION, STALL_AND_FLUSH_FROM_MEMUSE,
+				RESET_ADDRESS, INTERRUPT_ADDRESS, EXCEPTION_ADDRESS,
+						NewPC_FROM_MUXING, PC);
+
+		u01: InstrCache PORT MAP(CLK, PC(11 DOWNTO 0), RESET_ADDRESS, INTERRUPT_ADDRESS,
+				EXCEPTION_ADDRESS, CurrInstr_FROM_IC);
 		NewPC <= std_logic_vector(unsigned(PC) + 1);
-		NewPC_FROM_MUXING <= Rsrc1Data_FROM_DFU WHEN (CHANGE_PC_FROM_EXECUTE = '1') ELSE NewPC;
+		NewPC_FROM_MUXING <= Rsrc1Data_FROM_DFU WHEN (CHANGE_PC_FROM_EXECUTE = '1') ELSE
+							PC_IF_WRONG_PREDICTION WHEN (MISPREDICTION = '1') ELSE 
+							PC_AFTER_PREDICTION WHEN (taken_now = '1') ELSE NewPC;
 		-------------------------------------------------------------------------------------------------
 
 		------------------------------------ FETCH / DECODE PIPELINE ------------------------------------
@@ -381,6 +428,11 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 
 		u21: ControlUnit PORT MAP(OpCode_DIV_CurrInstr, SIGNALS_FROM_CONTROL,
 						ALUopCode_FROM_CONTROL);
+		-- branch prediction --
+		u25: BranchPredictor PORT MAP(CLK, Predict, SIGNALS_FROM_CONTROL(10),NewPC, Rsrc1Data_FROM_RF,
+					Rdst1Addr_FROM_DEP,Rsrc1Addr_DIV_CurrInstr,
+					PREDICT_OUT, MISPREDICTION, taken_now, PC_AFTER_PREDICTION, PC_IF_WRONG_PREDICTION);
+		FETCH_DECODE_FLUSHER <= MISPREDICTION;
 
 		Rdst1Addr_FROM_MUXING <= RdstAddr_DIV_CurrInstr WHEN (SIGNALS_FROM_CONTROL(1) = '0')
 		ELSE Rsrc2Addr_DIV_CurrInstr;
@@ -427,15 +479,17 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		u42: OurALU PORT MAP(CLK, ALUopCode_FROM_DEP, Rsrc1Data_FROM_DFU, Rsrc2Data_FROM_MUXING,
 					ALUresult_FROM_ALU, ALUflag_FROM_ALU);
 
-		u43: CCR PORT MAP(CLK, RST, SIGNALS_FROM_DEP(2), SIGNALS_FROM_DEP(3), ALUflag_FROM_ALU, FLAGS);
+		u43: CCR PORT MAP(CLK, RST, SIGNALS_FROM_DEP(2), SIGNALS_FROM_DEP(3),
+					ALUflag_FROM_ALU, FLAG_FROM_CCR);
+		FLAGS <= FLAG_FROM_CCR;
 
 		u44: OutReg PORT MAP(CLK, RST, SIGNALS_FROM_DEP(13), Rsrc1Data_FROM_DEP, OUTPORT);
 
 		DATA_OUT_FROM_MUXING <= ALUresult_FROM_ALU WHEN (SIGNALS_FROM_DEP(14) = '0') ELSE INPORT;
 
 		-- HANDLING JUMPS
-		ZERO_JUMP_FROM_MEMORY <= SIGNALS_FROM_DEP(10) and SIGNALS_FROM_EMP(2) and FLAGS_FROM_EMP(0);
-		CHANGE_PC_FROM_EXECUTE <= ZERO_JUMP_FROM_MEMORY or SIGNALS_FROM_DEP(9);
+		ZERO_JUMP_FROM_MEMORY <= SIGNALS_FROM_DEP(10) and SIGNALS_FROM_EMP(2) and FLAGS_FROM_EMP(0);		
+		CHANGE_PC_FROM_EXECUTE <= ZERO_JUMP_FROM_MEMORY or SIGNALS_FROM_DEP(9);   
 		-------------------------------------------------------------------------------------------------
 	
 		----------------------------------- EXECUTE / MEMORY PIPELINE -----------------------------------
@@ -459,11 +513,17 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		ELSE NextPC_FROM_EMP;
 
 
-		ADDRESS_FROM_MUXING <= ALUresult_FROM_EMP WHEN (SIGNALS_FROM_EMP(11) = '0' and SIGNALS_FROM_EMP(12) = '0') 
-		ELSE SP_FROM_STACK;
+		ADDRESS_FROM_MUXING <= ALUresult_FROM_EMP
+				WHEN (SIGNALS_FROM_EMP(11) = '0' and SIGNALS_FROM_EMP(12) = '0') ELSE
+					SP_FROM_STACK;
 
-		u61: memor PORT MAP(CLK, RST, ADDRESS_FROM_MUXING(11 DOWNTO 0), SIGNALS_FROM_EMP(4),
-					DATA_FROM_MEMORY, AddrOut, SIGNALS_FROM_EMP(5), DATA_FROM_MUXING,
+		u61: ExceptionUnit PORT MAP(ADDRESS_FROM_MUXING, SIGNALS_FROM_EMP(4),
+				SIGNALS_FROM_EMP(5), EXCEPTION_FROM_EU);
+		FULL_EXCEPTION <= EXCEPTION_FROM_EU OR FLAG_FROM_CCR(3);
+		EXCP <= FULL_EXCEPTION;
+
+		u62: memor PORT MAP(CLK, RST, ADDRESS_FROM_MUXING(11 DOWNTO 0), SIGNALS_FROM_EMP(4),
+					DATA_FROM_MEMORY, SIGNALS_FROM_EMP(5), DATA_FROM_MUXING,
 						SIGNALS_FROM_EMP(6), SIGNALS_FROM_EMP(7));
 		-------------------------------------------------------------------------------------------------
 

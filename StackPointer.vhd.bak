@@ -32,8 +32,8 @@ ARCHITECTURE a_StackPointer OF StackPointer IS
 		PROCESS (CLK, RST)
 		BEGIN
 			IF (RST = '1') THEN
-				SP           <= (OTHERS => '1');
-				SP_TO_BE_OUT <= (OTHERS => '1');
+				SP           <= x"FFFFFFFE";
+				SP_TO_BE_OUT <= x"FFFFFFFE";
 			ELSIF rising_edge(CLK) THEN
 				IF (SP_INC = '1') THEN
 					SP_TO_BE_OUT <= SP_ADD_TWO;
