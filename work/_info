@@ -1515,9 +1515,9 @@ V3zih>?O_:WeUdmEaW=>;X3
 !s100 47K[OJCe<I7l=56M6]zja0
 R54
 32
-Z221 !s110 1715959845
+Z221 !s110 1715963947
 !i10b 1
-Z222 !s108 1715959845.000000
+Z222 !s108 1715963947.000000
 Z223 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/BranchPredict.vhd|
 Z224 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/BranchPredict.vhd|
 !i113 1
@@ -1555,9 +1555,9 @@ VFmODegk3H@>J<H@G^ReG^3
 !s100 J`^44Q[_MDY?L^RJ<:mlS3
 R54
 32
-R221
+Z226 !s110 1715963948
 !i10b 1
-R222
+Z227 !s108 1715963948.000000
 R96
 R97
 !i113 1
@@ -1574,61 +1574,61 @@ Vz?3cdK?QC;GPT=49ZnPjb3
 !s100 aKF:TU5iac<<ES6AKdP;f1
 R54
 32
-R221
+R226
 !i10b 1
-R222
+R227
 R96
 R97
 !i113 1
 R32
 R33
 Econtrolunit
-Z226 w1715958332
+Z228 w1715964373
 R9
 R10
 R12
-Z227 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd
-Z228 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd
+Z229 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd
+Z230 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd
 l0
 L5
-VL_`mKhb20oOWWgg2A9Z5f3
-!s100 <6[Oc@Oh^8iPQbA8lHi6O0
+V37cg_az[<W1MMV8bHa<2C1
+!s100 bjJRelbfe8BX<CRSS0M1N2
 R54
 32
-R221
+Z231 !s110 1715964400
 !i10b 1
-R222
-Z229 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd|
-Z230 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd|
+Z232 !s108 1715964400.000000
+Z233 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd|
+Z234 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd|
 !i113 1
 R32
 R33
 Aa_controlunit
 R9
 R10
-DEx4 work 11 controlunit 0 22 L_`mKhb20oOWWgg2A9Z5f3
-l55
-L54
-V1U5D6AF1AX8eH]8@XTZY<2
-!s100 0k0_Wz6S]o;1OV47_nhzW1
+DEx4 work 11 controlunit 0 22 37cg_az[<W1MMV8bHa<2C1
+l56
+L55
+Vi`02IQVQIFkMcmGM6G[0i1
+!s100 Q?VRHD:F@fe]NJhb;hLfL2
 R54
 32
-R221
+R231
 !i10b 1
-R222
-R229
-R230
+R232
+R233
+R234
 !i113 1
 R32
 R33
 Edataforwardunit
-Z231 w1715938099
+Z235 w1715938099
 R8
 R9
 R10
 R12
-Z232 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd
-Z233 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd
+Z236 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd
+Z237 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd
 l0
 L5
 R176
@@ -1663,7 +1663,7 @@ R131
 R32
 R33
 Edecodeexecute
-R226
+Z238 w1715963604
 R8
 R9
 R10
@@ -1672,8 +1672,8 @@ R124
 R125
 l0
 L5
-VT^n?Uc<Tz1m_1In7L<g]O0
-!s100 if:XLLP[RPW^k@TnJB9bO3
+V4>5B?NcmSY6EFHEheS@RD0
+!s100 RnbR>6Qf48[oK;YCOWQZM2
 R54
 32
 R221
@@ -1688,11 +1688,11 @@ Aa_decodeexecute
 R8
 R9
 R10
-DEx4 work 13 decodeexecute 0 22 T^n?Uc<Tz1m_1In7L<g]O0
+DEx4 work 13 decodeexecute 0 22 4>5B?NcmSY6EFHEheS@RD0
 l61
 L47
-V^35Jdbe=a<cmm>n2<abFH0
-!s100 _lXNWEELjm8O`d=flS7K02
+VG[CCzA^PII^4<;R<IM88e1
+!s100 lBDPETNC]Lk@WSeHHbg4J1
 R54
 32
 R221
@@ -1704,24 +1704,24 @@ R123
 R32
 R33
 Eexceptionunit
-Z234 w1715940602
+Z239 w1715940602
 R8
 R9
 R10
 R12
-Z235 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd
-Z236 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd
+Z240 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd
+Z241 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd
 l0
 L5
 V^fJBK5chYZFAiVgR0mS[C1
 !s100 bh@X8n17R`8KSY_47m`jT0
 R54
 32
-Z237 !s110 1715959846
+R226
 !i10b 1
-Z238 !s108 1715959846.000000
-Z239 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd|
-Z240 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd|
+R227
+Z242 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd|
+Z243 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd|
 !i113 1
 R32
 R33
@@ -1729,23 +1729,23 @@ Aa_exceptionunit
 R8
 R9
 R10
-Z241 DEx4 work 13 exceptionunit 0 22 ^fJBK5chYZFAiVgR0mS[C1
+DEx4 work 13 exceptionunit 0 22 ^fJBK5chYZFAiVgR0mS[C1
 l18
 L14
-Z242 V6E<K^g_nWM<[L0l6E3b7>3
-Z243 !s100 SRf1M5d`@d8i<hPDe@@Wo2
+V6E<K^g_nWM<[L0l6E3b7>3
+!s100 SRf1M5d`@d8i<hPDe@@Wo2
 R54
 32
-R237
+R226
 !i10b 1
-R238
-R239
-R240
+R227
+R242
+R243
 !i113 1
 R32
 R33
 Eexecutememory
-R226
+Z244 w1715963644
 R8
 R9
 R10
@@ -1754,8 +1754,8 @@ R118
 R119
 l0
 L5
-VHV:E:N9U>[MS:[RdUTU^o0
-!s100 C3G6F=]I`g]B<M9;?BTon0
+VILW:chc@E;O2;[I:iRSP71
+!s100 =czL>i;QQ@[C^cb3f<0A>1
 R54
 32
 R221
@@ -1770,11 +1770,11 @@ Aa_executememory
 R8
 R9
 R10
-DEx4 work 13 executememory 0 22 HV:E:N9U>[MS:[RdUTU^o0
-l42
+DEx4 work 13 executememory 0 22 ILW:chc@E;O2;[I:iRSP71
+l41
 L29
-VSElHc_i=lF_@Ce_8l`FWR0
-!s100 FGML49<8>WSzI;@0;7OJF3
+V=S]0F^D=ca3ScQLLl?PmC0
+!s100 jio_LQc[[F7Ha@=AF5z?=1
 R54
 32
 R221
@@ -1788,7 +1788,7 @@ R33
 Efetchcontrol
 R0
 Efetchdecode
-R226
+Z245 w1715964766
 R8
 R9
 R10
@@ -1801,9 +1801,9 @@ VE]0VXWDK3Kf^b^C<7^_<91
 !s100 41M627^;Q<PzY^c_n5T>f2
 R54
 32
-R221
+Z246 !s110 1715964771
 !i10b 1
-R222
+Z247 !s108 1715964771.000000
 R103
 R104
 !i113 1
@@ -1813,16 +1813,16 @@ Aa_fetchdecode
 R8
 R9
 R10
-DEx4 work 11 fetchdecode 0 22 E]0VXWDK3Kf^b^C<7^_<91
+Z248 DEx4 work 11 fetchdecode 0 22 E]0VXWDK3Kf^b^C<7^_<91
 l27
 L20
-V_iAHIB2iF_Xk2lEYng=Bo2
-!s100 T;I<HzcQDo64P[zYQ=:;B1
+V239CS?^;D4^1e]E?zHcI:0
+!s100 @<BeYIaOTe=K^U=10;cKV2
 R54
 32
-R221
+R246
 !i10b 1
-R222
+R247
 R103
 R104
 !i113 1
@@ -1844,9 +1844,9 @@ R169
 R170
 R54
 32
-R237
+R226
 !i10b 1
-R222
+R227
 R89
 R90
 !i113 1
@@ -1863,16 +1863,16 @@ R167
 R168
 R54
 32
-R237
+R226
 !i10b 1
-R222
+R227
 R89
 R90
 !i113 1
 R32
 R33
 Einstrcache
-Z244 w1715958747
+Z249 w1715958747
 R8
 R9
 R10
@@ -1885,9 +1885,9 @@ Vnk=P_=In;0EL^_@6X8gG=2
 !s100 VFRfUD4SCZhSTI:W;OP9`1
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R83
 R84
 !i113 1
@@ -1904,9 +1904,9 @@ Vi@;K:j_9jLfd24nEdH`fD2
 !s100 S0WUEE[L=anIlzV@`6Hbj2
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R83
 R84
 !i113 1
@@ -1926,9 +1926,9 @@ R164
 R165
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R76
 R77
 !i113 1
@@ -1945,16 +1945,16 @@ R162
 R163
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R76
 R77
 !i113 1
 R32
 R33
 Ememorywriteback
-R226
+Z250 w1715963679
 R8
 R9
 R10
@@ -1963,13 +1963,13 @@ R72
 R73
 l0
 L5
-VUEO;XA`:DU@KgbIKXo?9j3
-!s100 oC3iCH3DnLz9J9V>0Qdma1
+VAiaKBNm102[o:D=QiHkkA3
+!s100 :k2^m2P5]<3akG50h3Sof1
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R70
 R71
 !i113 1
@@ -1979,16 +1979,16 @@ Aa_memorywriteback
 R8
 R9
 R10
-DEx4 work 15 memorywriteback 0 22 UEO;XA`:DU@KgbIKXo?9j3
-l36
+DEx4 work 15 memorywriteback 0 22 AiaKBNm102[o:D=QiHkkA3
+l33
 L24
-V^cn30a86cg89OOMGEHncS3
-!s100 YLDdz`n;ATo<o2iJ;_j7O2
+Vc4V5U7W_3RS<FOW_2EY4`0
+!s100 ^]lI9L44H=mUR>Tz6T;8^2
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R70
 R71
 !i113 1
@@ -2008,9 +2008,9 @@ R159
 R160
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R64
 R62
 !i113 1
@@ -2027,16 +2027,16 @@ R157
 R158
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R64
 R62
 !i113 1
 R32
 R33
 Emips_processor
-Z245 w1715959773
+Z251 w1715963937
 R8
 R9
 R10
@@ -2049,9 +2049,9 @@ V[I?CkgNHO5^DN@gT`0=8I1
 !s100 m3Kk;moSGkP871o<Io61=1
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R58
 R59
 !i113 1
@@ -2062,15 +2062,15 @@ R8
 R9
 R10
 DEx4 work 14 mips_processor 0 22 [I?CkgNHO5^DN@gT`0=8I1
-l393
+l395
 L25
-VEE2okLI^LlILM2Z`NGoLz0
-!s100 7SL]9CN4e<eUGn>Qih2cV2
+V61e2W4?MX9bX5MTbljlf=0
+!s100 [[U;;IZk>R]mA0Rd5;Y=a0
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R58
 R59
 !i113 1
@@ -2090,9 +2090,9 @@ R154
 R155
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R48
 R49
 !i113 1
@@ -2109,9 +2109,9 @@ R152
 R153
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R48
 R49
 !i113 1
@@ -2131,9 +2131,9 @@ R149
 R150
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R41
 R42
 !i113 1
@@ -2150,16 +2150,16 @@ R147
 R148
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R41
 R42
 !i113 1
 R32
 R33
 Epcount
-R226
+Z252 w1715963768
 R8
 R9
 R10
@@ -2168,13 +2168,13 @@ R36
 R37
 l0
 L5
-VB1[MZeZDAT:eYckh[G0Th0
-!s100 ;JD5oEbD@C0O;YIKgc:A<0
+V=kY[3MTCUjcJZieSLBm6a1
+!s100 IjSca`na1f>d9;Y?Y1@>[3
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R34
 R35
 !i113 1
@@ -2184,16 +2184,16 @@ Aa_pcount
 R8
 R9
 R10
-DEx4 work 6 pcount 0 22 B1[MZeZDAT:eYckh[G0Th0
-l24
-L20
-VPg<m6iE;RnANWnPDgTAP02
-!s100 mi2H_h=?Bj6O^F=:FQA?z0
+DEx4 work 6 pcount 0 22 =kY[3MTCUjcJZieSLBm6a1
+l26
+L22
+V>EBJ]BRFX8BZWBXk<O<Pn0
+!s100 Id:0Fd>L=44m[n>Qlj]U81
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R34
 R35
 !i113 1
@@ -2236,9 +2236,9 @@ R144
 R145
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R24
 R25
 !i113 1
@@ -2255,9 +2255,9 @@ R142
 R143
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R24
 R25
 !i113 1
@@ -2277,9 +2277,9 @@ R139
 R140
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R17
 R18
 !i113 1
@@ -2296,16 +2296,16 @@ R137
 R138
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R17
 R18
 !i113 1
 R32
 R33
 Estackpointer
-Z246 w1715945078
+Z253 w1715945078
 R8
 R9
 R10
@@ -2318,9 +2318,9 @@ R134
 R135
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R6
 R7
 !i113 1
@@ -2337,9 +2337,9 @@ VTBM]3MB>PJE3gYGcCU;Jo0
 !s100 l7WGFF_A4Gl8a;HQQfQX91
 R54
 32
-R237
+R226
 !i10b 1
-R238
+R227
 R6
 R7
 !i113 1

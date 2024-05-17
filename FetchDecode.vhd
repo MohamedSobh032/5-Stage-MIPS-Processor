@@ -34,7 +34,7 @@ ARCHITECTURE a_FetchDecode OF FetchDecode IS
 				IF (FLUSH = '1') THEN
 					Instruction <= (OTHERS => '0');
 					NextPC      <= (OTHERS => '0');
-					
+					PC          <= InData_CurrentPC;
 				ELSIF (PAUSE = '0') THEN 
 					Instruction <= InData_Instruction;
 					NextPC      <= InData_NextPC;

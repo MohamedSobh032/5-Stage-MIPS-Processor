@@ -9,6 +9,8 @@ ENTITY PCount IS
 		INT      : IN  STD_LOGIC;
 		EXCP     : IN  STD_LOGIC;
 		PAUSE    : IN  STD_LOGIC;
+		RET      : IN  STD_LOGIC;
+		RETVal   : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		ResetVal : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		IntptVal : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		EXCPVal  : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -30,6 +32,8 @@ ARCHITECTURE a_PCount OF PCount IS
 				PC <= IntptVal;
 			ELSIF (EXCP = '1') THEN
 				PC <= EXCPVal;
+			ELSIF (RET = '1') THEN
+				PC <= RETVal;
 			ELSIF rising_edge(CLK) THEN
 				IF (INT = '1') THEN
 					PC <= IntptVal;
