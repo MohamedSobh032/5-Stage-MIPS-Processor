@@ -14,6 +14,8 @@ add wave -position end  sim:/mips_processor/R4
 add wave -position end  sim:/mips_processor/R5
 add wave -position end  sim:/mips_processor/R6
 add wave -position end  sim:/mips_processor/R7
+add wave -position end  sim:/mips_processor/CurrentPC_FROM_DEP
+add wave -position end  sim:/mips_processor/CurrentPC_FROM_FDP
 mem load -i testcases.mem /mips_processor/u01/instructioncache
 force -freeze sim:/mips_processor/CLK 0 0, 1 {50 ps} -r 100
 force -freeze sim:/mips_processor/RST 1 0
@@ -21,36 +23,4 @@ force -freeze sim:/mips_processor/INT 0 0
 run
 force -freeze sim:/mips_processor/RST 0 0
 force -freeze sim:/mips_processor/INPORT 32'hfffaaa11 0
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
+run 1ns
