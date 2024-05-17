@@ -1,5 +1,0 @@
-.org 0 4
-.org 2 100
-LDM R1, 20
-CALL R1
-NOT R1

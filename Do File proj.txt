@@ -118,6 +118,8 @@ sim:/mips_processor/ALUresult_FROM_EMP \
 #sim:/mips_processor/Rdst2Addr_FROM_EMP \
 sim:/mips_processor/SP_FROM_STACK \
 sim:/mips_processor/SP_FROM_MUXING \
+add wave -position insertpoint  \
+sim:/mips_processor/CurrentInstr_FROM_FDP \
 #sim:/mips_processor/ADDRESS_SELECTOR \
 #sim:/mips_processor/ADDRESS_FROM_MUXING \
 #sim:/mips_processor/DATA_FROM_MUXING_1 \
@@ -131,11 +133,10 @@ sim:/mips_processor/AddrOut \
 #sim:/mips_processor/Rdst2Addr_FROM_MWP \
 sim:/mips_processor/CurrentPC_FROM_MWP
 restart -f
-mem load -i C:/Users/youse/OneDrive/Desktop/ARCH/Project/MIPS_Processor/testcases.mem /mips_processor/u01/instructioncache
-mem load -filltype value -filldata 00001110001111100000000000001000 -fillradix symbolic /mips_processor/u20/registerfile(2)
-force -freeze sim:/mips_processor/CLK 1 0, 0 {50 ps} -r 100
+mem load -i C:/Users/youse/OneDrive/Desktop/ARCH/Project/testcases.mem /mips_processor/u01/instructioncache
+force -freeze sim:/mips_processor/CLK 0 0, 1 {50 ps} -r 100
 force -freeze sim:/mips_processor/RST 1 0
-run
+run 100ps
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /mips_processor/u20
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -169,6 +170,7 @@ run
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 50 ps  Iteration: 0  Instance: /mips_processor/u01
 force -freeze sim:/mips_processor/RST 0 0
+run 100ps
 run
 force -freeze sim:/mips_processor/INT 1 0
 run

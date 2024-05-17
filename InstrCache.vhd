@@ -9,7 +9,7 @@ ENTITY InstrCache IS
 		ResetAddress : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		IntptAddress : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		ExcptAddress : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-    		Instruction  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+    	Instruction  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
     	);
 END InstrCache;
 
