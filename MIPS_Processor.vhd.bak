@@ -220,7 +220,6 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 			Addr  : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
     			MemRead   : IN STD_LOGIC;
     			ReadData  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-				AddrOut : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
     			MemWrite  : IN STD_LOGIC;
     			WriteData : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
 			free_i : IN STD_LOGIC;
@@ -292,7 +291,7 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	SIGNAL CurrInstr_FROM_IC : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	-------------------------------------------------------------------------------------------------
 	-- 1-bit global branch prediction--
-	SIGNAL Predict				: STD_LOGIC := '0';		--START BY PREDICT TAKEN
+	SIGNAL Predict				: STD_LOGIC := '0';--START BY PREDICT TAKEN
 	SIGNAL PREDICT_OUT      		: STD_LOGIC;
 	SIGNAL MISPREDICTION			: STD_LOGIC;
 	SIGNAL taken_now			: STD_LOGIC;
@@ -377,7 +376,7 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	SIGNAL DATA_FROM_MUXING_1  : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL DATA_FROM_MUXING    : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL DATA_FROM_MEMORY    : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL AddrOut			   : STD_LOGIC_VECTOR(11 DOWNTO 0);
+	SIGNAL AddrOut		   : STD_LOGIC_VECTOR(11 DOWNTO 0);
 	-------------------------------------------------------------------------------------------------
 
 	----------------------------------------- WRITEBACK SIGNALS -------------------------------------
@@ -394,7 +393,6 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	BEGIN
 		
 		------------------------------------------ FETCH STAGE ------------------------------------------
-
 		u00: PCount PORT MAP(CLK, RST, INT, FULL_EXCEPTION, STALL_AND_FLUSH_FROM_MEMUSE,
 				RESET_ADDRESS, INTERRUPT_ADDRESS, EXCEPTION_ADDRESS,
 						NewPC_FROM_MUXING, PC);
@@ -408,10 +406,11 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		-------------------------------------------------------------------------------------------------
 
 		------------------------------------ FETCH / DECODE PIPELINE ------------------------------------
-		FETCH_DECODE_FLUSHER <= CHANGE_PC_FROM_EXECUTE or SIGNALS_FROM_CONTROL(8);
+		FETCH_DECODE_FLUSHER <= CHANGE_PC_FROM_EXECUTE or SIGNALS_FROM_CONTROL(8) or MISPREDICTION;
 		FETCH_DECODE_PAUSER  <= STALL_AND_FLUSH_FROM_MEMUSE;
 		u10: FetchDecode PORT MAP(CLK, RST, FETCH_DECODE_FLUSHER, FETCH_DECODE_PAUSER,
-				CurrInstr_FROM_IC, CurrentInstr_FROM_FDP, NewPC, NextPC_FROM_FDP, PC, CurrentPC_FROM_FDP);
+				CurrInstr_FROM_IC, CurrentInstr_FROM_FDP, PC,
+					NextPC_FROM_FDP, PC, CurrentPC_FROM_FDP);
 		-------------------------------------------------------------------------------------------------
 
 		------------------------------------------ DECODE STAGE -----------------------------------------
@@ -431,8 +430,8 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		-- branch prediction --
 		u25: BranchPredictor PORT MAP(CLK, Predict, SIGNALS_FROM_CONTROL(10),NewPC, Rsrc1Data_FROM_RF,
 					Rdst1Addr_FROM_DEP,Rsrc1Addr_DIV_CurrInstr,
-					PREDICT_OUT, MISPREDICTION, taken_now, PC_AFTER_PREDICTION, PC_IF_WRONG_PREDICTION);
-		FETCH_DECODE_FLUSHER <= MISPREDICTION;
+					PREDICT_OUT, MISPREDICTION, taken_now,
+					PC_AFTER_PREDICTION, PC_IF_WRONG_PREDICTION);
 
 		Rdst1Addr_FROM_MUXING <= RdstAddr_DIV_CurrInstr WHEN (SIGNALS_FROM_CONTROL(1) = '0')
 		ELSE Rsrc2Addr_DIV_CurrInstr;
@@ -457,17 +456,18 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 					Rsrc2Data_FROM_RF, Rsrc2Data_FROM_DEP,
 					ImmediateVal_FROM_EXTEND, ImmediateVal_FROM_DEP,
 					Rdst1Addr_FROM_MUXING, Rdst1Addr_FROM_DEP,
-					Rsrc1Addr_DIV_CurrInstr, Rdst2Addr_FROM_DEP, CurrentPC_FROM_FDP, CurrentPC_FROM_DEP);
+					Rsrc1Addr_DIV_CurrInstr, Rdst2Addr_FROM_DEP,
+					CurrentPC_FROM_FDP, CurrentPC_FROM_DEP);
 		-------------------------------------------------------------------------------------------------
 
 		----------------------------------------- EXECUTE STAGE -----------------------------------------
 		u40: DataForwardUnit PORT MAP(Rsrc1Addr_FROM_DEP, Rsrc1Data_FROM_DEP,
-					      Rsrc2Addr_FROM_DEP, Rsrc2Data_FROM_DEP,
-					      Rdst1Addr_FROM_EMP, ALUresult_FROM_EMP, SIGNALS_FROM_EMP(0),
-                                              Rdst2Addr_FROM_EMP, Rdst2Data_FROM_EMP, SIGNALS_FROM_EMP(1),
-                                              Rdst1Addr_FROM_MWP, Rdst1Data_FROM_MWP, SIGNALS_FROM_MWP(0),
-                                              Rdst2Addr_FROM_MWP, Rdst2Data_FROM_MWP, SIGNALS_FROM_MWP(1),
-                                              Rsrc1Data_FROM_DFU, Rsrc2Data_FROM_DFU);
+					Rsrc2Addr_FROM_DEP, Rsrc2Data_FROM_DEP,
+					Rdst1Addr_FROM_EMP, ALUresult_FROM_EMP, SIGNALS_FROM_EMP(0),
+                                        Rdst2Addr_FROM_EMP, Rdst2Data_FROM_EMP, SIGNALS_FROM_EMP(1),
+                                        Rdst1Addr_FROM_MWP, Rdst1Data_FROM_MWP, SIGNALS_FROM_MWP(0),
+                                        Rdst2Addr_FROM_MWP, Rdst2Data_FROM_MWP, SIGNALS_FROM_MWP(1),
+                                        Rsrc1Data_FROM_DFU, Rsrc2Data_FROM_DFU);
 
 		u41: MemUseUnit PORT MAP(Rsrc1Addr_FROM_DEP, Rsrc2Addr_FROM_DEP, Rdst1Addr_FROM_EMP,
 					SIGNALS_FROM_EMP(4), SIGNALS_FROM_DEP(18), SIGNALS_FROM_DEP(19),
@@ -498,7 +498,8 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 				SIGNALS_FROM_EMP, DATA_OUT_FROM_MUXING, ALUresult_FROM_EMP,
 				ALUflag_FROM_ALU, FLAGS_FROM_EMP, Rsrc2Data_FROM_DFU,
 				Rdst2Data_FROM_EMP, Rdst1Addr_FROM_DEP, Rdst1Addr_FROM_EMP,
-					Rdst2Addr_FROM_DEP, Rdst2Addr_FROM_EMP, CurrentPC_FROM_DEP, CurrentPC_FROM_EMP);
+				Rdst2Addr_FROM_DEP, Rdst2Addr_FROM_EMP,
+				CurrentPC_FROM_DEP, CurrentPC_FROM_EMP);
 		-------------------------------------------------------------------------------------------------
 
 		------------------------------------------ MEMORY STAGE -----------------------------------------
@@ -512,13 +513,13 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		ELSE std_logic_vector(unsigned(CurrentPC_From_MWP) + 1) WHEN (SIGNALS_FROM_EMP(20) = '1')
 		ELSE NextPC_FROM_EMP;
 
-
 		ADDRESS_FROM_MUXING <= ALUresult_FROM_EMP
-				WHEN (SIGNALS_FROM_EMP(11) = '0' and SIGNALS_FROM_EMP(12) = '0') ELSE
+			WHEN (SIGNALS_FROM_EMP(11) = '0' and SIGNALS_FROM_EMP(12) = '0') ELSE
 					SP_FROM_STACK;
 
 		u61: ExceptionUnit PORT MAP(ADDRESS_FROM_MUXING, SIGNALS_FROM_EMP(4),
 				SIGNALS_FROM_EMP(5), EXCEPTION_FROM_EU);
+
 		FULL_EXCEPTION <= EXCEPTION_FROM_EU OR FLAG_FROM_CCR(3);
 		EXCP <= FULL_EXCEPTION;
 
@@ -530,7 +531,8 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		---------------------------------- MEMORY / WRITEBACK PIPELINE ----------------------------------
 		u70: MemoryWriteback PORT MAP(CLK, RST, SIGNALS_FROM_EMP, SIGNALS_FROM_MWP,
 				DATA_FROM_MEMORY, Rdst1Data_FROM_MWP, Rdst2Data_FROM_EMP, Rdst2Data_FROM_MWP,
-				Rdst1Addr_FROM_EMP, Rdst1Addr_FROM_MWP, Rdst2Addr_FROM_EMP, Rdst2Addr_FROM_MWP, CurrentPC_FROM_EMP, CurrentPC_FROM_MWP);
+				Rdst1Addr_FROM_EMP, Rdst1Addr_FROM_MWP, Rdst2Addr_FROM_EMP, Rdst2Addr_FROM_MWP,
+						CurrentPC_FROM_EMP, CurrentPC_FROM_MWP);
 		-------------------------------------------------------------------------------------------------
 
 END a_MIPS_Processor;	
