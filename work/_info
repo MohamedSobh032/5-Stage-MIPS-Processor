@@ -1503,7 +1503,7 @@ R214
 R31
 R32
 Ebranchpredictor
-Z215 w1715945525
+Z215 w1715981953
 R9
 R10
 R12
@@ -1511,13 +1511,13 @@ Z216 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/Branch
 Z217 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/BranchPredict.vhd
 l0
 L4
-V3zih>?O_:WeUdmEaW=>;X3
-!s100 47K[OJCe<I7l=56M6]zja0
+VhgDB@U<b@kOKUEWYf6n6h1
+!s100 SJ:azIg@4lQ;E<AjAV8Ao2
 R53
 32
-Z218 !s110 1715978267
+Z218 !s110 1715981956
 !i10b 1
-Z219 !s108 1715978267.000000
+Z219 !s108 1715981956.000000
 Z220 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/BranchPredict.vhd|
 Z221 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/BranchPredict.vhd|
 !i113 1
@@ -1526,11 +1526,11 @@ R32
 Abehavioral
 R9
 R10
-DEx4 work 15 branchpredictor 0 22 3zih>?O_:WeUdmEaW=>;X3
-l24
-L21
-VzY22;HkERc:VAaz6YRQY63
-!s100 9I<GM=HMCIZJ6EXo4P]eT2
+DEx4 work 15 branchpredictor 0 22 hgDB@U<b@kOKUEWYf6n6h1
+l27
+L24
+VcLUG5?jM_cillGVd?BD`L3
+!s100 ekZ6P1BIM:aCk@]30kElE0
 R53
 32
 R218
@@ -1717,9 +1717,9 @@ V^fJBK5chYZFAiVgR0mS[C1
 !s100 bh@X8n17R`8KSY_47m`jT0
 R53
 32
-Z235 !s110 1715978268
+Z235 !s110 1715981957
 !i10b 1
-Z236 !s108 1715978268.000000
+Z236 !s108 1715981957.000000
 Z237 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd|
 Z238 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd|
 !i113 1
@@ -1844,7 +1844,7 @@ R166
 R167
 R53
 32
-R235
+R218
 !i10b 1
 R219
 R88
@@ -1863,7 +1863,7 @@ R164
 R165
 R53
 32
-R235
+R218
 !i10b 1
 R219
 R88
@@ -1885,9 +1885,9 @@ Vnk=P_=In;0EL^_@6X8gG=2
 !s100 VFRfUD4SCZhSTI:W;OP9`1
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R82
 R83
 !i113 1
@@ -1904,9 +1904,9 @@ Vi@;K:j_9jLfd24nEdH`fD2
 !s100 S0WUEE[L=anIlzV@`6Hbj2
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R82
 R83
 !i113 1
@@ -1926,9 +1926,9 @@ R161
 R162
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R75
 R76
 !i113 1
@@ -1945,9 +1945,9 @@ R159
 R160
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R75
 R76
 !i113 1
@@ -1967,9 +1967,9 @@ VAiaKBNm102[o:D=QiHkkA3
 !s100 :k2^m2P5]<3akG50h3Sof1
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R69
 R70
 !i113 1
@@ -1986,9 +1986,9 @@ Vc4V5U7W_3RS<FOW_2EY4`0
 !s100 ^]lI9L44H=mUR>Tz6T;8^2
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R69
 R70
 !i113 1
@@ -2008,9 +2008,9 @@ R156
 R157
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R63
 R61
 !i113 1
@@ -2027,16 +2027,16 @@ R154
 R155
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R63
 R61
 !i113 1
 R31
 R32
 Emips_processor
-Z243 w1715978109
+Z243 w1715981360
 R8
 R9
 R10
@@ -2049,9 +2049,9 @@ V[I?CkgNHO5^DN@gT`0=8I1
 !s100 m3Kk;moSGkP871o<Io61=1
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R57
 R58
 !i113 1
@@ -2062,15 +2062,15 @@ R8
 R9
 R10
 DEx4 work 14 mips_processor 0 22 [I?CkgNHO5^DN@gT`0=8I1
-l421
+l425
 L25
-VWoOD@XDeHcBH@C`2oFCZR1
-!s100 :_L2JG@]4egE:<X=PXWNT3
+V9J=0llC>:2?C4GFnda?300
+!s100 WAUT1V4;FfoZmnldXQgKj2
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R57
 R58
 !i113 1
@@ -2090,9 +2090,9 @@ R151
 R152
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R47
 R48
 !i113 1
@@ -2109,9 +2109,9 @@ R149
 R150
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R47
 R48
 !i113 1
@@ -2131,9 +2131,9 @@ R146
 R147
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R40
 R41
 !i113 1
@@ -2150,9 +2150,9 @@ R144
 R145
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R40
 R41
 !i113 1
@@ -2172,9 +2172,9 @@ V=kY[3MTCUjcJZieSLBm6a1
 !s100 IjSca`na1f>d9;Y?Y1@>[3
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R33
 R34
 !i113 1
@@ -2191,9 +2191,9 @@ V>EBJ]BRFX8BZWBXk<O<Pn0
 !s100 Id:0Fd>L=44m[n>Qlj]U81
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R33
 R34
 !i113 1
@@ -2236,9 +2236,9 @@ R141
 R142
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R24
 R25
 !i113 1
@@ -2255,9 +2255,9 @@ V6eeSb:bzaWk;8Z?i2aRVX2
 !s100 m9E=8klTM@FdMDL_DTTYI1
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R24
 R25
 !i113 1
@@ -2277,9 +2277,9 @@ R138
 R139
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R17
 R18
 !i113 1
@@ -2296,9 +2296,9 @@ R136
 R137
 R53
 32
-R235
+R218
 !i10b 1
-R236
+R219
 R17
 R18
 !i113 1
