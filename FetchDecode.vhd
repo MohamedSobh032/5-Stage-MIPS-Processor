@@ -11,15 +11,18 @@ ENTITY FetchDecode IS
 		InData_Instruction  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 		OutData_Instruction : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		InData_NextPC  : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-		OutData_NextPC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+		OutData_NextPC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		InData_CurrentPC : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		OutData_CurrentPC :OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END FetchDecode;
 
 ARCHITECTURE a_FetchDecode OF FetchDecode IS
 
 	-- REGISTER --
-    	SIGNAL Instruction : STD_LOGIC_VECTOR(15 DOWNTO 0);
+    SIGNAL Instruction : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	SIGNAL NextPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL PC : STD_lOGIC_VECTOR(31 DOWNTO 0);
 
 	BEGIN
 		PROCESS (CLK, RST)
@@ -31,12 +34,15 @@ ARCHITECTURE a_FetchDecode OF FetchDecode IS
 				IF (FLUSH = '1') THEN
 					Instruction <= (OTHERS => '0');
 					NextPC      <= (OTHERS => '0');
+					
 				ELSIF (PAUSE = '0') THEN 
 					Instruction <= InData_Instruction;
 					NextPC      <= InData_NextPC;
+					PC          <= InData_CurrentPC;
 				END IF;
 			END IF;
 		END PROCESS;	
 		OutData_Instruction <= Instruction;
 		OutData_NextPC      <= NextPC;
+		OutData_CurrentPC   <= PC;
 END a_FetchDecode;

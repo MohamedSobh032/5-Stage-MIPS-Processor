@@ -9,8 +9,8 @@ ENTITY ExecuteMemory IS
 		FLUSH : IN STD_LOGIC;
 		InData_NextPC     : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		OutData_NextPC    : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		InData_ConSignal  : IN  STD_LOGIC_VECTOR(19 DOWNTO 0);
-		OutData_ConSignal : OUT STD_LOGIC_VECTOR(19 DOWNTO 0);
+		InData_ConSignal  : IN  STD_LOGIC_VECTOR(20 DOWNTO 0);
+		OutData_ConSignal : OUT STD_LOGIC_VECTOR(20 DOWNTO 0);
 		InData_ALUresult  : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		OutData_ALUresult : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		InData_ALUflag    : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -20,20 +20,24 @@ ENTITY ExecuteMemory IS
 		InData_Rdst1Addr  : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
 		OutData_Rdst1Addr : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 		InData_Rdst2Addr  : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
-		OutData_Rdst2Addr : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
+		OutData_Rdst2Addr : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+		InData_CurrentPC : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		OutData_CurrentPC :OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END ExecuteMemory;
 
 ARCHITECTURE a_ExecuteMemory OF ExecuteMemory IS
 
 	SIGNAL NextPC    : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    	SIGNAL ConSignal : STD_LOGIC_VECTOR(19 DOWNTO 0);
+    SIGNAL ConSignal : STD_LOGIC_VECTOR(20 DOWNTO 0);
 	SIGNAL ALUresult : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL ALUflag   : STD_LOGIC_VECTOR(3 DOWNTO 0);
 	SIGNAL Rsrc2Data : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL Rdst1Addr : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	SIGNAL Rdst2Addr : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	SIGNAL SP        : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL PC        : STD_LOGIC_VECTOR(31 DOWNTO 0);
+
 
 	BEGIN
 		PROCESS (CLK, RST)
@@ -46,6 +50,7 @@ ARCHITECTURE a_ExecuteMemory OF ExecuteMemory IS
 				Rsrc2Data <= (OTHERS => '0');
 				Rdst1Addr <= (OTHERS => '0');
 				Rdst2Addr <= (OTHERS => '0');
+				PC        <= (OTHERS => '0');
 			ELSIF falling_edge(CLK) THEN
 				IF (FLUSH = '1') THEN
 					NextPC    <= (OTHERS => '0');
@@ -55,6 +60,7 @@ ARCHITECTURE a_ExecuteMemory OF ExecuteMemory IS
 					Rsrc2Data <= (OTHERS => '0');
 					Rdst1Addr <= (OTHERS => '0');
 					Rdst2Addr <= (OTHERS => '0');
+					PC        <= (OTHERS => '0');
 				ELSE
 					NextPC    <= InData_NextPC;
 					ConSignal <= InData_ConSignal;
@@ -63,6 +69,7 @@ ARCHITECTURE a_ExecuteMemory OF ExecuteMemory IS
 					Rsrc2Data <= InData_Rsrc2Data;
 					Rdst1Addr <= InData_Rdst1Addr;
 					Rdst2Addr <= InData_Rdst2Addr;
+					PC        <= InData_CurrentPC;
 				END IF;
 			END IF;
 		END PROCESS;	
@@ -73,4 +80,5 @@ ARCHITECTURE a_ExecuteMemory OF ExecuteMemory IS
 		OutData_Rsrc2Data <= Rsrc2Data;
 		OutData_Rdst1Addr <= Rdst1Addr;
 		OutData_Rdst2Addr <= Rdst2Addr;
+		OutData_CurrentPC <= PC;
 END a_ExecuteMemory;
