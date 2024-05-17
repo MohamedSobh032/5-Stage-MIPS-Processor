@@ -29,7 +29,7 @@ ARCHITECTURE a_StackPointer OF StackPointer IS
 		SP_SUB_TWO <= std_logic_vector(unsigned(SP) - 2);
 		SP_STAY    <= SP;
 
-		PROCESS (CLK, RST)
+		PROCESS (CLK, RST, SP_INC, SP_DEC)
 		BEGIN
 			IF (RST = '1') THEN
 				SP           <= x"FFFFFFFE";
