@@ -20,8 +20,8 @@ ARCHITECTURE a_InstrCache OF InstrCache IS
 	BEGIN
 		IntptAddress <= instructioncache(3) & instructioncache(2);
 		ResetAddress <= instructioncache(1) & instructioncache(0);
-		PROCESS (CLK)
-		BEGIN
+		-- PROCESS (CLK)
+		-- BEGIN
 			Instruction <= instructioncache(to_integer(unsigned(Addr)));
-		END PROCESS;
+		-- END PROCESS;
 END a_InstrCache;

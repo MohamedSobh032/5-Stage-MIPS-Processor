@@ -24,10 +24,11 @@ ARCHITECTURE a_PCount OF PCount IS
 		BEGIN
 			IF (RST = '1') THEN
 				PC <= ResetVal;
-			ELSIF (INT = '1') THEN
-				PC <= IntptVal;
+			
 			ELSIF rising_edge(CLK) THEN
-				IF (PAUSE = '0') THEN
+				IF (INT = '1') THEN
+					PC <= IntptVal;
+				ELSIF (PAUSE = '0') THEN
 					PC <= NewValue;
 				END IF;
 			END IF;
