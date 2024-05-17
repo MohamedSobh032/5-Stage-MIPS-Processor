@@ -41,7 +41,7 @@ ARCHITECTURE a_registerfile OF registerfile IS
     	SIGNAL registerfile : register_type;
 
 	BEGIN
-		PROCESS (CLK, RST)
+		PROCESS (CLK, RST, WE1, WE2)
 		BEGIN		
 
 			IF (RST = '1') THEN
@@ -61,6 +61,7 @@ ARCHITECTURE a_registerfile OF registerfile IS
 
 		Rsrc1Data <= registerfile(to_integer(unsigned(Rsrc1)));
 		Rsrc2Data <= registerfile(to_integer(unsigned(Rsrc2)));
+
 
 		-- SYSTEM OUTPUTS
 		R0 <= registerfile(0);

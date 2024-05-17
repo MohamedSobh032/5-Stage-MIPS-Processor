@@ -69,6 +69,15 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity CCR
 -- Compiling architecture a_CCR of CCR
 
+} {} {}} {$PWD/FetchDecode.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchDecode.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity FetchDecode
+-- Compiling architecture a_FetchDecode of FetchDecode
+
 } {} {}} {$PWD/OutReg.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OutReg.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -77,15 +86,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package NUMERIC_STD
 -- Compiling entity OutReg
 -- Compiling architecture a_OutReg of OutReg
-
-} {} {}} {$PWD/DecodeExecute.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DecodeExecute.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity DecodeExecute
--- Compiling architecture a_DecodeExecute of DecodeExecute
 
 } {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExecuteMemory.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExecuteMemory.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -131,6 +131,15 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package NUMERIC_STD
 -- Compiling entity registerfile
 -- Compiling architecture a_registerfile of registerfile
+
+} {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StalledForwardUnit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StalledForwardUnit.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity StalledForwardUnit
+-- Compiling architecture a_StalledForwardUnit of StalledForwardUnit
 
 } {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchDecode.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchDecode.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -226,15 +235,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity registerfile
 -- Compiling architecture a_registerfile of registerfile
 
-} {} {}} {$PWD/StackPointer.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StackPointer.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity StackPointer
--- Compiling architecture a_StackPointer of StackPointer
-
 } {} {}} {$PWD/DataForwardUnit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -252,6 +252,15 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package NUMERIC_STD
 -- Compiling entity MemUseUnit
 -- Compiling architecture a_MemUseUnit of MemUseUnit
+
+} {} {}} {$PWD/StackPointer.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StackPointer.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity StackPointer
+-- Compiling architecture a_StackPointer of StackPointer
 
 } {} {}} {$PWD/MIPS_Processor.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MIPS_Processor.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
