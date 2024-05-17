@@ -42,7 +42,7 @@ int main()
     char myString[30];
 
 //Output File:
-    FILE* outputPtr = fopen("testcases.mem", "w");
+    FILE* outputPtr = fopen("../testcases.mem", "w");
     if (NULL == outputPtr) {
         printf("Output file can't be opened.\n");
         return 1;
@@ -57,13 +57,7 @@ int main()
         int flag = Assembler(myString,myString);
         if(flag == -1) //Normal Instruction Output
         {
-            if (Int_Start == counter) //Interrupt Start: Push PC & CCR
-            {
-                fprintf(outputPtr, "%d: 1110100000000000\n", counter);
-                counter++;
-                // fprintf(outputPtr, "%d: 1111000000000000\n",counter);
-                // counter++;
-            }
+
             fprintf(outputPtr, "%d: %s%s%s%s00\n",counter, op,Rd,R1,R2);
             counter++;
         }
@@ -80,6 +74,25 @@ int main()
                 counter++;
             }
             fprintf(outputPtr, "%d: %s\n",counter, op);
+            counter++;
+        }
+        else if (flag == -4) ///START INTERRUPT CODE
+        {
+            for(int i = counter; i < Int_Start; i++)
+            {
+                fprintf(outputPtr, "%d: 0000000000000000\n", i);
+                counter++;
+            }
+            fprintf(outputPtr, "%d: 1110100000000000\n", counter);
+            counter++;
+            fprintf(outputPtr, "%d: 1111000000000000\n",counter);
+            counter++;
+        }
+        else if (flag == -5) //END INTERRUPT CODE
+        {
+            fprintf(outputPtr, "%d: 1111100000000000\n", counter);
+            counter++;
+            fprintf(outputPtr, "%d: 11011000000000000\n",counter);
             counter++;
         }
         else if (flag)
@@ -106,13 +119,13 @@ int main()
     }
     for(int i = counter; i < 4096; i++)
     {
-            if (Int_Start == i) //Interrupt Start: Push PC & CCR
-            {
-                fprintf(outputPtr, "%d: 1110100000000000\n", counter);
-                counter++;
-                fprintf(outputPtr, "%d: 1111000000000000\n",counter);
-                counter++;
-            }
+            // if (Int_Start == i) //Interrupt Start: Push PC & CCR
+            // {
+            //     fprintf(outputPtr, "%d: 1110100000000000\n", counter);
+            //     counter++;
+            //     fprintf(outputPtr, "%d: 1111000000000000\n",counter);
+            //     counter++;
+            // }
         fprintf(outputPtr, "%d: 0000000000000000\n", i);
     }
 
@@ -174,6 +187,10 @@ int Assembler(char* str, char* out)
         i = j;
         i++;
     }
+    if(!strcmp(op,".INT_HANDLER"))
+    {
+        return -4;
+    }
     Decode(op,0); Decode(Rd,1);
     if(!strcmp(op,"01010") || !strcmp(op,"01100"))
     {
@@ -198,6 +215,11 @@ int Assembler(char* str, char* out)
         Decode(R1,4);Decode(R2,3);
         strcpy(IMM,R1);strcpy(R1,R2);strcpy(R2,Rd); 
         initZString(Rd,3);
+    }
+    else if (!strcmp(op, "11100"))
+    {
+        initZString(Rd,3);initZString(R1,3);initZString(R2,3);
+        return -5;
     }
     else if(!strcmp(op,"11111"))
     {
@@ -329,6 +351,7 @@ void Decode(char* str, int inp) {
         } else if (!strcmp(str,".org")) {
             strcpy(str,"11111");
         }
+
         
     }
 
@@ -378,7 +401,7 @@ void organize()
         strcpy(R1,Rd);
         initZString(Rd,3);initZString(R2,3);    
     }
-    else if(!strcmp(op,"000110") || !strcmp(op,"10010"))
+    else if(!strcmp(op,"00110") || !strcmp(op,"10010"))
     {
         initZString(R1,3);initZString(R2,3);
     }
