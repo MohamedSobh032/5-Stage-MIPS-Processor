@@ -271,14 +271,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity StackPointer
 -- Compiling architecture a_StackPointer of StackPointer
 
-} {} {}} {$PWD/MIPS_Processor.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MIPS_Processor.vhd}
+} {} {}} {$PWD/OurALU.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OurALU.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity MIPS_Processor
--- Compiling architecture a_MIPS_Processor of MIPS_Processor
+-- Compiling entity OurALU
+-- Compiling architecture a_OurALU of OurALU
 
 } {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InReg.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InReg.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -307,14 +307,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity SignExtender
 -- Compiling architecture a_SignExtender of SignExtender
 
-} {} {}} {$PWD/BranchPredict.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/BranchPredict.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity BranchPredictor
--- Compiling architecture Behavioral of BranchPredictor
-
 } {} {}} {$PWD/ControlUnit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -322,6 +314,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package std_logic_1164
 -- Compiling entity ControlUnit
 -- Compiling architecture a_ControlUnit of ControlUnit
+
+} {} {}} {$PWD/BranchPredict.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/BranchPredict.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity BranchPredictor
+-- Compiling architecture Behavioral of BranchPredictor
 
 } {} {}} {$PWD/PCount.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/PCount.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016

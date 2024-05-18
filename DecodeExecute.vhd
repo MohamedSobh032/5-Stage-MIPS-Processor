@@ -82,11 +82,11 @@ ARCHITECTURE a_DecodeExecute OF DecodeExecute IS
 				PC <= (OTHERS => '0');
 			ELSIF (FORCE_INSERT_BOTH = '1') THEN
 				Rsrc1Data <= FORCE_INPUT_Rsrc1;
-				Rsrc2Data <= FORCE_INPUT_Rsrc2;
+				Rsrc2Data <= FORCE_INPUT_Rsrc1;
 			ELSIF (FORCE_INSERT_Rsrc1 = '1') THEN
 				Rsrc1Data <= FORCE_INPUT_Rsrc1;
 			ELSIF (FORCE_INSERT_Rsrc2 = '1') THEN
-				Rsrc2Data <= FORCE_INPUT_Rsrc2;
+				Rsrc2Data <= FORCE_INPUT_Rsrc1;
 			ELSIF falling_edge(CLK) THEN
 				IF (FLUSH = '1') THEN
 					NextPC    <= (OTHERS => '0');

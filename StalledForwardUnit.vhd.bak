@@ -17,7 +17,7 @@ ENTITY StalledForwardUnit IS
 		Rdst2WB_WB             : IN STD_LOGIC;
 		-- TAKE WHO
 		FORCE_UPDATE_Rsrc1     : OUT STD_LOGIC;
-		FORCE_UPDATE_Rsrc2     : OUT STD_LOGIC;
+		FORCE_UPDATE_Rsrc2     : OUT STD_LOGIC
 	);
 END StalledForwardUnit;
 

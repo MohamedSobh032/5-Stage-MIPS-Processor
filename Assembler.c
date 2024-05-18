@@ -42,7 +42,7 @@ int main()
     char myString[30];
 
 //Output File:
-    FILE* outputPtr = fopen("../testcases.mem", "w");
+    FILE* outputPtr = fopen("testcases.mem", "w");
     if (NULL == outputPtr) {
         printf("Output file can't be opened.\n");
         return 1;
@@ -426,7 +426,7 @@ void organize()
         strcpy(R1,Rd);
         initZString(Rd,3);initZString(R2,3);
     }
-    else if(!strcmp(op, "10110"))
+    else if(!strcmp(op, "10110") || !strcmp(op, "10111"))
     {
         strcpy(R1,Rd);
         initZString(Rd,3);initZString(R2,3);

@@ -33,11 +33,11 @@ ARCHITECTURE a_OurALU OF OurALU IS
 				OP1										   WHEN OTHERS;
 
 		F(3) <= '1' WHEN
-				(OPERATION = "0010" AND '0' /= OP1(31) AND S(31) = OP1(31))
+				(OPERATION = "0010" AND '0' /= OP1(31) AND S(31) /= '0')
 				OR (OPERATION = "0011" AND OP1(31) = '0' AND S(31) /= OP1(31))
-				OR (OPERATION = "0100" AND OP1(31) /= '0' AND S(31) = '0')
+				OR (OPERATION = "0100" AND OP1(31) /= '0' AND S(31) /= OP1(31))
 				OR (OPERATION = "0101" AND OP1(31) = OP2(31) AND S(31) /= OP1(31))
-				OR (OPERATION = "0110" AND OP1(31) /= OP2(31) AND S(31) = OP2(31))
+				OR (OPERATION = "0110" AND OP1(31) /= OP2(31) AND S(31) /= OP1(31))
 		ELSE '0';
 
 		F(2) <= '1' WHEN

@@ -37,6 +37,6 @@ ARCHITECTURE a_StalledForwardUnit OF StalledForwardUnit IS
 
 		FORCE_UPDATE_Rsrc1 <= '1' WHEN ((IS_SAME_Rsrc1_Rdst1 = '1') or (IS_SAME_Rsrc1_Rdst2 = '1')) ELSE '0';
 
-		FORCE_UPDATE_Rsrc2 <= '1' WHEN ((IS_SAME_Rsrc1_Rdst2 = '1') or (IS_SAME_Rsrc2_Rdst2 = '1')) ELSE '0';
+		FORCE_UPDATE_Rsrc2 <= '1' WHEN ((IS_SAME_Rsrc2_Rdst1 = '1') or (IS_SAME_Rsrc2_Rdst2 = '1')) ELSE '0';
 
 END ARCHITECTURE;

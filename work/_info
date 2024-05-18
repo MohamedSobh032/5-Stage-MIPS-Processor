@@ -1515,9 +1515,9 @@ VhgDB@U<b@kOKUEWYf6n6h1
 !s100 SJ:azIg@4lQ;E<AjAV8Ao2
 R88
 32
-Z215 !s110 1715984364
+Z215 !s110 1715991501
 !i10b 1
-Z216 !s108 1715984364.000000
+Z216 !s108 1715991501.000000
 Z217 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/BranchPredict.vhd|
 Z218 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/BranchPredict.vhd|
 !i113 1
@@ -1555,9 +1555,9 @@ VFmODegk3H@>J<H@G^ReG^3
 !s100 J`^44Q[_MDY?L^RJ<:mlS3
 R88
 32
-R215
+Z220 !s110 1715991502
 !i10b 1
-R216
+Z221 !s108 1715991502.000000
 R44
 R45
 !i113 1
@@ -1574,21 +1574,21 @@ Vz?3cdK?QC;GPT=49ZnPjb3
 !s100 aKF:TU5iac<<ES6AKdP;f1
 R88
 32
-R215
+R220
 !i10b 1
-R216
+R221
 R44
 R45
 !i113 1
 R108
 R109
 Econtrolunit
-Z220 w1715964373
+Z222 w1715985576
 R12
 R13
 R15
-Z221 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd
-Z222 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd
+Z223 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd
+Z224 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd
 l0
 L5
 V37cg_az[<W1MMV8bHa<2C1
@@ -1598,8 +1598,8 @@ R88
 R215
 !i10b 1
 R216
-Z223 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd|
-Z224 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd|
+Z225 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd|
+Z226 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd|
 !i113 1
 R108
 R109
@@ -1616,26 +1616,26 @@ R88
 R215
 !i10b 1
 R216
-R223
-R224
+R225
+R226
 !i113 1
 R108
 R109
 Edataforwardunit
-Z225 w1715938099
+Z227 w1715938099
 R11
 R12
 R13
 R15
-Z226 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd
-Z227 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd
+Z228 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd
+Z229 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd
 l0
 L5
 R130
 R131
 R88
 32
-R215
+R220
 !i10b 1
 R216
 R9
@@ -1654,7 +1654,7 @@ R133
 R134
 R88
 32
-R215
+R220
 !i10b 1
 R216
 R9
@@ -1663,7 +1663,7 @@ R10
 R108
 R109
 Edecodeexecute
-Z228 w1715978263
+Z230 w1715991365
 R11
 R12
 R13
@@ -1676,9 +1676,9 @@ Vfm[LL8Zo8i9;EU_zWiBR]3
 !s100 dV6>RHZgPCTgEbNaHh9K<0
 R88
 32
-R215
+R220
 !i10b 1
-R216
+R221
 R20
 R21
 !i113 1
@@ -1691,35 +1691,35 @@ R13
 DEx4 work 13 decodeexecute 0 22 fm[LL8Zo8i9;EU_zWiBR]3
 l68
 L54
-VEf2eGmnEnf=5Z>eCk8?F:3
-!s100 Sg8m@LzON[:c1`eKNP64L2
+VeCcm3mQgLzm1I^WEO`^fK0
+!s100 NSggh6DMgmmOSeRzV2aRd3
 R88
 32
-R215
+R220
 !i10b 1
-R216
+R221
 R20
 R21
 !i113 1
 R108
 R109
 Eexceptionunit
-Z229 w1715968080
+Z231 w1715968080
 R11
 R12
 R13
 R15
-Z230 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd
-Z231 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd
+Z232 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd
+Z233 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd
 l0
 L5
 V^fJBK5chYZFAiVgR0mS[C1
 !s100 bh@X8n17R`8KSY_47m`jT0
 R88
 32
-Z232 !s110 1715984365
+R220
 !i10b 1
-Z233 !s108 1715984365.000000
+R221
 Z234 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd|
 Z235 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd|
 !i113 1
@@ -1736,9 +1736,9 @@ VH>KfiEV76MR?lR_7jFJ0E0
 !s100 UZ1LhF2V6_6]_`9YFf=Il0
 R88
 32
-R232
+R220
 !i10b 1
-R233
+R221
 R234
 R235
 !i113 1
@@ -1758,9 +1758,9 @@ VILW:chc@E;O2;[I:iRSP71
 !s100 =czL>i;QQ@[C^cb3f<0A>1
 R88
 32
-R215
+R220
 !i10b 1
-R216
+R221
 R26
 R27
 !i113 1
@@ -1777,9 +1777,9 @@ V=S]0F^D=ca3ScQLLl?PmC0
 !s100 jio_LQc[[F7Ha@=AF5z?=1
 R88
 32
-R215
+R220
 !i10b 1
-R216
+R221
 R26
 R27
 !i113 1
@@ -1801,9 +1801,9 @@ VE]0VXWDK3Kf^b^C<7^_<91
 !s100 41M627^;Q<PzY^c_n5T>f2
 R88
 32
-R215
+R220
 !i10b 1
-R216
+R221
 R39
 R40
 !i113 1
@@ -1820,9 +1820,9 @@ V239CS?^;D4^1e]E?zHcI:0
 !s100 @<BeYIaOTe=K^U=10;cKV2
 R88
 32
-R215
+R220
 !i10b 1
-R216
+R221
 R39
 R40
 !i113 1
@@ -1844,9 +1844,9 @@ R137
 R138
 R88
 32
-R215
+R220
 !i10b 1
-R216
+R221
 R53
 R54
 !i113 1
@@ -1863,9 +1863,9 @@ R140
 R141
 R88
 32
-R215
+R220
 !i10b 1
-R216
+R221
 R53
 R54
 !i113 1
@@ -1885,9 +1885,9 @@ Vnk=P_=In;0EL^_@6X8gG=2
 !s100 VFRfUD4SCZhSTI:W;OP9`1
 R88
 32
-R215
+R220
 !i10b 1
-R216
+R221
 R59
 R60
 !i113 1
@@ -1904,9 +1904,9 @@ Vi@;K:j_9jLfd24nEdH`fD2
 !s100 S0WUEE[L=anIlzV@`6Hbj2
 R88
 32
-R215
+R220
 !i10b 1
-R216
+R221
 R59
 R60
 !i113 1
@@ -1926,9 +1926,9 @@ R142
 R143
 R88
 32
-R215
+R220
 !i10b 1
-R216
+R221
 R66
 R67
 !i113 1
@@ -1945,9 +1945,9 @@ R145
 R146
 R88
 32
-R215
+R220
 !i10b 1
-R216
+R221
 R66
 R67
 !i113 1
@@ -1967,9 +1967,9 @@ VAiaKBNm102[o:D=QiHkkA3
 !s100 :k2^m2P5]<3akG50h3Sof1
 R88
 32
-R215
+R220
 !i10b 1
-R216
+R221
 R72
 R73
 !i113 1
@@ -1986,9 +1986,9 @@ Vc4V5U7W_3RS<FOW_2EY4`0
 !s100 ^]lI9L44H=mUR>Tz6T;8^2
 R88
 32
-R215
+R220
 !i10b 1
-R216
+R221
 R72
 R73
 !i113 1
@@ -2008,9 +2008,9 @@ R147
 R148
 R88
 32
-R215
+R220
 !i10b 1
-R216
+R221
 R79
 R80
 !i113 1
@@ -2027,16 +2027,16 @@ R150
 R151
 R88
 32
-R215
+R220
 !i10b 1
-R216
+R221
 R79
 R80
 !i113 1
 R108
 R109
 Emips_processor
-Z240 w1715981360
+Z240 w1715991494
 R11
 R12
 R13
@@ -2049,9 +2049,9 @@ V[I?CkgNHO5^DN@gT`0=8I1
 !s100 m3Kk;moSGkP871o<Io61=1
 R88
 32
-R232
+R220
 !i10b 1
-R216
+R221
 R85
 R86
 !i113 1
@@ -2064,20 +2064,20 @@ R13
 DEx4 work 14 mips_processor 0 22 [I?CkgNHO5^DN@gT`0=8I1
 l425
 L25
-V9J=0llC>:2?C4GFnda?300
-!s100 WAUT1V4;FfoZmnldXQgKj2
+Vjmhm`9HQ<D]5TUmgai?O;1
+!s100 JiJZm2hoo0:E9UAgWZ21L0
 R88
 32
-R232
+R220
 !i10b 1
-R216
+R221
 R85
 R86
 !i113 1
 R108
 R109
 Eouralu
-Z241 w1715984173
+Z241 w1715985818
 R11
 R12
 R13
@@ -2090,9 +2090,9 @@ R152
 R153
 R88
 32
-R232
+R220
 !i10b 1
-R233
+R221
 R93
 R94
 !i113 1
@@ -2105,13 +2105,13 @@ R13
 R154
 l20
 L15
-V=m=ag4Hmk3^S90F9ijBeg3
-!s100 1On7ENgQ`HPZH;>hQ73OU3
+VUH:iK@[4=CKnIz=a3UaWR2
+!s100 2C;34mD`e`7G1TTc]a0Ho0
 R88
 32
-R232
+R220
 !i10b 1
-R233
+R221
 R93
 R94
 !i113 1
@@ -2131,9 +2131,9 @@ R155
 R156
 R88
 32
-R232
+R220
 !i10b 1
-R233
+R221
 R100
 R101
 !i113 1
@@ -2150,9 +2150,9 @@ R158
 R159
 R88
 32
-R232
+R220
 !i10b 1
-R233
+R221
 R100
 R101
 !i113 1
@@ -2172,9 +2172,9 @@ V=kY[3MTCUjcJZieSLBm6a1
 !s100 IjSca`na1f>d9;Y?Y1@>[3
 R88
 32
-R232
+R220
 !i10b 1
-R233
+R221
 R106
 R107
 !i113 1
@@ -2191,9 +2191,9 @@ V>EBJ]BRFX8BZWBXk<O<Pn0
 !s100 Id:0Fd>L=44m[n>Qlj]U81
 R88
 32
-R232
+R220
 !i10b 1
-R233
+R221
 R106
 R107
 !i113 1
@@ -2236,9 +2236,9 @@ R161
 R162
 R88
 32
-R232
+R220
 !i10b 1
-R233
+R221
 R115
 R116
 !i113 1
@@ -2255,9 +2255,9 @@ V6eeSb:bzaWk;8Z?i2aRVX2
 !s100 m9E=8klTM@FdMDL_DTTYI1
 R88
 32
-R232
+R220
 !i10b 1
-R233
+R221
 R115
 R116
 !i113 1
@@ -2277,9 +2277,9 @@ R164
 R165
 R88
 32
-R232
+R220
 !i10b 1
-R233
+R221
 R122
 R123
 !i113 1
@@ -2296,9 +2296,9 @@ R167
 R168
 R88
 32
-R232
+R220
 !i10b 1
-R233
+R221
 R122
 R123
 !i113 1
@@ -2318,9 +2318,9 @@ R169
 R170
 R88
 32
-R232
+R220
 !i10b 1
-R233
+R221
 R128
 R129
 !i113 1
@@ -2337,16 +2337,16 @@ Vk;dmda__do_fBBUX6cE_o3
 !s100 <aaj2lPnaeG^LV6[5ez3V1
 R88
 32
-R232
+R220
 !i10b 1
-R233
+R221
 R128
 R129
 !i113 1
 R108
 R109
 Estalledforwardunit
-Z245 w1715978122
+Z245 w1715990835
 R11
 R12
 R13
@@ -2359,9 +2359,9 @@ Vka@cbYF[@?oXRaGAJOdhl2
 !s100 IU_VkEKA?[0Z66E`jSg1a0
 R88
 32
-R232
+R220
 !i10b 1
-R233
+R221
 Z248 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StalledForwardUnit.vhd|
 Z249 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StalledForwardUnit.vhd|
 !i113 1
@@ -2374,13 +2374,13 @@ R13
 Z250 DEx4 work 18 stalledforwardunit 0 22 ka@cbYF[@?oXRaGAJOdhl2
 l32
 L25
-Z251 Vz8I=[ccSUfDna@a:mn18f2
-Z252 !s100 Dn6J6TCcVQnWLB3VbgJcR1
+Z251 V=cTk8<B:eOog5gH3JYOf83
+Z252 !s100 >N9HN@^bFK`OhOf5dF91[0
 R88
 32
-R232
+R220
 !i10b 1
-R233
+R221
 R248
 R249
 !i113 1
