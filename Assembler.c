@@ -42,7 +42,7 @@ int main()
     char myString[500];
 
 //Output File:
-    FILE* outputPtr = fopen("testcases.mem", "w");
+    FILE* outputPtr = fopen("../testcases.mem", "w");
     if (NULL == outputPtr) {
         printf("Output file can't be opened.\n");
         return 1;
