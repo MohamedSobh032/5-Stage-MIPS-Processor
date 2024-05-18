@@ -37,10 +37,13 @@ ARCHITECTURE a_StackPointer OF StackPointer IS
 			ELSIF rising_edge(CLK) THEN
 				IF (SP_INC = '1') THEN
 					SP_TO_BE_OUT <= SP_ADD_TWO;
-					SP <= SP_ADD_TWO;
-				ELSIF (SP_DEC = '1') THEN
+
+					SP           <= SP_ADD_TWO;
+				END IF;
+
+				IF (SP_DEC = '1') THEN
 					SP_TO_BE_OUT <= SP_SUB_TWO;
-					SP <= SP_SUB_TWO;
+					SP           <= SP_SUB_TWO;
 				END IF;
 			END IF;
 		END PROCESS;

@@ -99,6 +99,7 @@ int main()
         {
             continue;
         }
+
         else if (flag)
         {
             for(int i = counter; i < flag; i++)
@@ -200,6 +201,7 @@ int Assembler(char* str, char* out)
         return -10;
     }
     Decode(Rd,1);
+
     if(!strcmp(op,"01010") || !strcmp(op,"01100"))
     {
         Decode(R2,4);Decode(R1,2);
@@ -366,6 +368,7 @@ int Decode(char* str, int inp) {
         else {
             return 0;
         }
+
 
         
     }

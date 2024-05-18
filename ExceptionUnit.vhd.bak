@@ -13,11 +13,11 @@ END ExceptionUnit;
 
 ARCHITECTURE a_ExceptionUnit OF ExceptionUnit IS
 
-	CONSTANT MAX_ADDRESS : unsigned(31 DOWNTO 0) := x"00000FFF";
+	CONSTANT MAX_ADDRESS : unsigned(31 DOWNTO 0) := x"FFFFFFFF";
 	SIGNAL MEMORY_USE : STD_LOGIC;
 	BEGIN
 		MEMORY_USE <= MEM_READ OR MEM_WRITE;
 
-		ExceptionOut <= '1' WHEN (to_integer(unsigned(Address)) > to_integer(MAX_ADDRESS))
+		ExceptionOut <= '0'; --'1' WHEN ( (to_integer(unsigned(Address)) > to_integer(MAX_ADDRESS)) AND MEMORY_USE = '1')
 		ELSE '0';
 END a_ExceptionUnit;

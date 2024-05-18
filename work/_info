@@ -9,2339 +9,2380 @@ z2
 cModel Technology
 Z0 dC:/intelFPGA/18.1
 <<<<<<< Updated upstream
-Z1 !s108 1715903119.000000
-Z2 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/StackPointer.vhd|
-Z3 !s107 C:/Users/salma/Documents/MIPS_Processor/StackPointer.vhd|
-Z4 =======
-Z5 w1715823105
-Z6 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StackPointer.vhd|
-Z7 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StackPointer.vhd|
+Z1 w1715823105
+Z2 =======
+Z3 w1715893337
 R0
 <<<<<<< Updated upstream
-R1
-R2
 R3
+!i10b 1
+Z4 !s108 1715903118.000000
+Z5 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/DataForwardUnit.vhd|
+Z6 !s107 C:/Users/salma/Documents/MIPS_Processor/DataForwardUnit.vhd|
+R2
+Z7 !s110 1715893343
+!i10b 1
+Z8 !s108 1715893343.000000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd|
+Z10 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd|
+R0
+<<<<<<< Updated upstream
+R3
+!i10b 1
 R4
 R5
 R6
+R2
 R7
-R0
-<<<<<<< Updated upstream
-R5
-Z8 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-Z9 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z10 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-Z11 dC:/Users/salma/Documents/MIPS_Processor
-8C:/Users/salma/Documents/MIPS_Processor/StackPointer.vhd
-FC:/Users/salma/Documents/MIPS_Processor/StackPointer.vhd
-R4
-w1715604531
+!i10b 1
 R8
 R9
 R10
-Z12 dC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project
-Z13 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StackPointer.vhd
-Z14 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StackPointer.vhd
-<<<<<<< Updated upstream
-R1
-Z15 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/SignExtender.vhd|
-Z16 !s107 C:/Users/salma/Documents/MIPS_Processor/SignExtender.vhd|
-R4
-R5
-Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/SignExtender.vhd|
-Z18 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/SignExtender.vhd|
 R0
 <<<<<<< Updated upstream
 R1
-R15
-R16
-R4
-R5
-R17
-R18
-R0
-<<<<<<< Updated upstream
-R5
-R8
-R9
-R10
+Z11 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z12 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z13 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z14 dC:/Users/salma/Documents/MIPS_Processor
+8C:/Users/salma/Documents/MIPS_Processor/DecodeExecute.vhd
+FC:/Users/salma/Documents/MIPS_Processor/DecodeExecute.vhd
+R2
+w1715737962
 R11
-8C:/Users/salma/Documents/MIPS_Processor/SignExtender.vhd
-FC:/Users/salma/Documents/MIPS_Processor/SignExtender.vhd
-R4
-Z19 w1713460767
-R8
-R9
-R10
 R12
-Z20 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/SignExtender.vhd
-Z21 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/SignExtender.vhd
+R13
+Z15 dC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project
+Z16 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DecodeExecute.vhd
+Z17 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DecodeExecute.vhd
 <<<<<<< Updated upstream
-R1
-Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/registerfile.vhd|
-Z23 !s107 C:/Users/salma/Documents/MIPS_Processor/registerfile.vhd|
 R4
-R5
-Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd|
-Z25 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd|
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/DecodeExecute.vhd|
+Z19 !s107 C:/Users/salma/Documents/MIPS_Processor/DecodeExecute.vhd|
+R2
+R1
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DecodeExecute.vhd|
+Z21 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DecodeExecute.vhd|
+R0
+<<<<<<< Updated upstream
+R4
+R18
+R19
+R2
+R1
+R20
+R21
 R0
 <<<<<<< Updated upstream
 R1
-R22
-R23
+R11
+R12
+R13
+R14
+8C:/Users/salma/Documents/MIPS_Processor/ExecuteMemory.vhd
+FC:/Users/salma/Documents/MIPS_Processor/ExecuteMemory.vhd
+R2
+w1715733033
+R11
+R12
+R13
+R15
+Z22 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExecuteMemory.vhd
+Z23 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExecuteMemory.vhd
+<<<<<<< Updated upstream
 R4
-R5
+Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/ExecuteMemory.vhd|
+Z25 !s107 C:/Users/salma/Documents/MIPS_Processor/ExecuteMemory.vhd|
+R2
+R1
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExecuteMemory.vhd|
+Z27 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExecuteMemory.vhd|
+R0
+<<<<<<< Updated upstream
+R4
 R24
 R25
+R2
+R1
+R26
+R27
 R0
 <<<<<<< Updated upstream
-R5
-R8
-R9
-R10
-R11
-8C:/Users/salma/Documents/MIPS_Processor/registerfile.vhd
-FC:/Users/salma/Documents/MIPS_Processor/registerfile.vhd
-R4
-Z26 w1713564936
-R8
-R9
-R10
-R12
-Z27 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd
-Z28 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd
-<<<<<<< Updated upstream
-Z29 !s108 1715903118.000000
-Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/PCount.vhd|
-Z31 !s107 C:/Users/salma/Documents/MIPS_Processor/PCount.vhd|
-!i113 1
-Z32 o-work work -2002 -explicit
-Z33 tExplicit 1 CvgOpt 0
+Z28 w1715600014
+R2
+R28
 R0
 <<<<<<< Updated upstream
+Z29 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchControl.vhd
+Z30 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchControl.vhd
+R2
 R29
 R30
+R0
+<<<<<<< Updated upstream
+Z31 !s110 1715602858
+!i10b 1
+Z32 !s108 1715602858.000000
+Z33 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchControl.vhd|
+Z34 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchControl.vhd|
+R2
 R31
-R4
-R5
-Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/PCount.vhd|
-Z35 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/PCount.vhd|
+!i10b 1
+R32
+R33
+R34
 R0
 <<<<<<< Updated upstream
-w1715898942
-R8
-R9
-R10
+R34
+!i10b 1
+R32
+R33
+R34
+R2
+R31
+!i10b 1
+R32
+R33
+R34
+R0
+<<<<<<< Updated upstream
+R1
 R11
-8C:/Users/salma/Documents/MIPS_Processor/PCount.vhd
-FC:/Users/salma/Documents/MIPS_Processor/PCount.vhd
-R4
-w1715723605
-R8
-R9
-R10
 R12
-Z36 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/PCount.vhd
-Z37 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/PCount.vhd
+R13
+R14
+8C:/Users/salma/Documents/MIPS_Processor/FetchDecode.vhd
+FC:/Users/salma/Documents/MIPS_Processor/FetchDecode.vhd
+R2
+w1715722864
+R11
+R12
+R13
+R15
+Z35 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchDecode.vhd
+Z36 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchDecode.vhd
 <<<<<<< Updated upstream
-R29
-Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/OutReg.vhd|
-Z39 !s107 C:/Users/salma/Documents/MIPS_Processor/OutReg.vhd|
 R4
-Z40 !s110 1715884616
-Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OutReg.vhd|
-Z42 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OutReg.vhd|
+Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/FetchDecode.vhd|
+Z38 !s107 C:/Users/salma/Documents/MIPS_Processor/FetchDecode.vhd|
+R2
+R1
+Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchDecode.vhd|
+Z40 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchDecode.vhd|
 R0
 <<<<<<< Updated upstream
-R29
+R4
+R37
 R38
+R2
+R1
 R39
-R4
 R40
+R0
+<<<<<<< Updated upstream
+Z41 w1713554005
+R2
 R41
+R0
+<<<<<<< Updated upstream
+Z42 !s110 1713554012
+!i10b 1
+Z43 !s108 1713554012.000000
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/Flags.vhd|
+Z45 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/Flags.vhd|
+R2
 R42
+!i10b 1
+R43
+Z46 !s108 1715884616.000000
+Z47 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/BranchPredict.vhd|
 R0
 <<<<<<< Updated upstream
-R5
-R8
-R9
-R10
-R11
-8C:/Users/salma/Documents/MIPS_Processor/OutReg.vhd
-FC:/Users/salma/Documents/MIPS_Processor/OutReg.vhd
-R4
-Z43 w1713554689
-R8
-R9
-R10
-R12
-Z44 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OutReg.vhd
-Z45 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OutReg.vhd
-<<<<<<< Updated upstream
-R29
-Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/OurALU.vhd|
-Z47 !s107 C:/Users/salma/Documents/MIPS_Processor/OurALU.vhd|
-R4
-R5
-Z48 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OurALU.vhd|
-Z49 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OurALU.vhd|
-R0
-<<<<<<< Updated upstream
-R29
+R42
+!i10b 1
+R43
+R44
+R45
+R2
+R42
+!i10b 1
+R43
 R46
 R47
-R4
-R5
-R48
-R49
 R0
 <<<<<<< Updated upstream
-R5
-R8
-R9
-R10
+R1
 R11
-8C:/Users/salma/Documents/MIPS_Processor/OurALU.vhd
-FC:/Users/salma/Documents/MIPS_Processor/OurALU.vhd
-R4
-Z50 w1714001919
-R8
-R9
-R10
 R12
-Z51 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OurALU.vhd
-Z52 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OurALU.vhd
+R13
+R14
+8C:/Users/salma/Documents/MIPS_Processor/InReg.vhd
+FC:/Users/salma/Documents/MIPS_Processor/InReg.vhd
+R2
+Z48 w1713553402
+R11
+R12
+R13
+R15
+Z49 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InReg.vhd
+Z50 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InReg.vhd
 <<<<<<< Updated upstream
-Z53 DEx4 work 14 mips_processor 0 22 :8056R:9FOTf`hi^6BWUR1
+R4
+Z51 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/InReg.vhd|
+Z52 !s107 C:/Users/salma/Documents/MIPS_Processor/InReg.vhd|
+R2
+R1
+Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InReg.vhd|
+Z54 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InReg.vhd|
+R0
+<<<<<<< Updated upstream
+R4
+R51
+R52
+R2
+R1
+R53
+R54
+R0
+<<<<<<< Updated upstream
+R1
+R11
+R12
+R13
+R14
+8C:/Users/salma/Documents/MIPS_Processor/InstrCache.vhd
+FC:/Users/salma/Documents/MIPS_Processor/InstrCache.vhd
+R2
+w1715723193
+R11
+R12
+R13
+R15
+Z55 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InstrCache.vhd
+Z56 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InstrCache.vhd
+<<<<<<< Updated upstream
+R4
+Z57 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/InstrCache.vhd|
+Z58 !s107 C:/Users/salma/Documents/MIPS_Processor/InstrCache.vhd|
+R2
+R1
+Z59 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InstrCache.vhd|
+Z60 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InstrCache.vhd|
+R0
+<<<<<<< Updated upstream
+R4
+R57
+R58
+R2
+R1
+R59
+R60
+R0
+<<<<<<< Updated upstream
+R1
+R11
+R12
+R13
+R14
+8C:/Users/salma/Documents/MIPS_Processor/memor.vhd
+FC:/Users/salma/Documents/MIPS_Processor/memor.vhd
+R2
+Z61 w1715604160
+R11
+R12
+R13
+R15
+Z62 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd
+Z63 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd
+<<<<<<< Updated upstream
+R4
+Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/memor.vhd|
+Z65 !s107 C:/Users/salma/Documents/MIPS_Processor/memor.vhd|
+R2
+R1
+Z66 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd|
+Z67 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd|
+R0
+<<<<<<< Updated upstream
+R4
+R64
+R65
+R2
+R1
+R66
+R67
+R0
+<<<<<<< Updated upstream
+R1
+R11
+R12
+R13
+R14
+8C:/Users/salma/Documents/MIPS_Processor/MemoryWriteback.vhd
+FC:/Users/salma/Documents/MIPS_Processor/MemoryWriteback.vhd
+R2
+w1715721535
+R11
+R12
+R13
+R15
+Z68 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MemoryWriteback.vhd
+Z69 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MemoryWriteback.vhd
+<<<<<<< Updated upstream
+R4
+Z70 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/MemoryWriteback.vhd|
+Z71 !s107 C:/Users/salma/Documents/MIPS_Processor/MemoryWriteback.vhd|
+R2
+R1
+Z72 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MemoryWriteback.vhd|
+Z73 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MemoryWriteback.vhd|
+R0
+<<<<<<< Updated upstream
+R4
+R70
+R71
+R2
+R1
+R72
+R73
+R0
+<<<<<<< Updated upstream
+R1
+R11
+R12
+R13
+R14
+8C:/Users/salma/Documents/MIPS_Processor/MemUseUnit.vhd
+FC:/Users/salma/Documents/MIPS_Processor/MemUseUnit.vhd
+R2
+Z74 w1715722339
+R11
+R12
+R13
+R15
+Z75 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MemUseUnit.vhd
+Z76 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MemUseUnit.vhd
+<<<<<<< Updated upstream
+R4
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/MemUseUnit.vhd|
+Z77 !s107 C:/Users/salma/Documents/MIPS_Processor/MemUseUnit.vhd|
+R2
+Z78 !s110 1715884616
+Z79 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MemUseUnit.vhd|
+Z80 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MemUseUnit.vhd|
+R0
+<<<<<<< Updated upstream
+R4
+R80
+R77
+R2
+R78
+R79
+R80
+R0
+<<<<<<< Updated upstream
+w1715903082
+R11
+R12
+R13
+R14
+8C:/Users/salma/Documents/MIPS_Processor/MIPS_Processor.vhd
+FC:/Users/salma/Documents/MIPS_Processor/MIPS_Processor.vhd
+R2
+w1715893485
+R11
+R12
+R13
+R15
+Z81 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MIPS_Processor.vhd
+Z82 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MIPS_Processor.vhd
+<<<<<<< Updated upstream
+R3
+!i10b 1
+R4
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/MIPS_Processor.vhd|
+!s107 C:/Users/salma/Documents/MIPS_Processor/MIPS_Processor.vhd|
+R2
+Z83 !s110 1715893569
+!i10b 1
+Z84 !s108 1715893569.000000
+Z85 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MIPS_Processor.vhd|
+Z86 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MIPS_Processor.vhd|
+R0
+<<<<<<< Updated upstream
+Z87 DEx4 work 14 mips_processor 0 22 :8056R:9FOTf`hi^6BWUR1
 l358
 L23
 VnHefT8Y?B@9D<Bm`LYN7V3
 !s100 m_WEP[b=>62fIm6nTBbUf2
-Z54 OV;C;10.5b;63
+Z88 OV;C;10.5b;63
 32
-Z55 w1715893337
+R3
 !i10b 1
-R29
 R4
-R53
+R2
+R87
 l336
 L23
 VOJ8;7eJ;KkX@BV4E=7`ER2
 !s100 e<@mEAf_LJWg=i^@kQbm41
-R54
-32
-Z56 !s110 1715893569
-!i10b 1
-R0
-<<<<<<< Updated upstream
-R55
-!i10b 1
-R29
-!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/MIPS_Processor.vhd|
-!s107 C:/Users/salma/Documents/MIPS_Processor/MIPS_Processor.vhd|
-R4
-R56
-!i10b 1
-Z57 !s108 1715893569.000000
-Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MIPS_Processor.vhd|
-Z59 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MIPS_Processor.vhd|
-R0
-<<<<<<< Updated upstream
-w1715903082
-R8
-R9
-R10
-R11
-8C:/Users/salma/Documents/MIPS_Processor/MIPS_Processor.vhd
-FC:/Users/salma/Documents/MIPS_Processor/MIPS_Processor.vhd
-R4
-w1715893485
-R8
-R9
-R10
-R12
-Z60 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MIPS_Processor.vhd
-Z61 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MIPS_Processor.vhd
-<<<<<<< Updated upstream
-R29
-Z62 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MemUseUnit.vhd|
-Z63 !s107 C:/Users/salma/Documents/MIPS_Processor/MemUseUnit.vhd|
-R4
-R40
-Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MemUseUnit.vhd|
-R62
-R0
-<<<<<<< Updated upstream
-R29
-!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/MemUseUnit.vhd|
-R63
-R4
-R40
-R64
-R62
-R0
-<<<<<<< Updated upstream
-R5
-R8
-R9
-R10
-R11
-8C:/Users/salma/Documents/MIPS_Processor/MemUseUnit.vhd
-FC:/Users/salma/Documents/MIPS_Processor/MemUseUnit.vhd
-R4
-Z65 w1715722339
-R8
-R9
-R10
-R12
-Z66 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MemUseUnit.vhd
-Z67 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MemUseUnit.vhd
-<<<<<<< Updated upstream
-R29
-Z68 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/MemoryWriteback.vhd|
-Z69 !s107 C:/Users/salma/Documents/MIPS_Processor/MemoryWriteback.vhd|
-R4
-R5
-Z70 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MemoryWriteback.vhd|
-Z71 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MemoryWriteback.vhd|
-R0
-<<<<<<< Updated upstream
-R29
-R68
-R69
-R4
-R5
-R70
-R71
-R0
-<<<<<<< Updated upstream
-R5
-R8
-R9
-R10
-R11
-8C:/Users/salma/Documents/MIPS_Processor/MemoryWriteback.vhd
-FC:/Users/salma/Documents/MIPS_Processor/MemoryWriteback.vhd
-R4
-w1715721535
-R8
-R9
-R10
-R12
-Z72 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MemoryWriteback.vhd
-Z73 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/MemoryWriteback.vhd
-<<<<<<< Updated upstream
-R29
-Z74 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/memor.vhd|
-Z75 !s107 C:/Users/salma/Documents/MIPS_Processor/memor.vhd|
-R4
-R5
-Z76 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd|
-Z77 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd|
-R0
-<<<<<<< Updated upstream
-R29
-R74
-R75
-R4
-R5
-R76
-R77
-R0
-<<<<<<< Updated upstream
-R5
-R8
-R9
-R10
-R11
-8C:/Users/salma/Documents/MIPS_Processor/memor.vhd
-FC:/Users/salma/Documents/MIPS_Processor/memor.vhd
-R4
-Z78 w1715604160
-R8
-R9
-R10
-R12
-Z79 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd
-Z80 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/memor.vhd
-<<<<<<< Updated upstream
-R29
-Z81 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/InstrCache.vhd|
-Z82 !s107 C:/Users/salma/Documents/MIPS_Processor/InstrCache.vhd|
-R4
-R5
-Z83 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InstrCache.vhd|
-Z84 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InstrCache.vhd|
-R0
-<<<<<<< Updated upstream
-R29
-R81
-R82
-R4
-R5
-R83
-R84
-R0
-<<<<<<< Updated upstream
-R5
-R8
-R9
-R10
-R11
-8C:/Users/salma/Documents/MIPS_Processor/InstrCache.vhd
-FC:/Users/salma/Documents/MIPS_Processor/InstrCache.vhd
-R4
-w1715723193
-R8
-R9
-R10
-R12
-Z85 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InstrCache.vhd
-Z86 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InstrCache.vhd
-<<<<<<< Updated upstream
-R29
-Z87 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/InReg.vhd|
-Z88 !s107 C:/Users/salma/Documents/MIPS_Processor/InReg.vhd|
-R4
-R5
-Z89 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InReg.vhd|
-Z90 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InReg.vhd|
-R0
-<<<<<<< Updated upstream
-R29
-R87
 R88
-R4
-R5
-R89
-R90
+32
+R83
+!i10b 1
 R0
 <<<<<<< Updated upstream
-R5
-R8
-R9
-R10
+R1
 R11
-8C:/Users/salma/Documents/MIPS_Processor/InReg.vhd
-FC:/Users/salma/Documents/MIPS_Processor/InReg.vhd
-R4
-Z91 w1713553402
-R8
-R9
-R10
 R12
-Z92 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InReg.vhd
-Z93 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/InReg.vhd
+R13
+R14
+8C:/Users/salma/Documents/MIPS_Processor/OurALU.vhd
+FC:/Users/salma/Documents/MIPS_Processor/OurALU.vhd
+R2
+w1714001919
+R11
+R12
+R13
+R15
+Z89 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OurALU.vhd
+Z90 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OurALU.vhd
 <<<<<<< Updated upstream
-Z94 !s110 1713554012
-!i10b 1
-Z95 !s108 1713554012.000000
-Z96 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/Flags.vhd|
-Z97 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/Flags.vhd|
 R4
-R94
-!i10b 1
-R95
-Z98 !s108 1715884616.000000
-Z99 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/BranchPredict.vhd|
+Z91 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/OurALU.vhd|
+Z92 !s107 C:/Users/salma/Documents/MIPS_Processor/OurALU.vhd|
+R2
+R1
+Z93 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OurALU.vhd|
+Z94 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OurALU.vhd|
 R0
 <<<<<<< Updated upstream
-R94
-!i10b 1
-R95
-R96
-R97
 R4
+R91
+R92
+R2
+R1
+R93
 R94
-!i10b 1
-R95
+R0
+<<<<<<< Updated upstream
+R1
+R11
+R12
+R13
+R14
+8C:/Users/salma/Documents/MIPS_Processor/OutReg.vhd
+FC:/Users/salma/Documents/MIPS_Processor/OutReg.vhd
+R2
+Z95 w1713554689
+R11
+R12
+R13
+R15
+Z96 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OutReg.vhd
+Z97 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OutReg.vhd
+<<<<<<< Updated upstream
+R4
+Z98 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/OutReg.vhd|
+Z99 !s107 C:/Users/salma/Documents/MIPS_Processor/OutReg.vhd|
+R2
+R78
+Z100 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OutReg.vhd|
+Z101 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/OutReg.vhd|
+R0
+<<<<<<< Updated upstream
+R4
 R98
 R99
-R0
-<<<<<<< Updated upstream
-Z100 w1713554005
-R4
+R2
+R78
 R100
-R0
-<<<<<<< Updated upstream
-R29
-Z101 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/FetchDecode.vhd|
-Z102 !s107 C:/Users/salma/Documents/MIPS_Processor/FetchDecode.vhd|
-R4
-R5
-Z103 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchDecode.vhd|
-Z104 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchDecode.vhd|
-R0
-<<<<<<< Updated upstream
-R29
 R101
-R102
+R0
+<<<<<<< Updated upstream
+w1715898942
+R11
+R12
+R13
+R14
+8C:/Users/salma/Documents/MIPS_Processor/PCount.vhd
+FC:/Users/salma/Documents/MIPS_Processor/PCount.vhd
+R2
+w1715723605
+R11
+R12
+R13
+R15
+Z102 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/PCount.vhd
+Z103 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/PCount.vhd
+<<<<<<< Updated upstream
 R4
-R5
-R103
+Z104 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/PCount.vhd|
+Z105 !s107 C:/Users/salma/Documents/MIPS_Processor/PCount.vhd|
+R2
+R1
+Z106 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/PCount.vhd|
+Z107 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/PCount.vhd|
+R0
+<<<<<<< Updated upstream
+R4
 R104
+R105
+!i113 1
+Z108 o-work work -2002 -explicit
+Z109 tExplicit 1 CvgOpt 0
 R0
 <<<<<<< Updated upstream
-R5
-R8
-R9
-R10
+R1
 R11
-8C:/Users/salma/Documents/MIPS_Processor/FetchDecode.vhd
-FC:/Users/salma/Documents/MIPS_Processor/FetchDecode.vhd
-R4
-w1715722864
-R8
-R9
-R10
 R12
-Z105 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchDecode.vhd
-Z106 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchDecode.vhd
+R13
+R14
+8C:/Users/salma/Documents/MIPS_Processor/registerfile.vhd
+FC:/Users/salma/Documents/MIPS_Processor/registerfile.vhd
+R2
+w1713564936
+R11
+R12
+R13
+R15
+Z110 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd
+Z111 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd
 <<<<<<< Updated upstream
-Z107 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchControl.vhd|
-!i10b 1
-Z108 !s108 1715602858.000000
-Z109 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchControl.vhd|
-R107
-R4
-Z110 !s110 1715602858
-!i10b 1
-R108
-R109
-R107
+Z112 !s108 1715903119.000000
+Z113 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/registerfile.vhd|
+Z114 !s107 C:/Users/salma/Documents/MIPS_Processor/registerfile.vhd|
+R2
+R1
+Z115 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd|
+Z116 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/registerfile.vhd|
 R0
 <<<<<<< Updated upstream
-R110
-!i10b 1
-R108
-R109
-R107
-R4
-R110
-!i10b 1
-R108
-R109
-R107
-R0
-<<<<<<< Updated upstream
-Z111 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchControl.vhd
-Z112 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/FetchControl.vhd
-R4
-R111
 R112
-R0
-<<<<<<< Updated upstream
-Z113 w1715600014
-R4
 R113
-R0
-<<<<<<< Updated upstream
-R29
-Z114 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/ExecuteMemory.vhd|
-Z115 !s107 C:/Users/salma/Documents/MIPS_Processor/ExecuteMemory.vhd|
-R4
-R5
-Z116 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExecuteMemory.vhd|
-Z117 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExecuteMemory.vhd|
-R0
-<<<<<<< Updated upstream
-R29
 R114
+R2
+R1
 R115
-R4
-R5
 R116
-R117
 R0
 <<<<<<< Updated upstream
-R5
-R8
-R9
-R10
+R1
 R11
-8C:/Users/salma/Documents/MIPS_Processor/ExecuteMemory.vhd
-FC:/Users/salma/Documents/MIPS_Processor/ExecuteMemory.vhd
-R4
-w1715733033
-R8
-R9
-R10
 R12
-Z118 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExecuteMemory.vhd
-Z119 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExecuteMemory.vhd
+R13
+R14
+8C:/Users/salma/Documents/MIPS_Processor/SignExtender.vhd
+FC:/Users/salma/Documents/MIPS_Processor/SignExtender.vhd
+R2
+Z117 w1713460767
+R11
+R12
+R13
+R15
+Z118 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/SignExtender.vhd
+Z119 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/SignExtender.vhd
 <<<<<<< Updated upstream
-R29
-Z120 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/DecodeExecute.vhd|
-Z121 !s107 C:/Users/salma/Documents/MIPS_Processor/DecodeExecute.vhd|
-R4
-R5
-Z122 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DecodeExecute.vhd|
-Z123 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DecodeExecute.vhd|
+R112
+Z120 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/SignExtender.vhd|
+Z121 !s107 C:/Users/salma/Documents/MIPS_Processor/SignExtender.vhd|
+R2
+R1
+Z122 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/SignExtender.vhd|
+Z123 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/SignExtender.vhd|
 R0
 <<<<<<< Updated upstream
-R29
+R112
 R120
 R121
-R4
-R5
+R2
+R1
 R122
 R123
 R0
 <<<<<<< Updated upstream
-R5
-R8
-R9
-R10
+R1
 R11
-8C:/Users/salma/Documents/MIPS_Processor/DecodeExecute.vhd
-FC:/Users/salma/Documents/MIPS_Processor/DecodeExecute.vhd
-R4
-w1715737962
-R8
-R9
-R10
 R12
-Z124 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DecodeExecute.vhd
-Z125 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DecodeExecute.vhd
+R13
+R14
+8C:/Users/salma/Documents/MIPS_Processor/StackPointer.vhd
+FC:/Users/salma/Documents/MIPS_Processor/StackPointer.vhd
+R2
+w1715604531
+R11
+R12
+R13
+R15
+Z124 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StackPointer.vhd
+Z125 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StackPointer.vhd
 <<<<<<< Updated upstream
-R55
-!i10b 1
-R29
-Z126 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/DataForwardUnit.vhd|
-Z127 !s107 C:/Users/salma/Documents/MIPS_Processor/DataForwardUnit.vhd|
-R4
-Z128 !s110 1715893343
-!i10b 1
-Z129 !s108 1715893343.000000
-Z130 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd|
-Z131 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd|
+R112
+Z126 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/StackPointer.vhd|
+Z127 !s107 C:/Users/salma/Documents/MIPS_Processor/StackPointer.vhd|
+R2
+R1
+Z128 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StackPointer.vhd|
+Z129 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StackPointer.vhd|
 R0
 <<<<<<< Updated upstream
-R55
-!i10b 1
-R29
+R112
 R126
 R127
-R4
+R2
+R1
 R128
-!i10b 1
 R129
-R130
-R131
-R0
-<<<<<<< Updated upstream
-R5
-R4
-R55
 R0
 >>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
-Aa_stackpointer
-R8
-R9
-R10
-Z132 DEx4 work 12 stackpointer 0 22 G8ja@?a<mFoKELzi^OjV]1
-l27
-L15
-VG7n;gGTHR6C8cW0m9ShdW2
-!s100 lY4dOg<g2e8Gfg9fNFGS32
-R54
-32
-Z133 !s110 1715903119
-!i10b 1
->>>>>>> Stashed changes
-l0
-L5
-Z134 VG8ja@?a<mFoKELzi^OjV]1
-Z135 !s100 I<cn2BLW[VVOc`hfFiRNX2
-R54
-32
-R133
-!i10b 1
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
-Aa_signextender
-R8
-R9
-R10
-Z136 DEx4 work 12 signextender 0 22 Jh`9b0P`3X7e<WNYo3<Eh0
-l13
-L12
-Z137 V6N3RFcNlQN<RBZBW3SQ3j3
-Z138 !s100 U61No:^mG2kA<hin[ebHD3
-R54
-32
-R133
-!i10b 1
->>>>>>> Stashed changes
-l0
-L5
-Z139 VJh`9b0P`3X7e<WNYo3<Eh0
-Z140 !s100 @ia1bHBf2;QTiIz;kf3IL2
-R54
-32
-R133
-!i10b 1
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
-Aa_registerfile
-R8
-R9
-R10
-Z141 DEx4 work 12 registerfile 0 22 bkAUb8QQUn3M;@_QGHO]]1
-l43
-L38
-Z142 V78PS:_Ekbdl1FDcZd6D3o0
-Z143 !s100 5g:NM0T:1b8f7VT0m=A=j2
-R54
-32
-R133
-!i10b 1
->>>>>>> Stashed changes
-l0
-L5
-Z144 VbkAUb8QQUn3M;@_QGHO]]1
-Z145 !s100 z_^QAJPFe5V_zBaM8o>OD0
-R54
-32
-R133
-!i10b 1
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
-Aa_pcount
-R8
-R9
-R10
-DEx4 work 6 pcount 0 22 zY]TUfIGW]k8^>ZATzDY21
-l22
-L18
-VLcZ?VEl8NOPj=<`fgFNA<3
-!s100 H50Oz^e92>e1^YnM7CzYU3
-R54
-32
-R133
-!i10b 1
->>>>>>> Stashed changes
-l0
-L5
-VzY]TUfIGW]k8^>ZATzDY21
-!s100 CjnQd2b9HcfF48dX4D]Cn1
-R54
-32
-R133
-!i10b 1
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
-Aa_outreg
-R8
-R9
-R10
-Z146 DEx4 work 6 outreg 0 22 L>BjUdC[K3Y8g@k9L4d;53
-l17
-L15
-Z147 V33kaHC>bO<5SYc3hll?Si3
-Z148 !s100 m2K9]71bYSaVhKASAFF7X1
-R54
-32
-R55
-!i10b 1
->>>>>>> Stashed changes
-l0
-L5
-Z149 VL>BjUdC[K3Y8g@k9L4d;53
-Z150 !s100 gBkRI@gJN9J>mYfk>kiV[0
-R54
-32
-R55
-!i10b 1
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
-Aa_ouralu
-R8
-R9
-R10
-Z151 DEx4 work 6 ouralu 0 22 zHPzo=aVg9>DRd^g:;cR;2
-l20
-L15
-Z152 VCN>BQgmI8kR<<>;@HPmZa0
-Z153 !s100 N4iP7Gh6S90@KFYjD6<=80
-R54
-32
-R55
-!i10b 1
->>>>>>> Stashed changes
-l0
-L5
-Z154 VzHPzo=aVg9>DRd^g:;cR;2
-Z155 !s100 O638^0fSmPU1Z=JcKR01g3
-R54
-32
-R55
-!i10b 1
-R0
->>>>>>> Stashed changes
-R57
-R58
-R59
-!i113 1
-R32
-R33
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
-Aa_mips_processor
-R8
-R9
-R10
->>>>>>> Stashed changes
-l0
-L5
-V:8056R:9FOTf`hi^6BWUR1
-!s100 TN_DcJ0G9IILR2n;GYmJT2
-R54
-32
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
-Aa_memuseunit
-R8
-R9
-R10
-Z156 DEx4 work 10 memuseunit 0 22 @7oi><fRSEo>gg_1Q_WSO0
-l27
-L22
-Z157 VmdalI24^n123n5S]4Z5R41
-Z158 !s100 k>L9G:^`T4dmXOfdB4A@j2
-R54
-32
-R55
-!i10b 1
->>>>>>> Stashed changes
-l0
-L5
-Z159 V@7oi><fRSEo>gg_1Q_WSO0
-Z160 !s100 S2EALHh@:7^37]zj7;WB@2
-R54
-32
-R55
-!i10b 1
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
-Aa_memorywriteback
-R8
-R9
-R10
-DEx4 work 15 memorywriteback 0 22 n?K1NX<g0=loD:>:1lh?h1
-l30
-L22
-VXlA[zZM1M0fnE4E@cZEim1
-!s100 l1gO:e1l6C5]0LW>UAg>d3
-R54
-32
-R55
-!i10b 1
->>>>>>> Stashed changes
-l0
-L5
-Vn?K1NX<g0=loD:>:1lh?h1
-!s100 VC@4?Bi:H@`KA=2_WYfUB1
-R54
-32
-R55
-!i10b 1
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
-Aa_memor
-R8
-R9
-R10
-Z161 DEx4 work 5 memor 0 22 J>N5OBQdez0EM3TU`9g8G0
-l34
-L25
-Z162 VDkB^f:0iPdeWRh1^g2BPH3
-Z163 !s100 gGDb03ndLLl[1fo``=d?o3
-R54
-32
-R55
-!i10b 1
->>>>>>> Stashed changes
-l0
-L5
-Z164 VJ>N5OBQdez0EM3TU`9g8G0
-Z165 !s100 ho;D`1bg[KKo:n^[9Alz52
-R54
-32
-R55
-!i10b 1
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
-Aa_instrcache
-R8
-R9
-R10
-DEx4 work 10 instrcache 0 22 b8HYPIBkO0RN>W8o:dCnR3
-l20
-L15
-VUi]NNdD2b]Q[QVIAZV_]k2
-!s100 kjdCL8;F?EMKhhV@af31e0
-R54
-32
-R55
-!i10b 1
->>>>>>> Stashed changes
-l0
-L5
-Vb8HYPIBkO0RN>W8o:dCnR3
-!s100 9:2U>[:oQPk?`^z_OHN`23
-R54
-32
-R55
-!i10b 1
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
-Aa_inreg
-R8
-R9
-R10
-Z166 DEx4 work 5 inreg 0 22 FNHLOlmSIjYU>5E>Qag:b1
-l13
-L12
-Z167 VfP<@@MDYzdaKN?MJ?MlhH3
-Z168 !s100 =zbEfMoEbgP_[FG:=GjBC1
-R54
-32
-R55
-!i10b 1
->>>>>>> Stashed changes
-l0
-L5
-Z169 VFNHLOlmSIjYU>5E>Qag:b1
-Z170 !s100 g>@GcfQFl[@^2`[:fnJ]b3
-R54
-32
-R55
-!i10b 1
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
-Aa_flags
-R8
-R9
-R10
-DEx4 work 5 flags 0 22 `cz^adZRQJeH4[1aeeQ:53
-l18
-L16
-ViEMRE5NfS]NDjQP`Nafgo0
-!s100 lZh63bdLXE[9hAFEXMfz:3
-R54
-32
->>>>>>> Stashed changes
-R8
-R9
-R10
+R11
 R12
-Z171 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/Flags.vhd
-Z172 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/Flags.vhd
+R13
+R14
+8C:/Users/salma/Documents/MIPS_Processor/DataForwardUnit.vhd
+FC:/Users/salma/Documents/MIPS_Processor/DataForwardUnit.vhd
 l0
 L5
-V`cz^adZRQJeH4[1aeeQ:53
-!s100 0zBF9nJmj<WEWL@4[1D2>0
-R54
+Z130 VFdb<O=D2EGR_I4[nhYh483
+Z131 !s100 Bg8@8Z;[NPd<kaN4Q[6323
+R88
 32
 >>>>>>> Stashed changes
 !i113 1
-R32
-R33
+R108
+R109
 R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
-Aa_fetchdecode
-R8
-R9
-R10
-DEx4 work 11 fetchdecode 0 22 7n=8P=U4O0em4WjYm0HV62
-l24
-L18
-V=K@=VUc9aXDRVnVT]iD:[1
-!s100 Dn91U^3:OWaD[RRmdaL:S2
-R54
-32
-R55
-!i10b 1
->>>>>>> Stashed changes
-l0
-L5
-V7n=8P=U4O0em4WjYm0HV62
-!s100 YP8O32R2OFcc4UmmA2Uf^3
-R54
-32
-R55
-!i10b 1
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
-Aa_fetchcontrol
-R8
-R9
-R10
-DEx4 work 12 fetchcontrol 0 22 8o[SFIelA3mPU]^`W<B[H3
-l20
-L13
-VR26i=iKKoM`8DeD[?9<Hb1
-!s100 OcFdbX4P<J>Q6EIU>N^P^3
-R54
-32
->>>>>>> Stashed changes
-l0
-L5
-V8o[SFIelA3mPU]^`W<B[H3
-!s100 HR[bThC7VaK1M24BRh76<3
-R54
-32
-R0
->>>>>>> Stashed changes
-R8
-R9
-R10
+Aa_dataforwardunit
+R11
 R12
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
-Aa_executememory
-R8
-R9
-R10
-DEx4 work 13 executememory 0 22 IVmVG7kW3LS?Bz:?S9^0S3
-l38
-L27
-V0g9g4o@]oN=39dKPFIIEQ1
-!s100 [M]WYFgaZjB@fHT<TGUnP1
-R54
+R13
+Z132 DEx4 work 15 dataforwardunit 0 22 Fdb<O=D2EGR_I4[nhYh483
+l39
+L37
+Z133 V4W]jBH^g?bebQil1i6FiS3
+Z134 !s100 @NP3iZ>K65cdOigL<PS`Q1
+R88
 32
-R55
-!i10b 1
->>>>>>> Stashed changes
-l0
-L5
-VIVmVG7kW3LS?Bz:?S9^0S3
-!s100 HPaKQ5Z0AA[IFL`a1OYR12
-R54
-32
-R55
-!i10b 1
-R0
 >>>>>>> Stashed changes
 !i113 1
-R32
-R33
+R108
+R109
 R0
->>>>>>> Stashed changes
-!i113 1
-R32
-R33
-R0
-Aa_decodeexecute
-R8
-R9
-R10
-DEx4 work 13 decodeexecute 0 22 i7GPHSeA0i3RQ@BGz[LAV1
-l57
-L44
-VR?AV7V;kgN4TZgF6ZA21C0
-!s100 ^9E@g2JiUjDkIAgSz0:5k2
-R54
-32
-R55
-!i10b 1
 >>>>>>> Stashed changes
 l0
 L5
 Vi7GPHSeA0i3RQ@BGz[LAV1
 !s100 bgB@gSFbE;9<02ZDO3m=90
-R54
+R88
 32
-R55
+R3
 !i10b 1
 R0
 >>>>>>> Stashed changes
 !i113 1
-R32
-R33
+R108
+R109
+R0
+Aa_decodeexecute
+R11
+R12
+R13
+DEx4 work 13 decodeexecute 0 22 i7GPHSeA0i3RQ@BGz[LAV1
+l57
+L44
+VR?AV7V;kgN4TZgF6ZA21C0
+!s100 ^9E@g2JiUjDkIAgSz0:5k2
+R88
+32
+R3
+!i10b 1
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+>>>>>>> Stashed changes
+l0
+L5
+VIVmVG7kW3LS?Bz:?S9^0S3
+!s100 HPaKQ5Z0AA[IFL`a1OYR12
+R88
+32
+R3
+!i10b 1
 R0
 >>>>>>> Stashed changes
 !i113 1
-R32
-R33
+R108
+R109
 R0
-Aa_dataforwardunit
-R8
-R9
-R10
-Z173 DEx4 work 15 dataforwardunit 0 22 Fdb<O=D2EGR_I4[nhYh483
-l39
-L37
-Z174 V4W]jBH^g?bebQil1i6FiS3
-Z175 !s100 @NP3iZ>K65cdOigL<PS`Q1
-R54
-32
->>>>>>> Stashed changes
-R8
-R9
-R10
+Aa_executememory
 R11
-8C:/Users/salma/Documents/MIPS_Processor/DataForwardUnit.vhd
-FC:/Users/salma/Documents/MIPS_Processor/DataForwardUnit.vhd
+R12
+R13
+DEx4 work 13 executememory 0 22 IVmVG7kW3LS?Bz:?S9^0S3
+l38
+L27
+V0g9g4o@]oN=39dKPFIIEQ1
+!s100 [M]WYFgaZjB@fHT<TGUnP1
+R88
+32
+R3
+!i10b 1
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+>>>>>>> Stashed changes
+R11
+R12
+R13
+R15
+>>>>>>> Stashed changes
 l0
 L5
-Z176 VFdb<O=D2EGR_I4[nhYh483
-Z177 !s100 Bg8@8Z;[NPd<kaN4Q[6323
-R54
+V8o[SFIelA3mPU]^`W<B[H3
+!s100 HR[bThC7VaK1M24BRh76<3
+R88
 32
-Ealu_cmp
-Z178 w1713382756
-R8
-R9
-R10
+R0
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+Aa_fetchcontrol
+R11
 R12
-Z179 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_cmp.vhd
-Z180 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_cmp.vhd
+R13
+DEx4 work 12 fetchcontrol 0 22 8o[SFIelA3mPU]^`W<B[H3
+l20
+L13
+VR26i=iKKoM`8DeD[?9<Hb1
+!s100 OcFdbX4P<J>Q6EIU>N^P^3
+R88
+32
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+>>>>>>> Stashed changes
+l0
+L5
+V7n=8P=U4O0em4WjYm0HV62
+!s100 YP8O32R2OFcc4UmmA2Uf^3
+R88
+32
+R3
+!i10b 1
+R0
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+Aa_fetchdecode
+R11
+R12
+R13
+DEx4 work 11 fetchdecode 0 22 7n=8P=U4O0em4WjYm0HV62
+l24
+L18
+V=K@=VUc9aXDRVnVT]iD:[1
+!s100 Dn91U^3:OWaD[RRmdaL:S2
+R88
+32
+R3
+!i10b 1
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+>>>>>>> Stashed changes
+R11
+R12
+R13
+R15
+Z135 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/Flags.vhd
+Z136 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/Flags.vhd
+l0
+L5
+V`cz^adZRQJeH4[1aeeQ:53
+!s100 0zBF9nJmj<WEWL@4[1D2>0
+R88
+32
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+Aa_flags
+R11
+R12
+R13
+DEx4 work 5 flags 0 22 `cz^adZRQJeH4[1aeeQ:53
+l18
+L16
+ViEMRE5NfS]NDjQP`Nafgo0
+!s100 lZh63bdLXE[9hAFEXMfz:3
+R88
+32
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+>>>>>>> Stashed changes
+l0
+L5
+Z137 VFNHLOlmSIjYU>5E>Qag:b1
+Z138 !s100 g>@GcfQFl[@^2`[:fnJ]b3
+R88
+32
+R3
+!i10b 1
+R0
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+Aa_inreg
+R11
+R12
+R13
+Z139 DEx4 work 5 inreg 0 22 FNHLOlmSIjYU>5E>Qag:b1
+l13
+L12
+Z140 VfP<@@MDYzdaKN?MJ?MlhH3
+Z141 !s100 =zbEfMoEbgP_[FG:=GjBC1
+R88
+32
+R3
+!i10b 1
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+>>>>>>> Stashed changes
+l0
+L5
+Vb8HYPIBkO0RN>W8o:dCnR3
+!s100 9:2U>[:oQPk?`^z_OHN`23
+R88
+32
+R3
+!i10b 1
+R0
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+Aa_instrcache
+R11
+R12
+R13
+DEx4 work 10 instrcache 0 22 b8HYPIBkO0RN>W8o:dCnR3
+l20
+L15
+VUi]NNdD2b]Q[QVIAZV_]k2
+!s100 kjdCL8;F?EMKhhV@af31e0
+R88
+32
+R3
+!i10b 1
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+>>>>>>> Stashed changes
+l0
+L5
+Z142 VJ>N5OBQdez0EM3TU`9g8G0
+Z143 !s100 ho;D`1bg[KKo:n^[9Alz52
+R88
+32
+R3
+!i10b 1
+R0
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+Aa_memor
+R11
+R12
+R13
+Z144 DEx4 work 5 memor 0 22 J>N5OBQdez0EM3TU`9g8G0
+l34
+L25
+Z145 VDkB^f:0iPdeWRh1^g2BPH3
+Z146 !s100 gGDb03ndLLl[1fo``=d?o3
+R88
+32
+R3
+!i10b 1
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+>>>>>>> Stashed changes
+l0
+L5
+Vn?K1NX<g0=loD:>:1lh?h1
+!s100 VC@4?Bi:H@`KA=2_WYfUB1
+R88
+32
+R3
+!i10b 1
+R0
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+Aa_memorywriteback
+R11
+R12
+R13
+DEx4 work 15 memorywriteback 0 22 n?K1NX<g0=loD:>:1lh?h1
+l30
+L22
+VXlA[zZM1M0fnE4E@cZEim1
+!s100 l1gO:e1l6C5]0LW>UAg>d3
+R88
+32
+R3
+!i10b 1
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+>>>>>>> Stashed changes
+l0
+L5
+Z147 V@7oi><fRSEo>gg_1Q_WSO0
+Z148 !s100 S2EALHh@:7^37]zj7;WB@2
+R88
+32
+R3
+!i10b 1
+R0
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+Aa_memuseunit
+R11
+R12
+R13
+Z149 DEx4 work 10 memuseunit 0 22 @7oi><fRSEo>gg_1Q_WSO0
+l27
+L22
+Z150 VmdalI24^n123n5S]4Z5R41
+Z151 !s100 k>L9G:^`T4dmXOfdB4A@j2
+R88
+32
+R3
+!i10b 1
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+>>>>>>> Stashed changes
+l0
+L5
+V:8056R:9FOTf`hi^6BWUR1
+!s100 TN_DcJ0G9IILR2n;GYmJT2
+R88
+32
+R0
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+Aa_mips_processor
+R11
+R12
+R13
+>>>>>>> Stashed changes
+R84
+R85
+R86
+!i113 1
+R108
+R109
+R0
+>>>>>>> Stashed changes
+l0
+L5
+Z152 VzHPzo=aVg9>DRd^g:;cR;2
+Z153 !s100 O638^0fSmPU1Z=JcKR01g3
+R88
+32
+R3
+!i10b 1
+R0
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+Aa_ouralu
+R11
+R12
+R13
+Z154 DEx4 work 6 ouralu 0 22 zHPzo=aVg9>DRd^g:;cR;2
+l20
+L15
+VCN>BQgmI8kR<<>;@HPmZa0
+!s100 N4iP7Gh6S90@KFYjD6<=80
+R88
+32
+R3
+!i10b 1
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+>>>>>>> Stashed changes
+l0
+L5
+Z155 VL>BjUdC[K3Y8g@k9L4d;53
+Z156 !s100 gBkRI@gJN9J>mYfk>kiV[0
+R88
+32
+R3
+!i10b 1
+R0
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+Aa_outreg
+R11
+R12
+R13
+Z157 DEx4 work 6 outreg 0 22 L>BjUdC[K3Y8g@k9L4d;53
+l17
+L15
+Z158 V33kaHC>bO<5SYc3hll?Si3
+Z159 !s100 m2K9]71bYSaVhKASAFF7X1
+R88
+32
+R3
+!i10b 1
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+>>>>>>> Stashed changes
+l0
+L5
+VzY]TUfIGW]k8^>ZATzDY21
+!s100 CjnQd2b9HcfF48dX4D]Cn1
+R88
+32
+Z160 !s110 1715903119
+!i10b 1
+R0
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+Aa_pcount
+R11
+R12
+R13
+DEx4 work 6 pcount 0 22 zY]TUfIGW]k8^>ZATzDY21
+l22
+L18
+VLcZ?VEl8NOPj=<`fgFNA<3
+!s100 H50Oz^e92>e1^YnM7CzYU3
+R88
+32
+R160
+!i10b 1
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+>>>>>>> Stashed changes
+l0
+L5
+Z161 VbkAUb8QQUn3M;@_QGHO]]1
+Z162 !s100 z_^QAJPFe5V_zBaM8o>OD0
+R88
+32
+R160
+!i10b 1
+R0
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+Aa_registerfile
+R11
+R12
+R13
+Z163 DEx4 work 12 registerfile 0 22 bkAUb8QQUn3M;@_QGHO]]1
+l43
+L38
+V78PS:_Ekbdl1FDcZd6D3o0
+!s100 5g:NM0T:1b8f7VT0m=A=j2
+R88
+32
+R160
+!i10b 1
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+>>>>>>> Stashed changes
+l0
+L5
+Z164 VJh`9b0P`3X7e<WNYo3<Eh0
+Z165 !s100 @ia1bHBf2;QTiIz;kf3IL2
+R88
+32
+R160
+!i10b 1
+R0
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+Aa_signextender
+R11
+R12
+R13
+Z166 DEx4 work 12 signextender 0 22 Jh`9b0P`3X7e<WNYo3<Eh0
+l13
+L12
+Z167 V6N3RFcNlQN<RBZBW3SQ3j3
+Z168 !s100 U61No:^mG2kA<hin[ebHD3
+R88
+32
+R160
+!i10b 1
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+>>>>>>> Stashed changes
+l0
+L5
+Z169 VG8ja@?a<mFoKELzi^OjV]1
+Z170 !s100 I<cn2BLW[VVOc`hfFiRNX2
+R88
+32
+R160
+!i10b 1
+R0
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+Aa_stackpointer
+R11
+R12
+R13
+Z171 DEx4 work 12 stackpointer 0 22 G8ja@?a<mFoKELzi^OjV]1
+l27
+L15
+VG7n;gGTHR6C8cW0m9ShdW2
+!s100 lY4dOg<g2e8Gfg9fNFGS32
+R88
+32
+R160
+!i10b 1
+>>>>>>> Stashed changes
+!i113 1
+R108
+R109
+R0
+Ealu_cmp
+Z172 w1713382756
+R11
+R12
+R13
+R15
+Z173 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_cmp.vhd
+Z174 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_cmp.vhd
 l0
 L5
 VVJm@c<=6_nk_fn_E2XU[d3
 !s100 zb7DhEZLaQZ6eOCQk_lWT3
-R54
+R88
 32
-Z181 !s110 1713382761
+Z175 !s110 1713382761
 !i10b 1
-Z182 !s108 1713382761.000000
-Z183 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_cmp.vhd|
-Z184 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_cmp.vhd|
+Z176 !s108 1713382761.000000
+Z177 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_cmp.vhd|
+Z178 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_cmp.vhd|
 !i113 1
-R32
-R33
+R108
+R109
 Aa_alu_cmp
-R8
-R9
-R10
+R11
+R12
+R13
 DEx4 work 7 alu_cmp 0 22 VJm@c<=6_nk_fn_E2XU[d3
 l15
 L14
 V=6eQbIIKj4i1<TWGY<>e>0
 !s100 L_`o<RCEX=BOgD>V7QGXY0
-R54
+R88
 32
-R181
+R175
 !i10b 1
-R182
-R183
-R184
+R176
+R177
+R178
 !i113 1
-R32
-R33
+R108
+R109
 Ealu_dec
-Z185 w1713381170
-R8
-R9
-R10
+Z179 w1713381170
+R11
 R12
-Z186 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_dec.vhd
-Z187 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_dec.vhd
+R13
+R15
+Z180 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_dec.vhd
+Z181 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_dec.vhd
 l0
 L5
 VV[[gKFlfYhClO2Zfjf5G?3
 !s100 @Q@QgJ7O28DZkciNREUg80
-R54
+R88
 32
-Z188 !s110 1713381514
+Z182 !s110 1713381514
 !i10b 1
-Z189 !s108 1713381514.000000
-Z190 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_dec.vhd|
-Z191 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_dec.vhd|
+Z183 !s108 1713381514.000000
+Z184 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_dec.vhd|
+Z185 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_dec.vhd|
 !i113 1
-R32
-R33
+R108
+R109
 Aa_alu_dec
-R8
-R9
-R10
+R11
+R12
+R13
 DEx4 work 7 alu_dec 0 22 V[[gKFlfYhClO2Zfjf5G?3
 l15
 L13
 V@oI_:hJJP5Ka@T?99cb6;2
 !s100 6Z`eO^l<?GzcENBOmdbGH2
-R54
+R88
 32
-R188
+R182
 !i10b 1
-R189
-R190
-R191
+R183
+R184
+R185
 !i113 1
-R32
-R33
+R108
+R109
 Ealu_ldm
-Z192 w1713380928
-R9
-R10
+Z186 w1713380928
 R12
-Z193 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_ldm.vhd
-Z194 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_ldm.vhd
+R13
+R15
+Z187 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_ldm.vhd
+Z188 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_ldm.vhd
 l0
 L4
 VkL9hHD7n4R^KmVEH::R2[3
 !s100 PLZgmd?LQG_lN;m85NgOh0
-R54
+R88
 32
-Z195 !s110 1713381515
+Z189 !s110 1713381515
 !i10b 1
-Z196 !s108 1713381515.000000
-Z197 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_ldm.vhd|
-Z198 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_ldm.vhd|
+Z190 !s108 1713381515.000000
+Z191 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_ldm.vhd|
+Z192 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_ldm.vhd|
 !i113 1
-R32
-R33
+R108
+R109
 Aa_alu_ldm
-R9
-R10
+R12
+R13
 DEx4 work 7 alu_ldm 0 22 kL9hHD7n4R^KmVEH::R2[3
 l14
 L12
 V]O5<]z=obM1b9SfI1z0cF2
 !s100 FC0@R[N8@LV[o6kU9O87H3
-R54
+R88
 32
-R195
+R189
 !i10b 1
-R196
-R197
-R198
+R190
+R191
+R192
 !i113 1
-R32
-R33
+R108
+R109
 Ealu_mov
-Z199 w1713380922
-R9
-R10
+Z193 w1713380922
 R12
-Z200 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_mov.vhd
-Z201 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_mov.vhd
+R13
+R15
+Z194 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_mov.vhd
+Z195 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_mov.vhd
 l0
 L4
 V5h7h5`@[i[>Kn8h?V03D]1
 !s100 `7[??<6Sa3D[3=>6i:Bic3
-R54
+R88
 32
-R188
+R182
 !i10b 1
-R189
-Z202 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_mov.vhd|
-Z203 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_mov.vhd|
+R183
+Z196 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_mov.vhd|
+Z197 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_mov.vhd|
 !i113 1
-R32
-R33
+R108
+R109
 Aa_alu_mov
-R9
-R10
+R12
+R13
 DEx4 work 7 alu_mov 0 22 5h7h5`@[i[>Kn8h?V03D]1
 l13
 L12
 VG_9Q3WS>SzBOkHYm_U>281
 !s100 5[5UTE2W9HOWGaJ;9mMJ52
-R54
+R88
 32
-R188
+R182
 !i10b 1
-R189
-R202
-R203
+R183
+R196
+R197
 !i113 1
-R32
-R33
+R108
+R109
 Ealu_not
-Z204 w1713380915
-R9
-R10
+Z198 w1713380915
 R12
-Z205 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_not.vhd
-Z206 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_not.vhd
+R13
+R15
+Z199 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_not.vhd
+Z200 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_not.vhd
 l0
 L4
 VCQ5AR:B5`PJGC4S_;AV;71
 !s100 XVmFO>ZC7Q5O>RNODHTLE3
-R54
+R88
 32
-R188
+R182
 !i10b 1
-R189
-Z207 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_not.vhd|
-Z208 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_not.vhd|
+R183
+Z201 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_not.vhd|
+Z202 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_not.vhd|
 !i113 1
-R32
-R33
+R108
+R109
 Aa_alu_not
-R9
-R10
+R12
+R13
 DEx4 work 7 alu_not 0 22 CQ5AR:B5`PJGC4S_;AV;71
 l13
 L12
 Vgj>id803^NhSe0Q@3_:lk0
 !s100 glJQbA_fGm9m`LU6Sllo80
-R54
+R88
 32
-R188
+R182
 !i10b 1
-R189
-R207
-R208
+R183
+R201
+R202
 !i113 1
-R32
-R33
+R108
+R109
 Ealu_or
-Z209 w1713380907
-R9
-R10
+Z203 w1713380907
 R12
-Z210 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_or.vhd
-Z211 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_or.vhd
+R13
+R15
+Z204 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_or.vhd
+Z205 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_or.vhd
 l0
 L4
 V4671[;^[4R0FbF1YBEGCg1
 !s100 B1AghjAN:G=IZJ1N8=3z82
-R54
+R88
 32
-R188
+R182
 !i10b 1
-R189
-Z212 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_or.vhd|
-Z213 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_or.vhd|
+R183
+Z206 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_or.vhd|
+Z207 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ALU_or.vhd|
 !i113 1
-R32
-R33
+R108
+R109
 Aa_alu_or
-R9
-R10
+R12
+R13
 DEx4 work 6 alu_or 0 22 4671[;^[4R0FbF1YBEGCg1
 l14
 L13
 VX2@E5kNTlDCJ<X:d=F[?n0
 !s100 `]T3@gPF@GFmz[OT_hd8M0
-R54
+R88
 32
-R188
+R182
 !i10b 1
-R189
-R212
-R213
+R183
+R206
+R207
 !i113 1
-R32
-R33
+R108
+R109
 Ebranchpredict
-Z214 w1715884240
-R8
-R9
-R10
+Z208 w1715884240
 R11
-Z215 8C:/Users/salma/Documents/MIPS_Processor/BranchPredict.vhd
-Z216 FC:/Users/salma/Documents/MIPS_Processor/BranchPredict.vhd
+R12
+R13
+R14
+Z209 8C:/Users/salma/Documents/MIPS_Processor/BranchPredict.vhd
+Z210 FC:/Users/salma/Documents/MIPS_Processor/BranchPredict.vhd
 l0
 L5
 VVlM3CHO^8HUWW:SM@KlFV2
 !s100 QLXFImai[]g5_jKcMfV322
-R54
+R88
 32
-R40
+R78
 !i10b 1
-R98
-R99
-Z217 !s107 C:/Users/salma/Documents/MIPS_Processor/BranchPredict.vhd|
+R46
+R47
+Z211 !s107 C:/Users/salma/Documents/MIPS_Processor/BranchPredict.vhd|
 !i113 1
-R32
-R33
+R108
+R109
 Aprediction
-R8
-R9
-R10
+R11
+R12
+R13
 DEx4 work 13 branchpredict 0 22 VlM3CHO^8HUWW:SM@KlFV2
 l21
 L20
 V7Peh@9Z9?e35?ekN5hCEF1
 !s100 aMcPzb3ZD5<U2Xf3WWU5P2
-R54
+R88
 32
-R40
+R78
 !i10b 1
-R98
-R99
-R217
+R46
+R47
+R211
 !i113 1
-R32
-R33
+R108
+R109
 Ebranchpredictor
-Z218 w1715945525
-R9
-R10
+Z212 w1715981953
 R12
-Z219 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/BranchPredict.vhd
-Z220 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/BranchPredict.vhd
+R13
+R15
+Z213 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/BranchPredict.vhd
+Z214 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/BranchPredict.vhd
 l0
 L4
-V3zih>?O_:WeUdmEaW=>;X3
-!s100 47K[OJCe<I7l=56M6]zja0
-R54
+VhgDB@U<b@kOKUEWYf6n6h1
+!s100 SJ:azIg@4lQ;E<AjAV8Ao2
+R88
 32
-Z221 !s110 1715963947
+Z215 !s110 1715991501
 !i10b 1
-Z222 !s108 1715963947.000000
-Z223 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/BranchPredict.vhd|
-Z224 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/BranchPredict.vhd|
+Z216 !s108 1715991501.000000
+Z217 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/BranchPredict.vhd|
+Z218 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/BranchPredict.vhd|
 !i113 1
-R32
-R33
+R108
+R109
 Abehavioral
-R9
-R10
-DEx4 work 15 branchpredictor 0 22 3zih>?O_:WeUdmEaW=>;X3
-l24
-L21
-VzY22;HkERc:VAaz6YRQY63
-!s100 9I<GM=HMCIZJ6EXo4P]eT2
-R54
-32
-R221
-!i10b 1
-R222
-R223
-R224
-!i113 1
-R32
-R33
-Eccr
-Z225 w1714000849
-R8
-R9
-R10
 R12
-R171
-R172
+R13
+DEx4 work 15 branchpredictor 0 22 hgDB@U<b@kOKUEWYf6n6h1
+l27
+L24
+VcLUG5?jM_cillGVd?BD`L3
+!s100 ekZ6P1BIM:aCk@]30kElE0
+R88
+32
+R215
+!i10b 1
+R216
+R217
+R218
+!i113 1
+R108
+R109
+Eccr
+Z219 w1714000849
+R11
+R12
+R13
+R15
+R135
+R136
 l0
 L5
 VFmODegk3H@>J<H@G^ReG^3
 !s100 J`^44Q[_MDY?L^RJ<:mlS3
-R54
+R88
 32
-Z226 !s110 1715963948
+Z220 !s110 1715991502
 !i10b 1
-Z227 !s108 1715963948.000000
-R96
-R97
+Z221 !s108 1715991502.000000
+R44
+R45
 !i113 1
-R32
-R33
+R108
+R109
 Aa_ccr
-R8
-R9
-R10
+R11
+R12
+R13
 DEx4 work 3 ccr 0 22 FmODegk3H@>J<H@G^ReG^3
 l18
 L16
 Vz?3cdK?QC;GPT=49ZnPjb3
 !s100 aKF:TU5iac<<ES6AKdP;f1
-R54
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R96
-R97
+R221
+R44
+R45
 !i113 1
-R32
-R33
+R108
+R109
 Econtrolunit
-Z228 w1715964373
-R9
-R10
+Z222 w1715985576
 R12
-Z229 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd
-Z230 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd
+R13
+R15
+Z223 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd
+Z224 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd
 l0
 L5
 V37cg_az[<W1MMV8bHa<2C1
 !s100 bjJRelbfe8BX<CRSS0M1N2
-R54
+R88
 32
-Z231 !s110 1715964400
+R215
 !i10b 1
-Z232 !s108 1715964400.000000
-Z233 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd|
-Z234 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd|
+R216
+Z225 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd|
+Z226 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ControlUnit.vhd|
 !i113 1
-R32
-R33
+R108
+R109
 Aa_controlunit
-R9
-R10
+R12
+R13
 DEx4 work 11 controlunit 0 22 37cg_az[<W1MMV8bHa<2C1
 l56
 L55
 Vi`02IQVQIFkMcmGM6G[0i1
 !s100 Q?VRHD:F@fe]NJhb;hLfL2
-R54
+R88
 32
-R231
+R215
 !i10b 1
-R232
-R233
-R234
+R216
+R225
+R226
 !i113 1
-R32
-R33
+R108
+R109
 Edataforwardunit
-Z235 w1715938099
-R8
-R9
-R10
+Z227 w1715938099
+R11
 R12
-Z236 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd
-Z237 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd
+R13
+R15
+Z228 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd
+Z229 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/DataForwardUnit.vhd
 l0
 L5
-R176
-R177
-R54
-32
-R221
-!i10b 1
-R222
 R130
 R131
-!i113 1
-R32
-R33
-Aa_dataforwardunit
-R8
+R88
+32
+R220
+!i10b 1
+R216
 R9
 R10
-R173
+!i113 1
+R108
+R109
+Aa_dataforwardunit
+R11
+R12
+R13
+R132
 l39
 L37
-R174
-R175
-R54
+R133
+R134
+R88
 32
-R221
+R220
 !i10b 1
-R222
-R130
-R131
-!i113 1
-R32
-R33
-Edecodeexecute
-Z238 w1715963604
-R8
+R216
 R9
 R10
+!i113 1
+R108
+R109
+Edecodeexecute
+Z230 w1715991365
+R11
 R12
-R124
-R125
+R13
+R15
+R16
+R17
 l0
 L5
-V4>5B?NcmSY6EFHEheS@RD0
-!s100 RnbR>6Qf48[oK;YCOWQZM2
-R54
+Vfm[LL8Zo8i9;EU_zWiBR]3
+!s100 dV6>RHZgPCTgEbNaHh9K<0
+R88
 32
-R221
+R220
 !i10b 1
-R222
-R122
-R123
+R221
+R20
+R21
 !i113 1
-R32
-R33
+R108
+R109
 Aa_decodeexecute
-R8
-R9
-R10
-DEx4 work 13 decodeexecute 0 22 4>5B?NcmSY6EFHEheS@RD0
-l61
-L47
-VG[CCzA^PII^4<;R<IM88e1
-!s100 lBDPETNC]Lk@WSeHHbg4J1
-R54
-32
-R221
-!i10b 1
-R222
-R122
-R123
-!i113 1
-R32
-R33
-Eexceptionunit
-Z239 w1715940602
-R8
-R9
-R10
+R11
 R12
-Z240 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd
-Z241 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd
+R13
+DEx4 work 13 decodeexecute 0 22 fm[LL8Zo8i9;EU_zWiBR]3
+l68
+L54
+VeCcm3mQgLzm1I^WEO`^fK0
+!s100 NSggh6DMgmmOSeRzV2aRd3
+R88
+32
+R220
+!i10b 1
+R221
+R20
+R21
+!i113 1
+R108
+R109
+Eexceptionunit
+Z231 w1715968080
+R11
+R12
+R13
+R15
+Z232 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd
+Z233 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd
 l0
 L5
 V^fJBK5chYZFAiVgR0mS[C1
 !s100 bh@X8n17R`8KSY_47m`jT0
-R54
+R88
 32
-R226
+R220
 !i10b 1
-R227
-Z242 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd|
-Z243 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd|
+R221
+Z234 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd|
+Z235 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/ExceptionUnit.vhd|
 !i113 1
-R32
-R33
+R108
+R109
 Aa_exceptionunit
-R8
-R9
-R10
+R11
+R12
+R13
 DEx4 work 13 exceptionunit 0 22 ^fJBK5chYZFAiVgR0mS[C1
 l18
 L14
-V6E<K^g_nWM<[L0l6E3b7>3
-!s100 SRf1M5d`@d8i<hPDe@@Wo2
-R54
+VH>KfiEV76MR?lR_7jFJ0E0
+!s100 UZ1LhF2V6_6]_`9YFf=Il0
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R242
-R243
+R221
+R234
+R235
 !i113 1
-R32
-R33
+R108
+R109
 Eexecutememory
-Z244 w1715963644
-R8
-R9
-R10
+Z236 w1715963644
+R11
 R12
-R118
-R119
+R13
+R15
+R22
+R23
 l0
 L5
 VILW:chc@E;O2;[I:iRSP71
 !s100 =czL>i;QQ@[C^cb3f<0A>1
-R54
+R88
 32
-R221
+R220
 !i10b 1
-R222
-R116
-R117
+R221
+R26
+R27
 !i113 1
-R32
-R33
+R108
+R109
 Aa_executememory
-R8
-R9
-R10
+R11
+R12
+R13
 DEx4 work 13 executememory 0 22 ILW:chc@E;O2;[I:iRSP71
 l41
 L29
 V=S]0F^D=ca3ScQLLl?PmC0
 !s100 jio_LQc[[F7Ha@=AF5z?=1
-R54
+R88
 32
-R221
+R220
 !i10b 1
-R222
-R116
-R117
+R221
+R26
+R27
 !i113 1
-R32
-R33
+R108
+R109
 Efetchcontrol
 R0
 Efetchdecode
-Z245 w1715964766
-R8
-R9
-R10
+Z237 w1715964766
+R11
 R12
-R105
-R106
+R13
+R15
+R35
+R36
 l0
 L5
 VE]0VXWDK3Kf^b^C<7^_<91
 !s100 41M627^;Q<PzY^c_n5T>f2
-R54
+R88
 32
-Z246 !s110 1715964771
+R220
 !i10b 1
-Z247 !s108 1715964771.000000
-R103
-R104
+R221
+R39
+R40
 !i113 1
-R32
-R33
+R108
+R109
 Aa_fetchdecode
-R8
-R9
-R10
-Z248 DEx4 work 11 fetchdecode 0 22 E]0VXWDK3Kf^b^C<7^_<91
+R11
+R12
+R13
+DEx4 work 11 fetchdecode 0 22 E]0VXWDK3Kf^b^C<7^_<91
 l27
 L20
 V239CS?^;D4^1e]E?zHcI:0
 !s100 @<BeYIaOTe=K^U=10;cKV2
-R54
+R88
 32
-R246
+R220
 !i10b 1
-R247
-R103
-R104
+R221
+R39
+R40
 !i113 1
-R32
-R33
+R108
+R109
 Eflags
 R0
 Einreg
-R91
-R8
-R9
-R10
+R48
+R11
 R12
-R92
-R93
+R13
+R15
+R49
+R50
 l0
 L5
-R169
-R170
-R54
+R137
+R138
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R89
-R90
+R221
+R53
+R54
 !i113 1
-R32
-R33
+R108
+R109
 Aa_inreg
-R8
-R9
-R10
-R166
+R11
+R12
+R13
+R139
 l13
 L12
-R167
-R168
-R54
+R140
+R141
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R89
-R90
+R221
+R53
+R54
 !i113 1
-R32
-R33
+R108
+R109
 Einstrcache
-Z249 w1715958747
-R8
-R9
-R10
+Z238 w1715958747
+R11
 R12
-R85
-R86
+R13
+R15
+R55
+R56
 l0
 L5
 Vnk=P_=In;0EL^_@6X8gG=2
 !s100 VFRfUD4SCZhSTI:W;OP9`1
-R54
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R83
-R84
+R221
+R59
+R60
 !i113 1
-R32
-R33
+R108
+R109
 Aa_instrcache
-R8
-R9
-R10
+R11
+R12
+R13
 DEx4 work 10 instrcache 0 22 nk=P_=In;0EL^_@6X8gG=2
 l21
 L16
 Vi@;K:j_9jLfd24nEdH`fD2
 !s100 S0WUEE[L=anIlzV@`6Hbj2
-R54
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R83
-R84
+R221
+R59
+R60
 !i113 1
-R32
-R33
+R108
+R109
 Ememor
-R78
-R8
-R9
-R10
+R61
+R11
 R12
-R79
-R80
+R13
+R15
+R62
+R63
 l0
 L5
-R164
-R165
-R54
+R142
+R143
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R76
-R77
+R221
+R66
+R67
 !i113 1
-R32
-R33
+R108
+R109
 Aa_memor
-R8
-R9
-R10
-R161
+R11
+R12
+R13
+R144
 l34
 L25
-R162
-R163
-R54
+R145
+R146
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R76
-R77
+R221
+R66
+R67
 !i113 1
-R32
-R33
+R108
+R109
 Ememorywriteback
-Z250 w1715963679
-R8
-R9
-R10
+Z239 w1715963679
+R11
 R12
-R72
-R73
+R13
+R15
+R68
+R69
 l0
 L5
 VAiaKBNm102[o:D=QiHkkA3
 !s100 :k2^m2P5]<3akG50h3Sof1
-R54
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R70
-R71
+R221
+R72
+R73
 !i113 1
-R32
-R33
+R108
+R109
 Aa_memorywriteback
-R8
-R9
-R10
+R11
+R12
+R13
 DEx4 work 15 memorywriteback 0 22 AiaKBNm102[o:D=QiHkkA3
 l33
 L24
 Vc4V5U7W_3RS<FOW_2EY4`0
 !s100 ^]lI9L44H=mUR>Tz6T;8^2
-R54
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R70
-R71
+R221
+R72
+R73
 !i113 1
-R32
-R33
+R108
+R109
 Ememuseunit
-R65
-R8
-R9
-R10
+R74
+R11
 R12
-R66
-R67
+R13
+R15
+R75
+R76
 l0
 L5
-R159
-R160
-R54
+R147
+R148
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R64
-R62
+R221
+R79
+R80
 !i113 1
-R32
-R33
+R108
+R109
 Aa_memuseunit
-R8
-R9
-R10
-R156
+R11
+R12
+R13
+R149
 l27
 L22
-R157
-R158
-R54
+R150
+R151
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R64
-R62
+R221
+R79
+R80
 !i113 1
-R32
-R33
+R108
+R109
 Emips_processor
-Z251 w1715963937
-R8
-R9
-R10
+Z240 w1715991494
+R11
 R12
-R60
-R61
+R13
+R15
+R81
+R82
 l0
 L5
 V[I?CkgNHO5^DN@gT`0=8I1
 !s100 m3Kk;moSGkP871o<Io61=1
-R54
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R58
-R59
+R221
+R85
+R86
 !i113 1
-R32
-R33
+R108
+R109
 Aa_mips_processor
-R8
-R9
-R10
-DEx4 work 14 mips_processor 0 22 [I?CkgNHO5^DN@gT`0=8I1
-l395
-L25
-V61e2W4?MX9bX5MTbljlf=0
-!s100 [[U;;IZk>R]mA0Rd5;Y=a0
-R54
-32
-R226
-!i10b 1
-R227
-R58
-R59
-!i113 1
-R32
-R33
-Eouralu
-R50
-R8
-R9
-R10
+R11
 R12
-R51
-R52
+R13
+DEx4 work 14 mips_processor 0 22 [I?CkgNHO5^DN@gT`0=8I1
+l425
+L25
+Vjmhm`9HQ<D]5TUmgai?O;1
+!s100 JiJZm2hoo0:E9UAgWZ21L0
+R88
+32
+R220
+!i10b 1
+R221
+R85
+R86
+!i113 1
+R108
+R109
+Eouralu
+Z241 w1715985818
+R11
+R12
+R13
+R15
+R89
+R90
 l0
 L5
-R154
-R155
-R54
-32
-R226
-!i10b 1
-R227
-R48
-R49
-!i113 1
-R32
-R33
-Aa_ouralu
-R8
-R9
-R10
-R151
-l20
-L15
 R152
 R153
-R54
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R48
-R49
+R221
+R93
+R94
 !i113 1
-R32
-R33
-Eoutreg
-R43
-R8
-R9
-R10
+R108
+R109
+Aa_ouralu
+R11
 R12
-R44
-R45
+R13
+R154
+l20
+L15
+VUH:iK@[4=CKnIz=a3UaWR2
+!s100 2C;34mD`e`7G1TTc]a0Ho0
+R88
+32
+R220
+!i10b 1
+R221
+R93
+R94
+!i113 1
+R108
+R109
+Eoutreg
+R95
+R11
+R12
+R13
+R15
+R96
+R97
 l0
 L5
-R149
-R150
-R54
+R155
+R156
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R41
-R42
+R221
+R100
+R101
 !i113 1
-R32
-R33
+R108
+R109
 Aa_outreg
-R8
-R9
-R10
-R146
+R11
+R12
+R13
+R157
 l17
 L15
-R147
-R148
-R54
+R158
+R159
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R41
-R42
+R221
+R100
+R101
 !i113 1
-R32
-R33
+R108
+R109
 Epcount
-Z252 w1715963768
-R8
-R9
-R10
+Z242 w1715963768
+R11
 R12
-R36
-R37
+R13
+R15
+R102
+R103
 l0
 L5
 V=kY[3MTCUjcJZieSLBm6a1
 !s100 IjSca`na1f>d9;Y?Y1@>[3
-R54
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R34
-R35
+R221
+R106
+R107
 !i113 1
-R32
-R33
+R108
+R109
 Aa_pcount
-R8
-R9
-R10
+R11
+R12
+R13
 DEx4 work 6 pcount 0 22 =kY[3MTCUjcJZieSLBm6a1
 l26
 L22
 V>EBJ]BRFX8BZWBXk<O<Pn0
 !s100 Id:0Fd>L=44m[n>Qlj]U81
-R54
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R34
-R35
+R221
+R106
+R107
 !i113 1
-R32
-R33
+R108
+R109
 Epredicthandler
 w1715898720
-R8
-R9
-R10
 R11
+R12
+R13
+R14
 8C:/Users/salma/Documents/MIPS_Processor/PredictHandler.vhd
 FC:/Users/salma/Documents/MIPS_Processor/PredictHandler.vhd
 l0
 L5
 VU2:UP_MHGALaHoGIdQ@]52
 !s100 YKf?WG_>0;P=BCVO>Z1n]2
-R54
+R88
 32
 !s110 1715898725
 !i10b 1
 !s108 1715898725.000000
 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/salma/Documents/MIPS_Processor/PredictHandler.vhd|
 !s107 C:/Users/salma/Documents/MIPS_Processor/PredictHandler.vhd|
-R4
-R5
-R34
-R35
+R2
+R1
+R106
+R107
 Eregisterfile
-R26
-R8
-R9
-R10
-R12
-R27
-R28
-l0
-L5
-R144
-R145
-R54
-32
-R226
-!i10b 1
-R227
-R24
-R25
-!i113 1
-R32
-R33
-Aa_registerfile
-R8
-R9
-R10
-R141
-l43
-L38
-R142
-R143
-R54
-32
-R226
-!i10b 1
-R227
-R24
-R25
-!i113 1
-R32
-R33
-Esignextender
-R19
-R8
-R9
-R10
-R12
-R20
-R21
-l0
-L5
-R139
-R140
-R54
-32
-R226
-!i10b 1
-R227
-R17
-R18
-!i113 1
-R32
-R33
-Aa_signextender
-R8
-R9
-R10
-R136
-l13
-L12
-R137
-R138
-R54
-32
-R226
-!i10b 1
-R227
-R17
-R18
-!i113 1
-R32
-R33
-Estackpointer
-Z253 w1715945078
-R8
-R9
-R10
+Z243 w1715970948
+R11
 R12
 R13
-R14
+R15
+R110
+R111
 l0
 L5
-R134
-R135
-R54
+R161
+R162
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R6
-R7
+R221
+R115
+R116
 !i113 1
-R32
-R33
+R108
+R109
+Aa_registerfile
+R11
+R12
+R13
+R163
+l43
+L38
+V6eeSb:bzaWk;8Z?i2aRVX2
+!s100 m9E=8klTM@FdMDL_DTTYI1
+R88
+32
+R220
+!i10b 1
+R221
+R115
+R116
+!i113 1
+R108
+R109
+Esignextender
+R117
+R11
+R12
+R13
+R15
+R118
+R119
+l0
+L5
+R164
+R165
+R88
+32
+R220
+!i10b 1
+R221
+R122
+R123
+!i113 1
+R108
+R109
+Aa_signextender
+R11
+R12
+R13
+R166
+l13
+L12
+R167
+R168
+R88
+32
+R220
+!i10b 1
+R221
+R122
+R123
+!i113 1
+R108
+R109
+Estackpointer
+Z244 w1715969441
+R11
+R12
+R13
+R15
+R124
+R125
+l0
+L5
+R169
+R170
+R88
+32
+R220
+!i10b 1
+R221
+R128
+R129
+!i113 1
+R108
+R109
 Aa_stackpointer
-R8
-R9
-R10
-R132
+R11
+R12
+R13
+R171
 l27
 L15
-VTBM]3MB>PJE3gYGcCU;Jo0
-!s100 l7WGFF_A4Gl8a;HQQfQX91
-R54
+Vk;dmda__do_fBBUX6cE_o3
+!s100 <aaj2lPnaeG^LV6[5ez3V1
+R88
 32
-R226
+R220
 !i10b 1
-R227
-R6
-R7
+R221
+R128
+R129
 !i113 1
-R32
-R33
+R108
+R109
+Estalledforwardunit
+Z245 w1715990835
+R11
+R12
+R13
+R15
+Z246 8C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StalledForwardUnit.vhd
+Z247 FC:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StalledForwardUnit.vhd
+l0
+L5
+Vka@cbYF[@?oXRaGAJOdhl2
+!s100 IU_VkEKA?[0Z66E`jSg1a0
+R88
+32
+R220
+!i10b 1
+R221
+Z248 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StalledForwardUnit.vhd|
+Z249 !s107 C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/Project/StalledForwardUnit.vhd|
+!i113 1
+R108
+R109
+Aa_stalledforwardunit
+R11
+R12
+R13
+Z250 DEx4 work 18 stalledforwardunit 0 22 ka@cbYF[@?oXRaGAJOdhl2
+l32
+L25
+Z251 V=cTk8<B:eOog5gH3JYOf83
+Z252 !s100 >N9HN@^bFK`OhOf5dF91[0
+R88
+32
+R220
+!i10b 1
+R221
+R248
+R249
+!i113 1
+R108
+R109
