@@ -131,6 +131,12 @@ sim:/mips_processor/AddrOut \
 #sim:/mips_processor/Rdst2Data_FROM_MWP \
 #sim:/mips_processor/Rdst1Addr_FROM_MWP \
 #sim:/mips_processor/Rdst2Addr_FROM_MWP \
+sim:/mips_processor/SIGNALS_FROM_DEP \
+sim:/mips_processor/SIGNALS_FROM_EMP \
+sim:/mips_processor/SIGNALS_FROM_MWP \
+sim:/mips_processor/MISPREDICTION \
+sim:/mips_processor/taken_now \
+sim:/mips_processor/CHANGE_PC_FROM_EXECUTE \
 sim:/mips_processor/CurrentPC_FROM_MWP
 restart -f
 mem load -i C:/Users/youse/OneDrive/Desktop/ARCH/Project/testcases.mem /mips_processor/u01/instructioncache
@@ -172,9 +178,9 @@ run 100ps
 force -freeze sim:/mips_processor/RST 0 0
 run 100ps
 run
-force -freeze sim:/mips_processor/INT 1 0
+#force -freeze sim:/mips_processor/INT 1 0
 run
-force -freeze sim:/mips_processor/INT 0 0
+#force -freeze sim:/mips_processor/INT 0 0
 run
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2 is not in bounds of subtype NATURAL.
 #    Time: 350 ps  Iteration: 2  Instance: /mips_processor/u42
@@ -189,4 +195,4 @@ run
 #    Time: 500 ps  Iteration: 1  Instance: /mips_processor/u20
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 500 ps  Iteration: 1  Instance: /mips_processor/u20
-run 1ns
+run 3ns

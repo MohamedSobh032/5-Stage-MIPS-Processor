@@ -29,7 +29,7 @@ ARCHITECTURE a_StackPointer OF StackPointer IS
 		SP_SUB_TWO <= std_logic_vector(unsigned(SP) - 2);
 		SP_STAY    <= SP;
 
-		PROCESS (CLK, RST, SP_INC, SP_DEC)
+		PROCESS (CLK, RST)
 		BEGIN
 			IF (RST = '1') THEN
 				SP           <= x"FFFFFFFE";
@@ -39,7 +39,7 @@ ARCHITECTURE a_StackPointer OF StackPointer IS
 					SP_TO_BE_OUT <= SP_ADD_TWO;
 					SP <= SP_ADD_TWO;
 				ELSIF (SP_DEC = '1') THEN
-					SP_TO_BE_OUT <= SP_STAY;
+					SP_TO_BE_OUT <= SP_SUB_TWO;
 					SP <= SP_SUB_TWO;
 				END IF;
 			END IF;

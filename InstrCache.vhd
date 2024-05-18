@@ -9,6 +9,7 @@ ENTITY InstrCache IS
 		ResetAddress : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		IntptAddress : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		ExcptAddress : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		Addr_Out	 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     	Instruction  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
     	);
 END InstrCache;
@@ -25,5 +26,6 @@ ARCHITECTURE a_InstrCache OF InstrCache IS
 		PROCESS (CLK)
 		BEGIN
 			Instruction <= instructioncache(to_integer(unsigned(Addr)));
+			Addr_Out <=  "00000000000000000000" & Addr;
 		END PROCESS;
 END a_InstrCache;
