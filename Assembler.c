@@ -7,7 +7,7 @@
 
 void DecimalToBinary(int decimal, char* Str);
 int Assembler(char* str, char* out);
-void Decode(char* str, int inp);
+int Decode(char* str, int inp);
 void initString(char* str, int size);
 void initZString(char* str, int size);
 void hexToBinary(const char* hexadecimal, char* binaryStr);
@@ -39,7 +39,7 @@ int main()
 		printf("file can't be opened \n");
         return 1;
 	}
-    char myString[30];
+    char myString[500];
 
 //Output File:
     FILE* outputPtr = fopen("testcases.mem", "w");
@@ -92,9 +92,14 @@ int main()
         {
             fprintf(outputPtr, "%d: 1111100000000000\n", counter);
             counter++;
-            fprintf(outputPtr, "%d: 11011000000000000\n",counter);
+            fprintf(outputPtr, "%d: 1101100000000000\n",counter);
             counter++;
         }
+        else if (flag == -10)
+        {
+            continue;
+        }
+
         else if (flag)
         {
             for(int i = counter; i < flag; i++)
@@ -145,7 +150,7 @@ int Assembler(char* str, char* out)
     i = j = 0;
     while (str[i] != '\0')
     {
-        if(str[i] == '#')
+        if(str[i] == '#' || str[i] == '\t')
         {
             break;
         }
@@ -156,7 +161,7 @@ int Assembler(char* str, char* out)
             i++;
             continue;
         }
-        while (str[j] != ' ' && str[j] != '\0' && str[j] != ',' && str[j] != '(' && str[j] != ')' && str[j] != '\n')
+        while (str[j] != ' ' && str[j] != '\0' && str[j] != ',' && str[j] != '(' && str[j] != ')' && str[j] != '\n' && str[j] != '\t')
         {
             if(inp == 0)
             {
@@ -191,7 +196,12 @@ int Assembler(char* str, char* out)
     {
         return -4;
     }
-    Decode(op,0); Decode(Rd,1);
+    if(!Decode(op,0))
+    {
+        return -10;
+    }
+    Decode(Rd,1);
+
     if(!strcmp(op,"01010") || !strcmp(op,"01100"))
     {
         Decode(R2,4);Decode(R1,2);
@@ -253,6 +263,10 @@ int Assembler(char* str, char* out)
         }
 
     }
+    else if(!strcmp(op,""))
+    {
+        return -10;
+    }
     else
     {
         Decode(R1,2); Decode(R2,3);
@@ -285,7 +299,7 @@ void initZString(char* str, int size)
     }
 }
 
-void Decode(char* str, int inp) {
+int Decode(char* str, int inp) {
     for (int i = 0; str[i] != '\0'; i++)
         str[i] = tolower(str[i]);
 
@@ -351,6 +365,10 @@ void Decode(char* str, int inp) {
         } else if (!strcmp(str,".org")) {
             strcpy(str,"11111");
         }
+        else {
+            return 0;
+        }
+
 
         
     }
@@ -382,6 +400,7 @@ void Decode(char* str, int inp) {
         strcpy(ahh,str);
         hexToBinary(ahh,str);
     }
+    return 1;
 }
 
 void organize()
