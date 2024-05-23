@@ -18,8 +18,19 @@ mem load -i testcases.mem /mips_processor/u01/instructioncache
 force -freeze sim:/mips_processor/CLK 0 0, 1 {50 ps} -r 100
 force -freeze sim:/mips_processor/RST 1 0
 force -freeze sim:/mips_processor/INT 0 0
-run 
+run
 force -freeze sim:/mips_processor/RST 0 0
+force -freeze sim:/mips_processor/INPORT 32'hfffaaa11 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
 run
 run
 run

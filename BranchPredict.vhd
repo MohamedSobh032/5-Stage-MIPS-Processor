@@ -7,10 +7,10 @@ entity BranchPredictor is
         branch_taken : in STD_LOGIC;
         prev_miss : in std_logic;
         is_jump : in STD_LOGIC;
-	    true_branch_value : in STD_LOGIC; 		--if equal to branch taken then correct prediction else misprediction
+	true_branch_value : in STD_LOGIC; 		--if equal to branch taken then correct prediction else misprediction
         pc_current : in STD_LOGIC_VECTOR (31 downto 0);
         branch_target : in STD_LOGIC_VECTOR (31 downto 0);
-	    prev2_dest_reg : in STD_LOGIC_VECTOR (2 downto 0);
+	prev2_dest_reg : in STD_LOGIC_VECTOR (2 downto 0);
         prev_dest_reg : in STD_LOGIC_VECTOR (2 downto 0);
         curr_src_reg : in STD_LOGIC_VECTOR (2 downto 0);
         prediction : out STD_LOGIC;
@@ -56,4 +56,5 @@ begin
         end if;
     end process;
 end Behavioral;
+
 

@@ -35,3 +35,4 @@ ARCHITECTURE a_CCR OF CCR IS
 		FlagOut <= FLAG;
 		
 END a_CCR;
+

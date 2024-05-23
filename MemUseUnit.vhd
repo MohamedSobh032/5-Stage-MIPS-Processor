@@ -29,5 +29,5 @@ ARCHITECTURE a_MemUseUnit OF MemUseUnit IS
 		COND_SECOND_OP <= '1' WHEN ((Rsrc2Addr = Rdst1Addr_MEM) AND (MEM_READ = '1') AND (SECOND_DEPENDENCY = '1')) ELSE '0';
 		STALL          <= '1' WHEN ((COND_FIRST_OP = '1') OR (COND_SECOND_OP = '1')) ELSE '0';
 
-
 END ARCHITECTURE;
+

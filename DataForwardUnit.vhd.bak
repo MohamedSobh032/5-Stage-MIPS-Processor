@@ -39,11 +39,11 @@ ARCHITECTURE a_DataForwardUnit OF DataForwardUnit IS
 	BEGIN
 
 		-------------------- DATA FORWARDING FOR REGISTER SOURCE 1 --------------------
-		Rsrc1_FinalData <= Rdst1Data_MEM WHEN (Rsrc1Addr = Rdst1Addr_MEM and WB1_MEM = '1') ELSE
-			           Rdst2Data_MEM WHEN (Rsrc1Addr = Rdst2Addr_MEM and WB2_MEM = '1') ELSE
-			    	   Rdst1Data_WB  WHEN (Rsrc1Addr = Rdst1Addr_WB  and WB1_WB  = '1') ELSE
-			    	   Rdst2Data_WB  WHEN (Rsrc1Addr = Rdst2Addr_WB  and WB2_WB  = '1') ELSE
-			           Rsrc1Data;
+		Rsrc1_FinalData <= Rdst1Data_MEM WHEN (Rsrc1Addr = Rdst1Addr_MEM and WB1_MEM = '1')
+		ELSE		   Rdst2Data_MEM WHEN (Rsrc1Addr = Rdst2Addr_MEM and WB2_MEM = '1')
+		ELSE		   Rdst1Data_WB  WHEN (Rsrc1Addr = Rdst1Addr_WB  and WB1_WB  = '1')
+		ELSE		   Rdst2Data_WB  WHEN (Rsrc1Addr = Rdst2Addr_WB  and WB2_WB  = '1')
+		ELSE		   Rsrc1Data;
 		-------------------------------------------------------------------------------
 
 		-------------------- DATA FORWARDING FOR REGISTER SOURCE 2 --------------------

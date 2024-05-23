@@ -35,9 +35,9 @@ ARCHITECTURE a_StackPointer OF StackPointer IS
 				SP           <= x"FFFFFFFE";
 				SP_TO_BE_OUT <= x"FFFFFFFE";
 			ELSIF rising_edge(CLK) THEN
+
 				IF (SP_INC = '1') THEN
 					SP_TO_BE_OUT <= SP_ADD_TWO;
-
 					SP           <= SP_ADD_TWO;
 				END IF;
 
@@ -45,7 +45,9 @@ ARCHITECTURE a_StackPointer OF StackPointer IS
 					SP_TO_BE_OUT <= SP_SUB_TWO;
 					SP           <= SP_SUB_TWO;
 				END IF;
+
 			END IF;
 		END PROCESS;
 		SP_OUTPUT <= SP_TO_BE_OUT;
 END a_StackPointer;
+

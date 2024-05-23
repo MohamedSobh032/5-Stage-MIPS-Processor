@@ -18,7 +18,10 @@ ENTITY memor IS
 
 		-- PROTECT and FREE
 		free_i : IN STD_LOGIC;
-		prot_i : IN STD_LOGIC
+		prot_i : IN STD_LOGIC;
+		
+		-- RAISE EXCEPTION
+		EXCEP : OUT STD_LOGIC
     	);
 END memor;
 
@@ -37,23 +40,31 @@ ARCHITECTURE a_memor OF memor IS
     	        	IF (RST = '1') THEN
     		        	datamemory <= ((OTHERS => (OTHERS => '0')));
 				ReadData <= (OTHERS => '0');
+				EXCEP <= '0';
 			ELSIF (free_i = '1') THEN
+				EXCEP <= '0';
 				datamemory(to_integer(unsigned(Addr)))(16) <= '0';
 			ELSIF (prot_i = '1') THEN
+				EXCEP <= '0';
 				datamemory(to_integer(unsigned(Addr)))(16) <= '1';
     		        ELSIF RISING_EDGE(CLK) THEN
 
     		        	IF (memRead = '1') THEN
+					EXCEP <= '0';
     			                ReadData <= datamemory(to_integer(unsigned(Addr)+1))(15 DOWNTO 0)
 							& datamemory(to_integer(unsigned(Addr)))(15 DOWNTO 0);
 				ELSE
+					EXCEP <= '0';
 					ReadData <= WriteData;
     		  	        END IF;
 
     		            	IF (memWrite = '1') THEN
 					IF (datamemory(to_integer(unsigned(Addr)))(16) = '0') THEN
+						EXCEP <= '0';
     		               			datamemory(to_integer(unsigned(Addr)))(15 DOWNTO 0) <= WriteData(15 DOWNTO 0);
 						datamemory(to_integer(unsigned(Addr)+1))(15 DOWNTO 0) <= WriteData(31 DOWNTO 16);
+					ELSE
+						EXCEP <= '1';
 					END IF;
     		            	END IF;
 

@@ -7,7 +7,7 @@
 
 void DecimalToBinary(int decimal, char* Str);
 int Assembler(char* str, char* out);
-int Decode(char* str, int inp);
+void Decode(char* str, int inp);
 void initString(char* str, int size);
 void initZString(char* str, int size);
 void hexToBinary(const char* hexadecimal, char* binaryStr);
@@ -19,8 +19,6 @@ char* R1;
 char* R2;
 char* IMM;
 int counter;
-int Start_Code;
-int Int_Start;
 int main()
 {
     op = (char*)malloc(20 * sizeof(char));
@@ -39,10 +37,10 @@ int main()
 		printf("file can't be opened \n");
         return 1;
 	}
-    char myString[500];
+    char myString[30];
 
 //Output File:
-    FILE* outputPtr = fopen("../testcases.mem", "w");
+    FILE* outputPtr = fopen("testcases.mem", "w");
     if (NULL == outputPtr) {
         printf("Output file can't be opened.\n");
         return 1;
@@ -55,13 +53,12 @@ int main()
 
     while(fgets(myString, 100, ptr)) {
         int flag = Assembler(myString,myString);
-        if(flag == -1) //Normal Instruction Output
+        if(flag == -1)
         {
-
             fprintf(outputPtr, "%d: %s%s%s%s00\n",counter, op,Rd,R1,R2);
             counter++;
         }
-        else if (flag == -2) //Org 0 & Org 2 Output
+        else if (flag == -2)
         {
             fprintf(outputPtr, "%d: %s\n",counter, op);
             counter++;
@@ -76,30 +73,6 @@ int main()
             fprintf(outputPtr, "%d: %s\n",counter, op);
             counter++;
         }
-        else if (flag == -4) ///START INTERRUPT CODE
-        {
-            for(int i = counter; i < Int_Start; i++)
-            {
-                fprintf(outputPtr, "%d: 0000000000000000\n", i);
-                counter++;
-            }
-            fprintf(outputPtr, "%d: 1110100000000000\n", counter);
-            counter++;
-            fprintf(outputPtr, "%d: 1111000000000000\n",counter);
-            counter++;
-        }
-        else if (flag == -5) //END INTERRUPT CODE
-        {
-            fprintf(outputPtr, "%d: 1111100000000000\n", counter);
-            counter++;
-            fprintf(outputPtr, "%d: 1101100000000000\n",counter);
-            counter++;
-        }
-        else if (flag == -10)
-        {
-            continue;
-        }
-
         else if (flag)
         {
             for(int i = counter; i < flag; i++)
@@ -112,25 +85,10 @@ int main()
         {
             fprintf(outputPtr,"%d: %s\n",counter, IMM);
             counter++;
-            if (counter == 4)
-            {
-                for(int i = counter; i < Start_Code; i++)
-                {
-                    fprintf(outputPtr,"%d: 0000000000000000\n",counter);
-                    counter++;
-                }
-            }
         }
     }
     for(int i = counter; i < 4096; i++)
     {
-            // if (Int_Start == i) //Interrupt Start: Push PC & CCR
-            // {
-            //     fprintf(outputPtr, "%d: 1110100000000000\n", counter);
-            //     counter++;
-            //     fprintf(outputPtr, "%d: 1111000000000000\n",counter);
-            //     counter++;
-            // }
         fprintf(outputPtr, "%d: 0000000000000000\n", i);
     }
 
@@ -150,7 +108,7 @@ int Assembler(char* str, char* out)
     i = j = 0;
     while (str[i] != '\0')
     {
-        if(str[i] == '#' || str[i] == '\t')
+        if(str[i] == '#')
         {
             break;
         }
@@ -161,7 +119,7 @@ int Assembler(char* str, char* out)
             i++;
             continue;
         }
-        while (str[j] != ' ' && str[j] != '\0' && str[j] != ',' && str[j] != '(' && str[j] != ')' && str[j] != '\n' && str[j] != '\t')
+        while (str[j] != ' ' && str[j] != '\0' && str[j] != ',' && str[j] != '(' && str[j] != ')' && str[j] != '\n')
         {
             if(inp == 0)
             {
@@ -192,16 +150,7 @@ int Assembler(char* str, char* out)
         i = j;
         i++;
     }
-    if(!strcmp(op,".INT_HANDLER"))
-    {
-        return -4;
-    }
-    if(!Decode(op,0))
-    {
-        return -10;
-    }
-    Decode(Rd,1);
-
+    Decode(op,0); Decode(Rd,1);
     if(!strcmp(op,"01010") || !strcmp(op,"01100"))
     {
         Decode(R2,4);Decode(R1,2);
@@ -226,11 +175,6 @@ int Assembler(char* str, char* out)
         strcpy(IMM,R1);strcpy(R1,R2);strcpy(R2,Rd); 
         initZString(Rd,3);
     }
-    else if (!strcmp(op, "11100"))
-    {
-        initZString(Rd,3);initZString(R1,3);initZString(R2,3);
-        return -5;
-    }
     else if(!strcmp(op,"11111"))
     {
         int decimal1;
@@ -240,15 +184,6 @@ int Assembler(char* str, char* out)
         if (!strcmp(Rd,"0") || !strcmp(Rd,"2"))
         {
             sscanf(R1, "%x", &decimal1);
-
-            if(!strcmp(Rd,"0"))
-            {
-                Start_Code = decimal1;
-            }
-            else
-            {
-                Int_Start = decimal1;
-            }
             int decimal2 = (decimal1 >> 16) & 0x0000FFFF;
             decimal1 &= 0x0000FFFF;
             DecimalToBinary(decimal1,op);
@@ -262,10 +197,6 @@ int Assembler(char* str, char* out)
             return decimal1;
         }
 
-    }
-    else if(!strcmp(op,""))
-    {
-        return -10;
     }
     else
     {
@@ -299,7 +230,7 @@ void initZString(char* str, int size)
     }
 }
 
-int Decode(char* str, int inp) {
+void Decode(char* str, int inp) {
     for (int i = 0; str[i] != '\0'; i++)
         str[i] = tolower(str[i]);
 
@@ -365,11 +296,6 @@ int Decode(char* str, int inp) {
         } else if (!strcmp(str,".org")) {
             strcpy(str,"11111");
         }
-        else {
-            return 0;
-        }
-
-
         
     }
 
@@ -400,7 +326,6 @@ int Decode(char* str, int inp) {
         strcpy(ahh,str);
         hexToBinary(ahh,str);
     }
-    return 1;
 }
 
 void organize()
@@ -420,7 +345,7 @@ void organize()
         strcpy(R1,Rd);
         initZString(Rd,3);initZString(R2,3);    
     }
-    else if(!strcmp(op,"00110") || !strcmp(op,"10010"))
+    else if(!strcmp(op,"000110") || !strcmp(op,"10010"))
     {
         initZString(R1,3);initZString(R2,3);
     }
@@ -443,14 +368,14 @@ void organize()
     else if(!strcmp(op, "10001"))
     {
         strcpy(R1,Rd);
-        initZString(Rd,3);initZString(R2,3);
+        initZString(Rd,3);initString(R2,3);
     }
-    else if(!strcmp(op, "10110") || !strcmp(op, "10111"))
+    else if(!strcmp(op, "10110"))
     {
         strcpy(R1,Rd);
         initZString(Rd,3);initZString(R2,3);
     }
-    else if (!strcmp(op,"11001") || !strcmp(op,"11000") || !strcmp(op, "11010") || !strcmp(op, "11001"))
+    else if (!strcmp(op,"11001"))
     {
         strcpy(R1,Rd);
         initZString(Rd,3);initZString(R2,3);

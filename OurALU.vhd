@@ -30,6 +30,7 @@ ARCHITECTURE a_OurALU OF OurALU IS
 				OP1 OR OP2									   WHEN "1000", -- OR
 				OP1 XOR OP2									   WHEN "1001", -- XOR
 				OP2										   WHEN "1011", -- LDM
+				x"00000001"									   WHEN "1111", -- JZ
 				OP1										   WHEN OTHERS;
 
 		F(3) <= '1' WHEN
@@ -53,6 +54,7 @@ ARCHITECTURE a_OurALU OF OurALU IS
 		RESULT <= S;
 		FLAGS <= F;
 END a_OurALU;
+
 
 
 

@@ -14,16 +14,7 @@ add wave -position end  sim:/mips_processor/R4
 add wave -position end  sim:/mips_processor/R5
 add wave -position end  sim:/mips_processor/R6
 add wave -position end  sim:/mips_processor/R7
-add wave -position end  sim:/mips_processor/STALL_AND_FLUSH_FROM_MEMUSE
-add wave -position end  sim:/mips_processor/FORCE_BOTH_FROM_SFU
-add wave -position end  sim:/mips_processor/FORCE_Rsrc1_FROM_SFU
-add wave -position end  sim:/mips_processor/FORCE_Rsrc2_FROM_SFU
-add wave -position end  sim:/mips_processor/Rdst1Data_FROM_MWP
-add wave -position end  sim:/mips_processor/Rsrc2Addr_FROM_DEP
-add wave -position end  sim:/mips_processor/Rdst1Addr_FROM_MWP
-add wave -position end  sim:/mips_processor/Rsrc1Data_FROM_DEP
-add wave -position end  sim:/mips_processor/Rsrc2Data_FROM_DEP
-mem load -i testcases.mem /mips_processor/u01/instructioncache
+mem load -i Mem.mem /mips_processor/u01/instructioncache
 force -freeze sim:/mips_processor/CLK 0 0, 1 {50 ps} -r 100
 force -freeze sim:/mips_processor/RST 1 0
 force -freeze sim:/mips_processor/INT 0 0
@@ -33,6 +24,7 @@ run
 run
 force -freeze sim:/mips_processor/INPORT 32'h00000019 0
 run
+force -freeze sim:/mips_processor/INT 0 0
 force -freeze sim:/mips_processor/INPORT 32'hFFFFFFFF 0
 run
 force -freeze sim:/mips_processor/INPORT 32'hFFFFF320 0
@@ -50,6 +42,29 @@ run
 run
 run
 run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/mips_processor/INPORT 32'h00000019 0
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/mips_processor/INPORT 32'h00000211 0
+run
+run
+run
+run
+run
+force -freeze sim:/mips_processor/INPORT 32'h00000100 0
 run
 run
 run
