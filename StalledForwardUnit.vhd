@@ -5,19 +5,19 @@ USE IEEE.NUMERIC_STD.ALL;
 ENTITY StalledForwardUnit IS
 	PORT (
 		-- IS STALLED?
-		STALLED                : IN STD_LOGIC;
+		STALLED            : IN  STD_LOGIC;
 		-- CURRENT ADDRESSES IN THE EXECUTE --
-		Rsrc1Addr_DE           : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-		Rsrc2Addr_DE           : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+		Rsrc1Addr_DE       : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+		Rsrc2Addr_DE       : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
 		-- ADDRESSES_WRITEBACK --
-		Rdst1Addr_WB           : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-		Rdst2Addr_WB           : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+		Rdst1Addr_WB       : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+		Rdst2Addr_WB       : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
 		-- ADDRESSES DEPENDENCIES --
-		Rdst1WB_WB             : IN STD_LOGIC;
-		Rdst2WB_WB             : IN STD_LOGIC;
+		Rdst1WB_WB         : IN  STD_LOGIC;
+		Rdst2WB_WB         : IN  STD_LOGIC;
 		-- TAKE WHO
-		FORCE_UPDATE_Rsrc1     : OUT STD_LOGIC;
-		FORCE_UPDATE_Rsrc2     : OUT STD_LOGIC
+		FORCE_UPDATE_Rsrc1 : OUT STD_LOGIC;
+		FORCE_UPDATE_Rsrc2 : OUT STD_LOGIC
 	);
 END StalledForwardUnit;
 

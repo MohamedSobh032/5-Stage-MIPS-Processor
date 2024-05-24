@@ -4,8 +4,8 @@ USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY MemoryWriteback IS
 	PORT (
-		CLK : IN STD_LOGIC;
-		RST : IN STD_LOGIC;
+		CLK               : IN  STD_LOGIC;
+		RST               : IN  STD_LOGIC;
 		InData_ConSignal  : IN  STD_LOGIC_VECTOR(19 DOWNTO 0);
 		OutData_ConSignal : OUT STD_LOGIC_VECTOR(19 DOWNTO 0);
 		InData_Flags      : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);

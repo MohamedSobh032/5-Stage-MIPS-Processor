@@ -4,10 +4,10 @@ USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY OutReg IS
 	PORT (
-		CLK        : IN STD_LOGIC;
-		RST        : IN STD_LOGIC;
-		OutEnable  : IN STD_LOGIC;
-		Data_IN    : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		CLK        : IN  STD_LOGIC;
+		RST        : IN  STD_LOGIC;
+		OutEnable  : IN  STD_LOGIC;
+		Data_IN    : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		OutputPort : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END OutReg;

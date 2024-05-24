@@ -4,34 +4,30 @@ USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY registerfile IS
 	PORT (
-		CLK : IN STD_LOGIC;
-		RST : IN STD_LOGIC;
-
-		-- decode stage
-		Rsrc1 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-		Rsrc2 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+		CLK       : IN  STD_LOGIC;
+		RST       : IN  STD_LOGIC;
+		-- DECODE STAGE --
+		Rsrc1     : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+		Rsrc2     : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
 		Rsrc1Data : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		Rsrc2Data : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-
-		-- writeback 1
-		WE1       : IN STD_LOGIC;
-		Rdst1     : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-		RdstData1 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-
-		-- writeback 2
-		WE2       : IN STD_LOGIC;
-		Rdst2     : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-		RdstData2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-
-		-- SYSTEM OUTPUTS
-		R0 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		R1 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		R2 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		R3 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		R4 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		R5 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		R6 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		R7 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+		-- WRITEBACK1 --
+		WE1       : IN  STD_LOGIC;
+		Rdst1     : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+		RdstData1 : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
+		-- WRITEBACK2 --
+		WE2       : IN  STD_LOGIC;
+		Rdst2     : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+		RdstData2 : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
+		-- SYSTEM OUTPUTS --
+		R0        : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		R1        : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		R2        : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		R3        : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		R4        : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		R5        : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		R6        : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		R7        : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END registerfile;
 
@@ -62,7 +58,7 @@ ARCHITECTURE a_registerfile OF registerfile IS
 		Rsrc1Data <= registerfile(to_integer(unsigned(Rsrc1)));
 		Rsrc2Data <= registerfile(to_integer(unsigned(Rsrc2)));
 
-		-- SYSTEM OUTPUTS
+		-- SYSTEM OUTPUTS --
 		R0 <= registerfile(0);
 		R1 <= registerfile(1);
 		R2 <= registerfile(2);

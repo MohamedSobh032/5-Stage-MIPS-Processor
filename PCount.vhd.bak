@@ -53,7 +53,7 @@ ARCHITECTURE a_PCount OF PCount IS
 					PC <= RETVAL;
 				END IF;
 			ELSIF (JUMP = '1') THEN
-				IF (BRKPROT = '0') THEN
+				IF (PROTECTOR = '0') THEN
 					PC <= JMPVAL;
 				ELSE
 					IS_UPDATED <= '1';

@@ -6,34 +6,34 @@ ENTITY ControlUnit IS
 	PORT (
 		---------------- INSTRUCTION OPCODE ----------------
 		INSTRUCTION : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-
-		---------------- CONTROL SIGNALS ----------------
+		
+		------------------ CONTROL SIGNALS -----------------
 		-- WRITE BACK 1 		--> 0
 		-- WRITE BACK 2 		--> 1
-		-- Z/N F			--> 2
-		-- C/OV F      		 	--> 3
-		-- MemRead			--> 4
-		-- MemWrite			--> 5
-		-- FREE				--> 6
-		-- PROTECT			--> 7
-		-- IMMEDIATE			--> 8
-		-- BRANCH			--> 9
-		-- BRANCH ZERO 			--> 10
-		-- SP DEC 			--> 11
-		-- SP INC 		     	--> 12
-		-- OUTPUT PORT   	     	--> 13
-		-- INPUT PORT   	     	--> 14
-		-- STORE                     	--> 15
-		-- PUSH PC  	     		--> 16
-		-- LENGTH EXT    	     	--> 17
-		-- First Operand Dependency  	--> 18
-		-- Second Operand Dependency 	--> 19
-		-- PUSH CCR  			--> 20
+		-- Z/N FLAG UPDATE ENABLE	--> 2
+		-- C/O FLAG UPDATE ENABLE      	--> 3
+		-- MEMORY READ ENABLE		--> 4
+		-- MEMORY WRITE ENABLE		--> 5
+		-- FREE MEMORY			--> 6
+		-- PROTECT MEMORY		--> 7
+		-- IMMEDIATE INSTRUCTION	--> 8
+		-- BRANCH INSTRUCTION		--> 9
+		-- BRANCH ZERO INSTRUCTION	--> 10
+		-- STACK DECREMENT ENABLE 	--> 11
+		-- STACK INCREMENT ENABLE 	--> 12
+		-- OUTPUT PORT WRITE ENABLE  	--> 13
+		-- INPUT PORT READ ENABLE  	--> 14
+		-- STORE INSTRUCTION            --> 15
+		-- PUSH PC INSTRUCTION 	     	--> 16
+		-- ZERO/SIGN EXTEND    	     	--> 17
+		-- FIRST OPERAND DEPENDENCY  	--> 18
+		-- SECOND OPERAND DEPENDENCY	--> 19
+		-- PUSH CCR INSTRUCTION  	--> 20
 		-- UPDATE PC USING MEMORY	--> 21
-		-- POP CCR			--> 22
+		-- POP CCR INSTRUCTION		--> 22
 		CONTROL_SIGNALS : OUT STD_LOGIC_VECTOR(22 DOWNTO 0);
 
-		---------------- ALU OPCODE ----------------
+		-------------------- ALU OPCODE --------------------
 		-- NOT  --> 0001
 		-- NEG  --> 0010
 		-- INC  --> 0011

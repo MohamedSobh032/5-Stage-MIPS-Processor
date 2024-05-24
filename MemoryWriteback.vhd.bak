@@ -50,7 +50,7 @@ ARCHITECTURE a_MemoryWriteback OF MemoryWriteback IS
 			END IF;
 		END PROCESS;
 		OutData_ConSignal <= ConSignal;
-		OutData_Flags     <= InData_Flags;
+		OutData_Flags     <= Flags;
 		OutData_MemData   <= MemData;
 		OutData_Rsrc2Data <= Rsrc2Data;
 		OutData_Rdst1Addr <= Rdst1Addr;
