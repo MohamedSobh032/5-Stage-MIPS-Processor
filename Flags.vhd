@@ -21,18 +21,14 @@ ARCHITECTURE a_CCR OF CCR IS
 			IF (RST = '1') THEN
 				FLAG <= (OTHERS => '0');
 			ELSIF RISING_EDGE(CLK) THEN
-
 				IF (OVCF = '1') THEN
 					FLAG(3 DOWNTO 2) <= FlagIn(3 DOWNTO 2);
 				END IF;
-
 				IF (ZNF = '1') THEN
 					FLAG(1 DOWNTO 0) <= FlagIn(1 DOWNTO 0);
 				END IF;
 			END IF;
 		END PROCESS;	
-
-		FlagOut <= FLAG;
-		
+		FlagOut <= FLAG;		
 END a_CCR;
 

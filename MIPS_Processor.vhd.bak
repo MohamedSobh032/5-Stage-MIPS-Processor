@@ -2,6 +2,7 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
 
+-------------------------------------------------------------------------------------------------
 ENTITY MIPS_Processor IS
 	PORT (
 		CLK     : IN  STD_LOGIC;
@@ -21,9 +22,9 @@ ENTITY MIPS_Processor IS
 		EXCP    : OUT STD_LOGIC
 	);
 END MIPS_Processor;
+-------------------------------------------------------------------------------------------------
 
 ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
-
 	---------------------------------------- FETCH COMPONENTS ---------------------------------------
 	COMPONENT PCount IS
 		PORT (
@@ -391,6 +392,7 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	SIGNAL Rdst1Addr_FROM_EMP     : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	SIGNAL Rdst2Addr_FROM_EMP     : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	-- HANDLING STACK POINTER OUTPUT
+	SIGNAL STACK_USE              : STD_LOGIC;
 	SIGNAL SP_FROM_STACK          : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	-- HANDLING DATA ENTRY
 	SIGNAL ADDRESS_INTO_MEMORY    : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -428,8 +430,7 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 	SIGNAL FULL_EXCEPTION              : STD_LOGIC;
 	-------------------------------------------------------------------------------------------------
 
-	BEGIN
-		
+	BEGIN	
 		------------------------------------------ FETCH STAGE ------------------------------------------
 		PC_PAUSER <= STALL_AND_FLUSH_FROM_MEMUSE or STOP_FETCHING_FROM_OI;
 		u00: PCount PORT MAP(CLK, RST, RESET_ADDRESS, INT, INTERRUPT_ADDRESS,
@@ -497,40 +498,38 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		Rsrc2Data_FROM_MUXING <= ImmediateVal_FROM_DEP WHEN (SIGNALS_FROM_DEP(8) = '1')
 		ELSE                     Rsrc2Data_FROM_DFU;
 
-		u40: OurALU PORT MAP(CLK, ALUopCode_FROM_DEP, Rsrc1Data_FROM_DFU,
+		u40: OurALU PORT MAP(ALUopCode_FROM_DEP, Rsrc1Data_FROM_DFU,
 			Rsrc2Data_FROM_MUXING, ALUresult_FROM_ALU, ALUflag_FROM_ALU);
 
 		FLAGS_INTO_CCR <= ALUflag_FROM_ALU WHEN (SIGNALS_FROM_EMP(22) = '0')
 		ELSE              DATA_FROM_MEMORY(3 DOWNTO 0);
 
-		u41: CCR PORT MAP(CLK, RST, SIGNALS_FROM_DEP(2), SIGNALS_FROM_DEP(3),
-					FLAGS_INTO_CCR, FLAGS_FROM_CCR);
-		FLAGS <= FLAGS_FROM_CCR;
+		u41: CCR PORT MAP(CLK, RST, SIGNALS_FROM_DEP(2), SIGNALS_FROM_DEP(3), FLAGS_INTO_CCR, FLAGS_FROM_CCR);
 
 		ALU_OR_IN_FROM_MUXING <= ALUresult_FROM_ALU WHEN (SIGNALS_FROM_DEP(14) = '0') ELSE INPORT;
 		-------------------------------------------------------------------------------------------------
 	
 		----------------------------------- EXECUTE / MEMORY PIPELINE -----------------------------------
 		EXECUTE_MEMORY_FLUSHER <= STALL_AND_FLUSH_FROM_MEMUSE or SIGNALS_FROM_EMP(21);
-		u50: ExecuteMemory PORT MAP(CLK, RST, EXECUTE_MEMORY_FLUSHER,
-				NextPC_FROM_DEP, NextPC_FROM_EMP, SIGNALS_FROM_DEP,
-				SIGNALS_FROM_EMP, ALU_OR_IN_FROM_MUXING, ALUresult_FROM_EMP,
-				FLAGS_FROM_CCR, FLAGS_FROM_EMP, Rsrc2Data_FROM_DFU,
-				Rdst2Data_FROM_EMP, Rdst1Addr_FROM_DEP, Rdst1Addr_FROM_EMP,
-				Rdst2Addr_FROM_DEP, Rdst2Addr_FROM_EMP);
+		u50: ExecuteMemory PORT MAP(CLK, RST, EXECUTE_MEMORY_FLUSHER, NextPC_FROM_DEP,
+			NextPC_FROM_EMP, SIGNALS_FROM_DEP, SIGNALS_FROM_EMP, ALU_OR_IN_FROM_MUXING,
+			ALUresult_FROM_EMP, FLAGS_FROM_CCR, FLAGS_FROM_EMP, Rsrc2Data_FROM_DFU,
+			Rdst2Data_FROM_EMP, Rdst1Addr_FROM_DEP, Rdst1Addr_FROM_EMP,
+					Rdst2Addr_FROM_DEP, Rdst2Addr_FROM_EMP);
 		-------------------------------------------------------------------------------------------------
 
 		------------------------------------------ MEMORY STAGE -----------------------------------------
 		u60: StackPointer PORT MAP(CLK, RST, SIGNALS_FROM_EMP(12), SIGNALS_FROM_EMP(11), SP_FROM_STACK);
 
-		DATA_INTO_MEMORY <= ALUresult_FROM_EMP WHEN (SIGNALS_FROM_EMP(15) = '0')
-		ELSE                Rdst2Data_FROM_EMP WHEN (SIGNALS_FROM_EMP(16) = '0')
-		ELSE                NextPC_FROM_EMP    WHEN (SIGNALS_FROM_EMP(20) = '0')
-		ELSE		    "0000000000000000000000000000" & FLAGS_FROM_EMP;
+		DATA_INTO_MEMORY <= Rdst2Data_FROM_EMP WHEN (SIGNALS_FROM_EMP(15) = '1')
+		ELSE                NextPC_FROM_EMP    WHEN (SIGNALS_FROM_EMP(16) = '1')
+		ELSE                ALUresult_FROM_EMP WHEN (SIGNALS_FROM_EMP(20) = '0')
+		ELSE                x"0000000" & FLAGS_FROM_EMP;
 
-		ADDRESS_INTO_MEMORY <= SP_FROM_STACK WHEN
-			(SIGNALS_FROM_EMP(11) = '1' or SIGNALS_FROM_EMP(12) = '1')
-		ELSE ALUresult_FROM_EMP;
+		STACK_USE <= SIGNALS_FROM_EMP(11) or SIGNALS_FROM_EMP(12);
+
+		ADDRESS_INTO_MEMORY <= SP_FROM_STACK WHEN (STACK_USE = '1')
+		ELSE                   ALUresult_FROM_EMP;
 
 		u61: memor PORT MAP(CLK, RST, ADDRESS_INTO_MEMORY(11 DOWNTO 0), SIGNALS_FROM_EMP(4),
 			DATA_FROM_MEMORY, SIGNALS_FROM_EMP(5), DATA_INTO_MEMORY,
@@ -565,9 +564,9 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 			SIGNALS_FROM_MWP(1), Rsrc1Data_FROM_DFU, Rsrc2Data_FROM_DFU);
 		--------------------------------------------------------------------------------
 		-------------------------------- MEMORY USE UNIT -------------------------------
-		u92: MemUseUnit PORT MAP(Rsrc1Addr_FROM_DEP, Rsrc2Addr_FROM_DEP, Rdst1Addr_FROM_EMP,
-					SIGNALS_FROM_EMP(4), SIGNALS_FROM_DEP(18), SIGNALS_FROM_DEP(19),
-						STALL_AND_FLUSH_FROM_MEMUSE);
+		u92: MemUseUnit PORT MAP(Rsrc1Addr_FROM_DEP, Rsrc2Addr_FROM_DEP,
+			Rdst1Addr_FROM_EMP, SIGNALS_FROM_EMP(4), SIGNALS_FROM_DEP(18),
+				SIGNALS_FROM_DEP(19), STALL_AND_FLUSH_FROM_MEMUSE);
 		--------------------------------------------------------------------------------
 		----------------------------- STALLED FORWARD UNIT -----------------------------
 		u93: StalledForwardUnit PORT MAP(STALL_AND_FLUSH_FROM_MEMUSE, Rsrc1Addr_FROM_DEP,
@@ -577,8 +576,10 @@ ARCHITECTURE a_MIPS_Processor OF MIPS_Processor IS
 		FORCE_BOTH_FROM_SFU <= FORCE_Rsrc1_FROM_SFU AND FORCE_Rsrc2_FROM_SFU;
 		--------------------------------------------------------------------------------
 		----------------------------------- EXCEPTION ----------------------------------
-		FULL_EXCEPTION <= EXCEPTION_FROM_MEM OR (FLAGS_FROM_CCR(3) AND SIGNALS_FROM_EMP(3));
-		EXCP <= FULL_EXCEPTION;
+		FULL_EXCEPTION <= EXCEPTION_FROM_MEM OR FLAGS_FROM_CCR(3);
+		--------------------------------------------------------------------------------
+		-------------------------------- SYSTEM OUTPUTS --------------------------------
+		EXCP <= FULL_EXCEPTION; FLAGS <= FLAGS_FROM_CCR;
 		--------------------------------------------------------------------------------
 		-------------------------------------------------------------------------------------------------
 

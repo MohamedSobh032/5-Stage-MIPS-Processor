@@ -4,10 +4,10 @@ USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY StackPointer IS
 	PORT (
-		CLK       : IN STD_LOGIC;
-		RST       : IN STD_LOGIC;
-		SP_INC    : IN STD_LOGIC;
-		SP_DEC    : IN STD_LOGIC;
+		CLK       : IN  STD_LOGIC;
+		RST       : IN  STD_LOGIC;
+		SP_INC    : IN  STD_LOGIC;
+		SP_DEC    : IN  STD_LOGIC;
 		SP_OUTPUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END StackPointer;
@@ -24,7 +24,7 @@ ARCHITECTURE a_StackPointer OF StackPointer IS
 		PROCESS (CLK, RST)
 		BEGIN
 			IF (RST = '1') THEN
-				SP        <= x"FFFFFFFE";
+				SP <= x"FFFFFFFE";
 			ELSIF rising_edge(CLK) THEN
 				IF (SP_INC = '1') THEN
 					SP <= SP_ADD_TWO;

@@ -46,7 +46,7 @@ ARCHITECTURE a_ExecuteMemory OF ExecuteMemory IS
 				Rsrc2Data <= (OTHERS => '0');
 				Rdst1Addr <= (OTHERS => '0');
 				Rdst2Addr <= (OTHERS => '0');
-			ELSIF falling_edge(CLK) THEN
+			ELSIF FALLING_EDGE(CLK) THEN
 				IF (FLUSH = '1') THEN
 					NextPC    <= (OTHERS => '0');
 					ConSignal <= (OTHERS => '0');

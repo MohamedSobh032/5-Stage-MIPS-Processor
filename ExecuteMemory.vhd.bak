@@ -4,9 +4,9 @@ USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY ExecuteMemory IS
 	PORT (
-		CLK : IN STD_LOGIC;
-		RST : IN STD_LOGIC;
-		FLUSH : IN STD_LOGIC;
+		CLK               : IN  STD_LOGIC;
+		RST               : IN  STD_LOGIC;
+		FLUSH             : IN  STD_LOGIC;
 		InData_NextPC     : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		OutData_NextPC    : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		InData_ConSignal  : IN  STD_LOGIC_VECTOR(22 DOWNTO 0);

@@ -34,36 +34,45 @@ ARCHITECTURE a_memor OF memor IS
 		PROCESS (CLK, RST)
         	BEGIN
     	        	IF (RST = '1') THEN
-    		        	datamemory <= ((OTHERS => (OTHERS => '0')));
-				ReadData <= (OTHERS => '0');
-				EXCEP <= '0';
-			ELSIF (free_i = '1') THEN
-				EXCEP <= '0';
-				datamemory(to_integer(unsigned(Addr)))(16) <= '0';
-			ELSIF (prot_i = '1') THEN
-				EXCEP <= '0';
-				datamemory(to_integer(unsigned(Addr)))(16) <= '1';
+    		        	datamemory <= ((OTHERS => (OTHERS => '0'))); -- CLEAR THE MEMORY
+				ReadData <= (OTHERS => '0');		     -- OUTPUT ZEROS
+				EXCEP <= '0';				     -- REMOVE ANY EXCEPTIONS
     		        ELSIF RISING_EDGE(CLK) THEN
-
+				-- CHECK FREE / PROTECTED FLAGS --
+				IF (free_i = '1') THEN
+					EXCEP <= '0';
+					-- REMOVE PROTECTION AND CLEAR CONTENT --
+					datamemory(to_integer(unsigned(Addr))) <= (OTHERS => '0');
+				ELSIF (prot_i = '1') THEN
+					EXCEP <= '0';
+					-- SET AS PROTECTED --
+					datamemory(to_integer(unsigned(Addr)))(16) <= '1';
+				END IF;
+				-- CHECK READ ENABLE --
     		        	IF (memRead = '1') THEN
 					EXCEP <= '0';
+					-- LITTLE ENDIAN READING (GREAT ADDRESS DATA) & (LOWER ADDRESS DATA) --
     			                ReadData <= datamemory(to_integer(unsigned(Addr)+1))(15 DOWNTO 0)
-							& datamemory(to_integer(unsigned(Addr)))(15 DOWNTO 0);
+						    & datamemory(to_integer(unsigned(Addr)))(15 DOWNTO 0);
 				ELSE
 					EXCEP <= '0';
+					-- OUTPUT THE INPUT DATA --
 					ReadData <= WriteData;
     		  	        END IF;
-
+				-- CHECK WRITE ENABLE --
     		            	IF (memWrite = '1') THEN
+					-- CHECK IF PROTECTED --
 					IF (datamemory(to_integer(unsigned(Addr)))(16) = '0') THEN
 						EXCEP <= '0';
+						-- LITTLE ENDIAN WRITING (MOST SIGNIFICANT IN THE GREATER ADDRESS) --
+						--                   AND (LEAST SIGNIFICANT IN THE LOWER ADDRESS)  --
     		               			datamemory(to_integer(unsigned(Addr)))  (15 DOWNTO 0) <= WriteData(15 DOWNTO 0);
 						datamemory(to_integer(unsigned(Addr)+1))(15 DOWNTO 0) <= WriteData(31 DOWNTO 16);
 					ELSE
+						-- IF PROTECTED AND WANTS TO WRITE, RAISE EXCEPTION --
 						EXCEP <= '1';
 					END IF;
     		            	END IF;
-
     		        END IF;
     	    	END PROCESS;  
 END a_memor;

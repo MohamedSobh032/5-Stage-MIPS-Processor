@@ -23,7 +23,7 @@ ARCHITECTURE a_OperationInsertion OF OperationInsertion IS
 
 	BEGIN
 
-		STATE_CALCULATOR: PROCESS (INT, state, CLK)
+		STATE_CALCULATOR: PROCESS (CLK, RST)
 		BEGIN
 			IF (RST = '1') THEN
 				state <= IDLE;
@@ -36,8 +36,6 @@ ARCHITECTURE a_OperationInsertion OF OperationInsertion IS
 					WHEN INT_PC =>
 						state <= INT_CCR;
 					WHEN INT_CCR =>
-						state <= PC_HOLDER;
-					WHEN PC_HOLDER =>
 						state <= IDLE;
 				END CASE;
 			END IF;

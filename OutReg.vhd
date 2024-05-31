@@ -19,7 +19,7 @@ ARCHITECTURE a_OutReg OF OutReg IS
 		BEGIN
 			IF (RST = '1') THEN
 				DATA <= (OTHERS => '0');
-			ELSIF rising_edge(CLK) THEN
+			ELSIF RISING_EDGE(CLK) THEN
 				IF (OutEnable = '1') THEN
 					DATA <= Data_IN;
 				END IF;

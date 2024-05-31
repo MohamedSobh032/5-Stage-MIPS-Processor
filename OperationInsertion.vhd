@@ -23,11 +23,11 @@ ARCHITECTURE a_OperationInsertion OF OperationInsertion IS
 
 	BEGIN
 
-		STATE_CALCULATOR: PROCESS (INT, state, CLK)
+		STATE_CALCULATOR: PROCESS (CLK, RST)
 		BEGIN
 			IF (RST = '1') THEN
 				state <= IDLE;
-			ELSIF rising_edge(CLK) THEN
+			ELSIF RISING_EDGE(CLK) THEN
 				CASE state IS
 					WHEN IDLE =>
 						IF (INT = '1') THEN

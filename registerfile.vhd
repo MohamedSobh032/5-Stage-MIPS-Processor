@@ -39,19 +39,15 @@ ARCHITECTURE a_registerfile OF registerfile IS
 	BEGIN
 		PROCESS (CLK, RST)
 		BEGIN		
-
 			IF (RST = '1') THEN
 				registerfile <= (OTHERS => (OTHERS => '0'));
 			ELSIF RISING_EDGE(CLK) THEN
-
 				IF (WE1 = '1') THEN
 					registerfile(to_integer(unsigned(Rdst1))) <= RdstData1;
 				END IF;
-	
 				IF (WE2 = '1') THEN
 					registerfile(to_integer(unsigned(Rdst2))) <= RdstData2;
 				END IF;
-
 			END IF;
 		END PROCESS;
 

@@ -10,6 +10,7 @@ ENTITY SignExtender IS
 END SignExtender;
 
 ARCHITECTURE a_SignExtender OF SignExtender IS
+
 	BEGIN
 		PROCESS(input_16)
 		BEGIN

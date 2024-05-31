@@ -40,7 +40,7 @@ ARCHITECTURE a_MemoryWriteback OF MemoryWriteback IS
 				Rsrc2Data <= (OTHERS => '0');
 				Rdst1Addr <= (OTHERS => '0');
 				Rdst2Addr <= (OTHERS => '0');
-			ELSIF falling_edge(CLK) THEN
+			ELSIF FALLING_EDGE(CLK) THEN
 				ConSignal <= InData_ConSignal;
 				Flags     <= InData_Flags;
 				MemData   <= InData_MemData;

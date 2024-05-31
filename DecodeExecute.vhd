@@ -70,7 +70,7 @@ ARCHITECTURE a_DecodeExecute OF DecodeExecute IS
 				Rsrc1Data <= FORCE_INPUT_Rsrc1;
 			ELSIF (FORCE_INSERT_Rsrc2 = '1') THEN
 				Rsrc2Data <= FORCE_INPUT_Rsrc1;
-			ELSIF falling_edge(CLK) THEN
+			ELSIF FALLING_EDGE(CLK) THEN
 				IF (FLUSH = '1') THEN
 					NextPC    <= (OTHERS => '0');
 					ConSignal <= (OTHERS => '0');

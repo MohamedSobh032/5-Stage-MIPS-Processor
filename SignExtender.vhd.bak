@@ -13,6 +13,7 @@ ARCHITECTURE a_SignExtender OF SignExtender IS
 	BEGIN
 		PROCESS(input_16)
 		BEGIN
+
         		IF input_16(15) = '1' THEN -- Check the sign bit
             			-- Sign extend by padding with 1s
             			output_32 <= x"FFFF" & input_16;
@@ -20,5 +21,6 @@ ARCHITECTURE a_SignExtender OF SignExtender IS
             			-- Sign extend by padding with 0s
             			output_32 <= x"0000" & input_16;
         		END IF;
+
     		END PROCESS;
 END a_SignExtender;

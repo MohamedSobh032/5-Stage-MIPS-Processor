@@ -30,7 +30,7 @@ ARCHITECTURE a_FetchDecode OF FetchDecode IS
 			IF (RST = '1') THEN
 				Instruction <= (OTHERS => '0');
 				NextPC      <= (OTHERS => '0');
-			ELSIF falling_edge(CLK) THEN
+			ELSIF FALLING_EDGE(CLK) THEN
 				IF (FLUSH = '1') THEN
 					Instruction <= (OTHERS => '0');
 					NextPC      <= (OTHERS => '0');

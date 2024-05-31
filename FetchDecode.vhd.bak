@@ -36,7 +36,7 @@ ARCHITECTURE a_FetchDecode OF FetchDecode IS
 					NextPC      <= (OTHERS => '0');
 				ELSIF (FORCE = '1') THEN
 					Instruction <= FORCED_INST;
-					NextPC <= FORCED_PC;
+					NextPC      <= FORCED_PC;
 				ELSIF (PAUSE = '0') THEN 
 					Instruction <= InData_Instruction;
 					NextPC      <= InData_NextPC;

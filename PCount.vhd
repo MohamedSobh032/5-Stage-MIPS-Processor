@@ -61,7 +61,7 @@ ARCHITECTURE a_PCount OF PCount IS
 				END IF;
 			ELSIF (BRKPROT = '1') THEN
 				PROTECTOR <= '0';
-			ELSIF rising_edge(CLK) THEN
+			ELSIF RISING_EDGE(CLK) THEN
 				IF (PAUSE = '0') THEN
 					PC <= NewValue;
 				END IF;

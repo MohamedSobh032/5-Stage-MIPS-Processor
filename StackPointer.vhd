@@ -24,8 +24,8 @@ ARCHITECTURE a_StackPointer OF StackPointer IS
 		PROCESS (CLK, RST)
 		BEGIN
 			IF (RST = '1') THEN
-				SP        <= x"FFFFFFFE";
-			ELSIF rising_edge(CLK) THEN
+				SP <= x"FFFFFFFE";
+			ELSIF RISING_EDGE(CLK) THEN
 				IF (SP_INC = '1') THEN
 					SP <= SP_ADD_TWO;
 				END IF;
