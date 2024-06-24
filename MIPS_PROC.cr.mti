@@ -60,6 +60,15 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity StackPointer
 -- Compiling architecture a_StackPointer of StackPointer
 
+} {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/MIPS_Processor.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/MIPS_Processor.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity MIPS_Processor
+-- Compiling architecture a_MIPS_Processor of MIPS_Processor
+
 } {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/SignExtender.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/SignExtender.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -87,22 +96,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity OurALU
 -- Compiling architecture a_OurALU of OurALU
 
-} {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/BranchPredict.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/BranchPredict.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity BranchPredictor
--- Compiling architecture Behavioral of BranchPredictor
-
-} {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/ControlUnit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/ControlUnit.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity ControlUnit
--- Compiling architecture a_ControlUnit of ControlUnit
-
 } {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/PCount.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/PCount.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -112,14 +105,21 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity PCount
 -- Compiling architecture a_PCount of PCount
 
-} {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/MemUseUnit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/MemUseUnit.vhd}
+} {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/ControlUnit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/ControlUnit.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity MemUseUnit
--- Compiling architecture a_MemUseUnit of MemUseUnit
+-- Compiling entity ControlUnit
+-- Compiling architecture a_ControlUnit of ControlUnit
+
+} {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/BranchPredict.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/BranchPredict.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity BranchPredictor
+-- Compiling architecture Behavioral of BranchPredictor
 
 } {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/ExecuteMemory.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/ExecuteMemory.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -130,14 +130,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity ExecuteMemory
 -- Compiling architecture a_ExecuteMemory of ExecuteMemory
 
-} {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/MemoryWriteback.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/MemoryWriteback.vhd}
+} {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/MemUseUnit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/MemUseUnit.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity MemoryWriteback
--- Compiling architecture a_MemoryWriteback of MemoryWriteback
+-- Compiling entity MemUseUnit
+-- Compiling architecture a_MemUseUnit of MemUseUnit
 
 } {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/Flags.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/Flags.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -148,14 +148,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity CCR
 -- Compiling architecture a_CCR of CCR
 
-} {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/FetchDecode.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/FetchDecode.vhd}
+} {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/MemoryWriteback.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/MemoryWriteback.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity FetchDecode
--- Compiling architecture a_FetchDecode of FetchDecode
+-- Compiling entity MemoryWriteback
+-- Compiling architecture a_MemoryWriteback of MemoryWriteback
 
 } {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/OutReg.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/OutReg.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -165,6 +165,15 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package NUMERIC_STD
 -- Compiling entity OutReg
 -- Compiling architecture a_OutReg of OutReg
+
+} {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/FetchDecode.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/FetchDecode.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity FetchDecode
+-- Compiling architecture a_FetchDecode of FetchDecode
 
 } {} {}} {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/DecodeExecute.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Mohamed/Desktop/UNI/4th Term/Computer Architecture/yrab/DecodeExecute.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
